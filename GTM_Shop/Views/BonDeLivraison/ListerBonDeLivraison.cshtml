@@ -1,0 +1,43 @@
+﻿@model IEnumerable<GTM_Shop.Metier.BonDeLivraison>
+@{
+    Layout = "~/Views/Shared/_LayoutSuperAdmin.cshtml";
+    ViewBag.Title = "Liste Facture";
+}
+
+<h4>Liste des Bons de Livraison</h4>
+
+
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.idBonDeLivraison)</th>
+            <th>@Html.DisplayNameFor(model => model.NomDistributeur)</th>
+            <th></th>
+            <th>
+                <form role="search" name="searchform" method="post">
+                    <div class="input-group">
+                        <input type="text" placeholder="Recherche par ID" name="id" class="form-control left-rounded">
+                        <div class="input-group-btn">
+                            <button type="submit" class="btn btn-inverse right-rounded">Chercher</button>
+                        </div>
+                    </div>
+                </form>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var bdl in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => bdl.idBonDeLivraison)</td>
+                <td>@Html.DisplayFor(modelItem => bdl.NomDistributeur)</td>
+                <td>@Html.ActionLink("Modifier", "ModifierBonDeLivraison", new { id = bdl.idBonDeLivraison }, new { @class = "btn btn-warning" })</td>
+                <td>@Html.ActionLink("Supprimer", "SupprimerBonDeLivraison", new { id = bdl.idBonDeLivraison }, new { @class = "btn btn-danger" })</td>
+            </tr>
+        }
+
+    </tbody>
+
+
+</table>

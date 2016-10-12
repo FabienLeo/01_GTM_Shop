@@ -1,0 +1,47 @@
+﻿@model IEnumerable<GTM_Shop.Metier.Administrateur>
+@{
+    Layout = "~/Views/Shared/_LayoutSuperAdmin.cshtml";
+    ViewBag.Title = "Liste Administrateur";
+}
+
+<h4>Liste des Administrateurs</h4>
+
+
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.Nom)</th>
+            <th>@Html.DisplayNameFor(model => model.Prenom)</th>
+            <th>@Html.DisplayNameFor(model => model.Profession)</th>
+            <th>@Html.DisplayNameFor(model => model.Email)</th>
+            <th>@Html.ActionLink("Ajouter", "AjouterAdmin", null, new { @class = "btn btn-success" })</th>
+            <th>
+                <form role="search" name="searchform" method="post">
+                    <div class="input-group">
+                        <input type="text" placeholder="Recherche par Nom" name="NomRecherche" class="form-control left-rounded">
+                        <div class="input-group-btn">
+                            <button type="submit" class="btn btn-inverse right-rounded">Chercher</button>
+                        </div>
+                    </div>
+               </form>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var a in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => a.Nom)</td>
+                <td>@Html.DisplayFor(modelItem => a.Prenom)</td>
+                <td>@Html.DisplayFor(modelItem => a.Profession)</td>
+                <td>@Html.DisplayFor(modelItem => a.Email)</td>
+                <td>@Html.ActionLink("Modifier", "ModifierAdmin", new { id = a.idUtilisateur }, new { @class = "btn btn-warning" })</td>
+                <td>@Html.ActionLink("Supprimer", "SupprimerAdmin", new { id = a.idUtilisateur }, new { @class = "btn btn-danger" })</td>
+            </tr>
+        }
+
+    </tbody>
+
+
+</table>

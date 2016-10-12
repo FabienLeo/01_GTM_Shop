@@ -1,0 +1,146 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no" />
+    <link rel="icon" type="image/x-icon" href="./Content/images/Favicon.ico" />
+    <title>@ViewBag.Title - GT'M Shop</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <link href="@Url.Content("~/Content/Style.css")" rel="stylesheet" type="text/css" />
+</head>
+<body>
+
+    <div id="page">
+        <div id="Block_header">
+
+            <div id="Block_logo">
+                <div id="logo"><a href="@Url.Action("Index", "Home")"><img id="Img_logo" src="~/Content/images/Logo.png" alt="Logo" title="Home" /></a></div>
+                <div id="Block_typo_logo"><img id="Img_typo_logo" src="~/Content/images/Typo_Logo.png" alt="Logo_Typo" /></div>
+            </div>
+
+            <div id="Block_menu_complet">
+                <div id="Block_icone">
+                    <div id="icone">
+                        <a href="@Url.Action("#", "Home")"><img id="Icone_Recherche" class="Icone_Menu" src="~/Content/images/Icone_Recherche.png" alt="Rechercher" title="Rechercher" /></a>
+                        <a href="@Url.Action("Contact", "Home")"><img id="Icone_Mail" class="Icone_Menu" src="~/Content/images/Icone_Mail.png" alt="Mail" title="Mail" /></a>
+                        <a href="@Url.Action("Connexion", "Home")"><img id="Icone_Connexion" class="Icone_Menu" src="~/Content/images/Icone_Connexion.png" alt="Connexion" title="Connexion" /></a>
+                        <a href="@Url.Action("#", "Home")"><img id="Icone_Add_Profil" class="Icone_Menu" src="~/Content/images/Icone_Add_Profil.png" alt="Add_Profil" title="Add_Profil" /></a>
+                        <a href="@Url.Action("#", "Home")"><img id="Icone_Panier" class="Icone_Menu" src="~/Content/images/Icone_Panier.png" alt="Panier" title="Panier" /></a>
+                    </div>
+                </div>
+
+                <div id="Block_menu">
+                    <ul class="Liste_menu">
+                        <li class="Ligne_menu">@Html.ActionLink("Informatique", "#", "Home", "", new { @class = "Lien_menu" })</li>
+                        <li class="Ligne_menu">@Html.ActionLink("Image", "#", "Home", "", new { @class = "Lien_menu" })</li>
+                        <li class="Ligne_menu">@Html.ActionLink("Son", "#", "Home", "", new { @class = "Lien_menu" })</li>
+                        <li class="Ligne_menu">@Html.ActionLink("Téléphonie", "#", "Home", "", new { @class = "Lien_menu" })</li>
+                        <li class="Ligne_menu">@Html.ActionLink("Promotion", "#", "Home", "", new { @class = "Lien_menu" })</li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+
+
+
+        <div id="Block_corps">
+            
+
+            <div id="Block_Image_404">
+                <img id="Image_404" src="~/Content/images/Visuel_404.png"/>
+            <h4>La page que vous demandez n'existe pas ou a disparu...</h4>
+            <br />
+            
+                <form role="search" name="searchform" method="post">
+                    <div class="input-group">
+                        <input type="text" placeholder="Recherche par Nom" name="MotRecherche" class="form-control left-rounded">
+                        <div class="input-group-btn">
+                            <button type="submit" class="btn btn-inverse right-rounded">Chercher</button>
+                        </div>
+                    </div>
+                </form>
+
+
+                         
+            </div>
+
+
+        </div>
+    </div>
+
+    <div id="Block_footer">
+        <div id="Block_iconesFooter">
+            <div id="Icone_footer">
+                <img class="Icone_f" src="~/Content/images/Icone_SAV.png" alt="SAV" title="SAV" />
+                <img class="Icone_f" src="~/Content/images/Icone_Livraison.png" alt="Livraison" title="Conditions Livraison" />
+                <img class="Icone_f" src="~/Content/images/Icone_Paiement.png" alt="Paiement" title="Moyen Paiement" />
+            </div>
+        </div>
+
+        <div id="Block_texteFooter">
+
+            <div id="Block_menu_footer">
+                <p class="Titre_footer">S'informer et acheter</p>
+                <ul class="Liste_footer">
+                    <li class="Ligne_menu_footer">@Html.ActionLink("Informatique", "#", "Home", "", new { @class = "Lien_menu_footer Ligne_menu_footer" })</li>
+                    <li class="Ligne_menu_footer">@Html.ActionLink("Image", "#", "Home", "", new { @class = "Lien_menu_footer Ligne_menu_footer" })</li>
+                    <li class="Ligne_menu_footer">@Html.ActionLink("Son", "#", "Home", "", new { @class = "Lien_menu_footer Ligne_menu_footer" })</li>
+                    <li class="Ligne_menu_footer">@Html.ActionLink("Téléphonie", "#", "Home", "", new { @class = "Lien_menu_footer Ligne_menu_footer" })</li>
+                    <li class="Ligne_menu_footer">@Html.ActionLink("Promotion", "#", "Home", "", new { @class = "Lien_menu_footer Ligne_menu_footer" })</li>
+                </ul>
+            </div>
+
+
+
+            <div id="Block_reseau_footer">
+                <p class="Titre_footer">Reseaux Sociaux</p>
+                <ul class="Liste_footer">
+                    <li class="Ligne_reseau_footer">
+
+                        <a class="Lien_reseau" href="https://www.facebook.com/" target="_blank"><img class="Icone_reseau" src="~/Content/images/Icone_Facebook_v02.png" alt="Image Facebook" title="Lien Facebook" /></a>
+
+                    </li>
+                    <li class="Ligne_reseau_footer">
+                        <a class="Lien_reseau" href="https://www.twitter.com/" target="_blank"><img class="Icone_reseau" src="~/Content/images/Icone_Twitter_v02.png" alt="Image Twitter" title="Lien Twitter" /></a>
+
+                    </li>
+                    <li class="Ligne_reseau_footer">
+                        <a class="Lien_reseau" href="https://www.pinterest.com/" target="_blank"><img class="Icone_reseau" src="~/Content/images/Icone_Pinterest_v02.png" alt="Image Pinterest" title="Lien Pinterest" /></a>
+
+                    </li>
+                </ul>
+            </div>
+
+            <div id="Block_adresse_footer">
+                <p class="Titre_footer">Contacts</p>
+                <div id="Img_adresse_footer">
+                    <a href="https://goo.gl/maps/pBAE6bsKrS92" target="_blank" title="Google Maps">
+                        <img id="Img_carte" src="~/Content/images/Carte.png" alt="Carte" />
+                    </a>
+                </div>
+                <ul class="Liste_footer">
+                    <li class="Ligne_adresse_footer"><strong>GT'M SHOP</strong></li>
+                    <li class="Ligne_adresse_footer">13, avenue de la gare</li>
+                    <li class="Ligne_adresse_footer">78180 Montigny le Bretonneux</li>
+                </ul>
+            </div>
+            <div>
+                <p id="Lien_Copyright_Public">&copy; @DateTime.Now.Year - <a class="Lien_menu_footer Ligne_menu_footer" href="mailto:fabien.gaudron@gmail.com">Fabien GAUDRON</a></p>
+            </div>
+        </div>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    <script src="~/Scripts/jquery-3.1.0.min.js" type="text/javascript"></script>
+    <script src="~/Scripts/Script.js" type="text/javascript"></script>
+</body>
+</html>
+

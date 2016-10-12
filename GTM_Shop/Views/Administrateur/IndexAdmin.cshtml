@@ -1,0 +1,73 @@
+﻿@model IEnumerable<GTM_Shop.Models.CommandeModel>
+@{
+    Layout = "~/Views/Shared/_LayoutSuperAdmin.cshtml";
+    ViewBag.Title = "Home Admin";
+}
+
+@if (@Session["idUtilisateur"] != null && (@Session["idRole"].ToString() == "1" || @Session["idRole"].ToString() == "2"))
+{
+
+<h4>Bonjour @Session["Prenom"],</h4>
+<h4>Liste des commandes</h4>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.idCommande)</th>
+            <th>@Html.DisplayNameFor(model => model.Statut)</th>
+            <th>@Html.DisplayNameFor(model => model.idFacture)</th>
+            <th>@Html.DisplayNameFor(model => model.idBonDeLivraison)</th>
+            <th>@Html.DisplayNameFor(model => model.Commentaire)</th>
+            <th></th>
+            <th>
+                <form role="search" name="searchform" method="post">
+                    <div class="input-group">
+                        <input type="number" placeholder="Recherche par ID" name="id" class="form-control left-rounded">
+                        <div class="input-group-btn">
+                            <button type="submit" class="btn btn-inverse right-rounded">Chercher</button>
+                        </div>
+                    </div>
+                </form>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var c in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => c.idCommande)</td>
+
+                @if (c.Statut.ToString() == "EnAttente")
+                {
+                    <td><span class="btn btn-info">@Html.DisplayFor(model => c.Statut)</span></td>
+                }
+
+                @if (c.Statut.ToString() == "EnCours")
+                {
+                    <td><span class="btn btn-warning">@Html.DisplayFor(model => c.Statut)</span></td>
+                }
+
+                @if (c.Statut.ToString() == "Termine")
+                {
+                    <td><span class="btn btn-success">@Html.DisplayFor(model => c.Statut)</span></td>
+                }
+
+                @if (c.Statut.ToString() == "Abandonne")
+                {
+                    <td><span class="btn btn-danger">@Html.DisplayFor(model => c.Statut)</span></td>
+                }
+
+                <td>@Html.DisplayFor(modelItem => c.idFacture)</td>
+                <td>@Html.DisplayFor(modelItem => c.idBonDeLivraison)</td>
+                <td>@Html.DisplayFor(modelItem => c.Commentaire)</td>
+                <td>@Html.ActionLink("Detail", "DetailCommande", "Commande", new { id = c.idCommande }, new { @class = "btn btn-success" })</td>
+                <td>@Html.ActionLink("Modifier", "ModifierCommande", "Commande", new { id = c.idCommande }, new { @class = "btn btn-warning" })</td>
+            </tr>
+        }
+
+    </tbody>
+
+
+</table>
+
+}

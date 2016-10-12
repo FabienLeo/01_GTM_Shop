@@ -1,0 +1,43 @@
+﻿@model IEnumerable<GTM_Shop.Metier.Facture>
+@{
+    Layout = "~/Views/Shared/_LayoutSuperAdmin.cshtml";
+    ViewBag.Title = "Liste Facture";
+}
+
+<h4>Liste des Factures</h4>
+
+
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.idFacture)</th>
+            <th>@Html.DisplayNameFor(model => model.TVA)</th>
+            <th></th>
+            <th>
+                <form role="search" name="searchform" method="post">
+                    <div class="input-group">
+                        <input type="text" placeholder="Recherche par ID" name="id" class="form-control left-rounded">
+                        <div class="input-group-btn">
+                            <button type="submit" class="btn btn-inverse right-rounded">Chercher</button>
+                        </div>
+                    </div>
+                </form>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var f in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => f.idFacture)</td>
+                <td>@Html.DisplayFor(modelItem => f.TVA)</td>
+                <td>@Html.ActionLink("Modifier", "ModifierFacture", new { id = f.idFacture }, new { @class = "btn btn-warning" })</td>
+                <td>@Html.ActionLink("Supprimer", "SupprimerFacture", new { id = f.idFacture }, new { @class = "btn btn-danger" })</td>
+            </tr>
+        }
+
+    </tbody>
+
+
+</table>

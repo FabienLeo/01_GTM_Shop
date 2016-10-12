@@ -1,0 +1,49 @@
+﻿@model IEnumerable<GTM_Shop.Metier.Abonnement>
+@{
+    Layout = "~/Views/Shared/_LayoutSuperAdmin.cshtml";
+    ViewBag.Title = "Liste Abonnement";
+}
+
+<h4>Liste des Abonnements</h4>
+
+
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.idAbonnement)</th>
+            <th>@Html.DisplayNameFor(model => model.NomAbonnement)</th>
+            <th>@Html.DisplayNameFor(model => model.DateDebut)</th>
+            <th>@Html.DisplayNameFor(model => model.DateFin)</th>
+            <th>@Html.DisplayNameFor(model => model.PrixAbonnement)</th>
+            <th>@Html.ActionLink("Ajouter", "AjouterAbonnement", null, new { @class = "btn btn-success" })</th>
+            <th>
+                <form role="search" name="searchform" method="post">
+                    <div class="input-group">
+                        <input type="text" placeholder="Recherche par Nom" name="MotRecherche" class="form-control left-rounded">
+                        <div class="input-group-btn">
+                            <button type="submit" class="btn btn-inverse right-rounded">Chercher</button>
+                        </div>
+                    </div>
+                </form>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var a in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => a.idAbonnement)</td>
+                <td>@Html.DisplayFor(modelItem => a.NomAbonnement)</td>
+                <td>@Html.DisplayFor(modelItem => a.DateDebut)</td>
+                <td>@Html.DisplayFor(modelItem => a.DateFin)</td>
+                <td>@Html.DisplayFor(modelItem => a.PrixAbonnement)</td>
+                <td>@Html.ActionLink("Modifier", "ModifierAbonnement", new { id = a.idAbonnement }, new { @class = "btn btn-warning" })</td>
+                <td>@Html.ActionLink("Supprimer", "SupprimerAbonnement", new { id = a.idAbonnement }, new { @class = "btn btn-danger" })</td>
+            </tr>
+        }
+
+    </tbody>
+
+
+</table>

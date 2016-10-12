@@ -1,0 +1,36 @@
+﻿@model GTM_Shop.Metier.LigneCommande
+
+@{
+    Layout = "~/Views/Shared/_LayoutClient.cshtml";
+    ViewBag.Title = "ModifierLigneCommande";
+}
+
+<br /><br /><br />
+
+
+ @using (Html.BeginForm("ModifierLigneCommande", "Client", FormMethod.Post))
+ {
+    <div class="formulaire">
+
+        <span>Remplir le formulaire pour modifier votre commande</span><br />
+        @Html.HiddenFor(model => model.idLigneCommande)
+        @Html.HiddenFor(model => model.idProduit)
+        @Html.HiddenFor(model => model.idPanier)
+        @Html.HiddenFor(model => model.PromotionLigneCommande)
+        @Html.HiddenFor(model => model.idCommande)
+
+        <img id="Img_Fiche_Produit" src="~/Content/images/@ViewBag.Visuel" height="400px" class="Img_produit" />
+        <span><strong>Nom du Produit :</strong><br />@ViewBag.NomProduit </span><br />
+        <span><strong>Prix :</strong><br />@ViewBag.Prix euros </span><br />
+
+        <span><strong>@Html.DisplayNameFor(model => model.Quantite) : </strong></span>
+        <span>@Html.TextBoxFor(model => model.Quantite, new { @class = "form-control left-rounded right-rounded", type="number"}) @Html.ValidationMessageFor(model => model.Quantite, "", new { @class = "text-danger" })</span><br />
+
+        
+
+
+        <button class="btn btn-warning bouton" type="submit">Modifier</button>
+
+    </div>
+ }
+

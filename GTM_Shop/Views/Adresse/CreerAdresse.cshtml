@@ -1,0 +1,35 @@
+﻿@model GTM_Shop.Metier.Adresse
+@{
+    ViewBag.Title = "CreerAdresse";
+}
+<br /><br /><br />
+
+@using (Html.BeginForm("CreerAdresse", "Adresse", FormMethod.Post))
+{
+    <div class="formulaire">
+
+        <span>Adresse de Facturation</span><br /><br />
+
+        <span>@Html.DisplayNameFor(model => model.RueLigne01) : </span>
+        <span>@Html.TextBoxFor(model => model.RueLigne01, new { @class = "form-control left-rounded right-rounded" })</span>
+        <span>@Html.ValidationMessageFor(model => model.RueLigne01, "", new { @class = "text-danger" })</span><br />
+
+        <span>@Html.DisplayNameFor(model => model.RueLigne02) : </span>
+        <span>@Html.TextBoxFor(model => model.RueLigne02, new { @class = "form-control left-rounded right-rounded" })</span><br />
+
+        <span>@Html.DisplayNameFor(model => model.CodePostale) : </span>
+        <span>@Html.TextBoxFor(model => model.CodePostale, new { @class = "form-control left-rounded right-rounded" })</span>
+        <span>@Html.ValidationMessageFor(model => model.CodePostale, "", new { @class = "text-danger" })</span><br />
+
+        <span>@Html.DisplayNameFor(model => model.Ville) : </span>
+        <span>@Html.TextBoxFor(model => model.Ville, new { @class = "form-control left-rounded right-rounded" })</span>
+        <span>@Html.ValidationMessageFor(model => model.Ville, "", new { @class = "text-danger" })</span><br />
+
+        <span>@Html.DisplayNameFor(model => model.Pays) : </span>
+        <span>@Html.TextBoxFor(model => model.Pays, new { @class = "form-control left-rounded right-rounded" })</span>
+        <span>@Html.ValidationMessageFor(model => model.Pays, "", new { @class = "text-danger" })</span><br />
+
+        <button class="btn btn-success bouton" type="submit">Valider</button>
+
+    </div>
+}

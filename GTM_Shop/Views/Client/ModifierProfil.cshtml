@@ -1,0 +1,44 @@
+﻿
+@model GTM_Shop.Metier.Client
+@{
+    ViewBag.Title = "ModifierProfil";
+    Layout = "~/Views/Shared/_LayoutClient.cshtml";
+}
+
+<br /><br /><br />
+@using (Html.BeginForm("ModifierProfil", "Client", FormMethod.Post))
+{
+    <div class="formulaire">
+
+        <span>Remplir le formulaire pour modifier votre profil</span><br /><br />
+
+        @Html.HiddenFor(model => model.idUtilisateur)
+        @Html.HiddenFor(model => model.SexeUtilisateur)
+        @Html.HiddenFor(model => model.Email)
+        @Html.HiddenFor(model => model.MotDePasse)
+        @Html.HiddenFor(model => model.ConfirmationMotDePasse)
+        @Html.HiddenFor(model => model.Avatar)
+        @Html.HiddenFor(model => model.idRole)
+        @Html.HiddenFor(model => model.Actif)
+        @Html.HiddenFor(model => model.PointFidelite)
+        @Html.HiddenFor(model => model.Compte_A_Supprimer)
+        @Html.HiddenFor(model => model.idCommande)
+        @Html.HiddenFor(model => model.idMoyenPaiement)
+
+
+        <span>@Html.DisplayNameFor(model => model.CiviliteClient) : </span>
+        <span>@Html.EnumDropDownListFor(model => model.CiviliteClient, new { @class = "form-control left-rounded right-rounded" }) @Html.ValidationMessageFor(model => model.CiviliteClient, "", new { @class = "text-danger" })</span><br />
+
+        <span>@Html.DisplayNameFor(model => model.Nom) :</span>
+        <span>@Html.TextBoxFor(model => model.Nom, new { @class = "form-control left-rounded right-rounded" }) @Html.ValidationMessageFor(model => model.Nom, "", new { @class = "text-danger" })</span><br />
+
+        <span>@Html.DisplayNameFor(model => model.Prenom) : </span>
+        <span>@Html.TextBoxFor(model => model.Prenom, new { @class = "form-control left-rounded right-rounded" }) @Html.ValidationMessageFor(model => model.Prenom, "", new { @class = "text-danger" })</span><br />
+
+        <span>@Html.DisplayNameFor(model => model.DateDeNaissance) : </span>
+        <span>@Html.TextBoxFor(model => model.DateDeNaissance, new { @class = "form-control datecontrol", type = "date" }) @Html.ValidationMessageFor(model => model.DateDeNaissance, "", new { @class = "text-danger" })</span><br />
+
+        <button class="btn btn-warning bouton" type="submit">Modifier</button>
+        <br />
+    </div>
+}

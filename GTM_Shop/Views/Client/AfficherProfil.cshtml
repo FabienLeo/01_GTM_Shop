@@ -1,0 +1,27 @@
+﻿@model GTM_Shop.Metier.Client
+@{
+    Layout = "~/Views/Shared/_LayoutClient.cshtml";
+    ViewBag.Title = "AfficherProfil";
+}
+
+<br /><br /><br />
+<div class="profil">
+
+    <img id="Img_Fiche_Profil" src="~/Content/images/@Html.DisplayFor(modeItem => Model.Avatar)" />
+
+
+    <br />
+
+    <h4>Informations Personnelles</h4><br />
+
+    <span>@Html.DisplayNameFor(model => Model.CiviliteClient) : @Html.DisplayFor(modelItem => Model.CiviliteClient)</span><br />
+    <span>@Html.DisplayNameFor(model => Model.Nom) : @Html.DisplayFor(modelItem => Model.Nom)</span><br />
+    <span>@Html.DisplayNameFor(model => Model.Prenom) : @Html.DisplayFor(modelItem => Model.Prenom)</span><br />
+    <span>@Html.DisplayNameFor(model => Model.DateDeNaissance) : @Html.DisplayFor(modelItem => Model.DateDeNaissance)</span><br />
+    <span>@Html.DisplayNameFor(model => Model.Email) : @Html.DisplayFor(modelItem => Model.Email)</span><br />
+    <span>@Html.DisplayNameFor(model => Model.PointFidelite) : @Html.DisplayFor(modelItem => Model.PointFidelite)</span><br /><br />
+    <span>@Html.ActionLink("Adresse", "AfficherAdresse", new { idUtilisateur = Convert.ToInt32(Session["idUtilisateur"]) }, new { @class = "btn btn-default" })</span><sapn>@Html.ActionLink("Modifier", "ModifierProfil", new { id = Model.idUtilisateur }, new { @class = "btn btn-warning" })</sapn>
+    <br /><br />
+
+</div>
+

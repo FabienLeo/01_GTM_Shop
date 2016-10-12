@@ -1,0 +1,22 @@
+﻿@model GTM_Shop.Metier.BonDeLivraison
+@{
+    Layout = "~/Views/Shared/_LayoutSuperAdmin.cshtml";
+    ViewBag.Title = "ModifierBonDeLivraison";
+}
+
+
+
+@using (Html.BeginForm("ModifierBonDeLivraison", "BonDeLivraison", FormMethod.Post))
+{
+    <div class="formulaire">
+        <span>Remplir le formulaire pour modifier le Bon de Livraison :</span>
+        @Html.HiddenFor(model => model.idBonDeLivraison)
+
+        <span>@Html.DisplayNameFor(model => model.NomDistributeur) : </span>
+        <span>@Html.TextBoxFor(model => model.NomDistributeur, new { @class = "form-control left-rounded right-rounded" }) @Html.ValidationMessageFor(model => model.NomDistributeur, "", new { @class = "text-danger" })</span><br />
+
+
+        <button class="btn btn-warning bouton" type="submit">Modifier</button>
+        <br />
+    </div>
+}

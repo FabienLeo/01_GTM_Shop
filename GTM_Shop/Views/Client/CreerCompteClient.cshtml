@@ -1,0 +1,40 @@
+﻿@model GTM_Shop.Metier.Client
+@{
+    ViewBag.Title = "CreerCompteClient";
+}
+
+@using (Html.BeginForm("CreerCompteClient", "Client", FormMethod.Post))
+{
+    <div class="formulaire">
+
+        <span>Remplir le formulaire pour créer votre profil :</span><br /><br />
+
+        <span>@Html.DisplayNameFor(model => model.SexeUtilisateur) : </span><br />
+        <span>@Html.EnumDropDownListFor(model => model.SexeUtilisateur, new { @class = "form-control left-rounded right-rounded" }) @Html.ValidationMessageFor(model => model.SexeUtilisateur)</span><br />
+
+        <span>@Html.DisplayNameFor(model => model.CiviliteClient) : </span>
+        <span>@Html.EnumDropDownListFor(model => model.CiviliteClient, new { @class = "form-control left-rounded right-rounded" }) @Html.ValidationMessageFor(model => model.CiviliteClient)</span><br />
+
+        <span>@Html.DisplayNameFor(model => model.Nom) : </span>
+        <span>@Html.TextBoxFor(model => model.Nom, new { @class = "form-control left-rounded right-rounded" }) @Html.ValidationMessageFor(model => model.Nom, "", new { @class = "text-danger" })</span><br />
+
+        <span>@Html.DisplayNameFor(model => model.Prenom) : </span>
+        <span>@Html.TextBoxFor(model => model.Prenom, new { @class = "form-control left-rounded right-rounded" }) @Html.ValidationMessageFor(model => model.Prenom, "", new { @class = "text-danger" })</span><br />
+
+        <span>@Html.DisplayNameFor(model => model.Email) : </span>
+        <span>@Html.TextBoxFor(model => model.Email, new { @class = "form-control left-rounded right-rounded" }) @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })</span><br />
+
+        <span>@Html.DisplayNameFor(model => model.MotDePasse) : </span>
+        <span>@Html.PasswordFor(model => model.MotDePasse, new { @class = "form-control left-rounded right-rounded" })@Html.ValidationMessageFor(model => model.MotDePasse)</span><br />
+
+        <span>@Html.DisplayNameFor(model => model.ConfirmationMotDePasse) : </span>
+        <span>@Html.PasswordFor(model => model.ConfirmationMotDePasse, new { @class = "form-control left-rounded right-rounded" }) @Html.ValidationMessageFor(model => model.ConfirmationMotDePasse, "", new { @class = "text-danger" })</span><br />
+
+        <span>@Html.DisplayNameFor(model => model.DateDeNaissance) : </span>
+        <span>@Html.TextBoxFor(model => model.DateDeNaissance, new { @class = "form-control datecontrol", type = "date" }) @Html.ValidationMessageFor(model => model.DateDeNaissance, "", new { @class = "text-danger" })</span><br />
+
+
+        <button class="btn btn-success bouton" type="submit">Créer Profil</button>
+
+    </div>
+}

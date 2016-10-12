@@ -1,0 +1,40 @@
+﻿@model IEnumerable<GTM_Shop.Metier.Role>
+@{
+    Layout = "~/Views/Shared/_LayoutSuperAdmin.cshtml";
+    ViewBag.Title = "ListerRole";
+}
+
+<h4>Liste des roles</h4>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.TypeRole)</th>
+            <th>@Html.ActionLink("Ajouter", "AjouterRole", null, new { @class = "btn btn-success" })</th>
+            <th>
+                <form role="search" name="searchform" method="post">
+                    <div class="input-group">
+                        <input type="text" placeholder="Recherche par Nom" name="NomRecherche" class="form-control left-rounded">
+                        <div class="input-group-btn">
+                            <button type="submit" class="btn btn-inverse right-rounded">Chercher</button>
+                        </div>
+                    </div>
+                </form>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var r in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => r.TypeRole)</td>
+                <td>@Html.ActionLink("Modifier", "ModifierRole", new { id = r.idRole }, new { @class = "btn btn-warning" })</td>
+                <td>@Html.ActionLink("Supprimer", "SupprimerRole", new { id = r.idRole }, new { @class = "btn btn-danger" })</td>
+            </tr>
+        }
+
+    </tbody>
+
+
+</table>
+

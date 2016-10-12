@@ -1,0 +1,422 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{0E4560E3-1669-4B80-9A60-D5B135A99C8B}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>GTM_Shop</RootNamespace>
+    <AssemblyName>GTM_Shop</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.2\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=__MvcPagesVersion__, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.2\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.2\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.2\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.2\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.2\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AbonnementController.cs" />
+    <Compile Include="Controllers\AdministrateurController.cs" />
+    <Compile Include="Controllers\AdresseController.cs" />
+    <Compile Include="Controllers\AvisController.cs" />
+    <Compile Include="Controllers\BonDeLivraisonController.cs" />
+    <Compile Include="Controllers\CatalogueController.cs" />
+    <Compile Include="Controllers\ClientController.cs" />
+    <Compile Include="Controllers\CommandeController.cs" />
+    <Compile Include="Controllers\ErreurController.cs" />
+    <Compile Include="Controllers\FactureController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ProduitController.cs" />
+    <Compile Include="Controllers\RoleController.cs" />
+    <Compile Include="DAO\DaoImpl.cs" />
+    <Compile Include="DAO\GTM_Shop_Context.cs" />
+    <Compile Include="DAO\IDao.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Metier\Abonnement.cs" />
+    <Compile Include="Metier\AbonnementClient.cs" />
+    <Compile Include="Metier\AdminImpl.cs" />
+    <Compile Include="Metier\Administrateur.cs" />
+    <Compile Include="Metier\Adresse.cs" />
+    <Compile Include="Metier\AdresseClient.cs" />
+    <Compile Include="Metier\AdresseFacturation.cs" />
+    <Compile Include="Metier\AdresseLivraison.cs" />
+    <Compile Include="Metier\Avis.cs" />
+    <Compile Include="Metier\BonDeLivraison.cs" />
+    <Compile Include="Metier\Catalogue.cs" />
+    <Compile Include="Metier\Client.cs" />
+    <Compile Include="Metier\ClientImpl.cs" />
+    <Compile Include="Metier\Commande.cs" />
+    <Compile Include="Metier\Facture.cs" />
+    <Compile Include="Metier\IAdmin.cs" />
+    <Compile Include="Metier\IClient.cs" />
+    <Compile Include="Metier\LigneCommande.cs" />
+    <Compile Include="Metier\MoyenPaiement.cs" />
+    <Compile Include="Metier\Panier.cs" />
+    <Compile Include="Metier\Produit.cs" />
+    <Compile Include="Metier\ProduitConsulte.cs" />
+    <Compile Include="Metier\Role.cs" />
+    <Compile Include="Metier\Statut.cs" />
+    <Compile Include="Metier\Utilisateur.cs" />
+    <Compile Include="Migrations\201609291024402_CreationBDD.cs" />
+    <Compile Include="Migrations\201609291024402_CreationBDD.Designer.cs">
+      <DependentUpon>201609291024402_CreationBDD.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201609291226478_ModificationAllValidationAttribute.cs" />
+    <Compile Include="Migrations\201609291226478_ModificationAllValidationAttribute.Designer.cs">
+      <DependentUpon>201609291226478_ModificationAllValidationAttribute.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201609291441349_ModificationStructure.cs" />
+    <Compile Include="Migrations\201609291441349_ModificationStructure.Designer.cs">
+      <DependentUpon>201609291441349_ModificationStructure.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201609302050510_ModificationProduit.cs" />
+    <Compile Include="Migrations\201609302050510_ModificationProduit.Designer.cs">
+      <DependentUpon>201609302050510_ModificationProduit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201610101724253_ModificationCammande.cs" />
+    <Compile Include="Migrations\201610101724253_ModificationCammande.Designer.cs">
+      <DependentUpon>201610101724253_ModificationCammande.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\AvisClientProduitModel.cs" />
+    <Compile Include="Models\CommandeModel.cs" />
+    <Compile Include="Models\CommandePanierModel.cs" />
+    <Compile Include="Models\DateRangeNaissance.cs" />
+    <Compile Include="Models\ProduitModel.cs" />
+    <Compile Include="Models\ProfilModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\images\Avatar_Femme.png" />
+    <Content Include="Content\images\Avatar_Homme.png" />
+    <Content Include="Content\images\Carte.png" />
+    <Content Include="Content\images\Casque_01.png" />
+    <Content Include="Content\images\Casque_01_lg.png" />
+    <Content Include="Content\images\Casque_02.png" />
+    <Content Include="Content\images\Casque_02_lg.png" />
+    <Content Include="Content\images\Casque_03.png" />
+    <Content Include="Content\images\Casque_03_lg.png" />
+    <Content Include="Content\images\Disque_01.png" />
+    <Content Include="Content\images\Disque_01_lg.png" />
+    <Content Include="Content\images\Disque_02.png" />
+    <Content Include="Content\images\Disque_02_lg.png" />
+    <Content Include="Content\images\Enceinte_01.png" />
+    <Content Include="Content\images\Enceinte_01_lg.png" />
+    <Content Include="Content\images\Enceinte_02.png" />
+    <Content Include="Content\images\Enceinte_02_lg.png" />
+    <Content Include="Content\images\Enceinte_03.png" />
+    <Content Include="Content\images\Enceinte_03_lg.png" />
+    <Content Include="Content\images\Enceinte_04.png" />
+    <Content Include="Content\images\Enceinte_04_lg.png" />
+    <Content Include="Content\images\Favicon.ico" />
+    <Content Include="Content\images\Favicon.png" />
+    <Content Include="Content\images\Icone_Add_Profil.png" />
+    <Content Include="Content\images\Icone_Add_Profil_On.png" />
+    <Content Include="Content\images\Icone_Client.png" />
+    <Content Include="Content\images\Icone_Client_On.png" />
+    <Content Include="Content\images\Icone_connexion.png" />
+    <Content Include="Content\images\Icone_connexion_On.png" />
+    <Content Include="Content\images\Icone_deconnexion.png" />
+    <Content Include="Content\images\Icone_deconnexion_On.png" />
+    <Content Include="Content\images\Icone_Facebook_v02.png" />
+    <Content Include="Content\images\Icone_Livraison.png" />
+    <Content Include="Content\images\Icone_Mail.png" />
+    <Content Include="Content\images\Icone_Mail_On.png" />
+    <Content Include="Content\images\Icone_Paiement.png" />
+    <Content Include="Content\images\Icone_Panier.png" />
+    <Content Include="Content\images\Icone_Panier_On.png" />
+    <Content Include="Content\images\Icone_Pinterest_v02.png" />
+    <Content Include="Content\images\Icone_Profil.png" />
+    <Content Include="Content\images\Icone_Profil_On.png" />
+    <Content Include="Content\images\Icone_Recherche.png" />
+    <Content Include="Content\images\Icone_Recherche_On.png" />
+    <Content Include="Content\images\Icone_SAV.png" />
+    <Content Include="Content\images\Icone_Twitter_v02.png" />
+    <Content Include="Content\images\iMac.png" />
+    <Content Include="Content\images\iMac_98.png" />
+    <Content Include="Content\images\iMac_98_lg.png" />
+    <Content Include="Content\images\iMac_lg.png" />
+    <Content Include="Content\images\iPhone_8.png" />
+    <Content Include="Content\images\iPhone_8_lg.png" />
+    <Content Include="Content\images\iPhone_9.png" />
+    <Content Include="Content\images\iPhone_9_lg.png" />
+    <Content Include="Content\images\iPhone_rose.png" />
+    <Content Include="Content\images\iPhone_rose_lg.png" />
+    <Content Include="Content\images\iPhone_vert.png" />
+    <Content Include="Content\images\iPhone_vert_lg.png" />
+    <Content Include="Content\images\Logo.png" />
+    <Content Include="Content\images\Macbook.png" />
+    <Content Include="Content\images\Macbookair.png" />
+    <Content Include="Content\images\Macbookair_lg.png" />
+    <Content Include="Content\images\Macbookair_or.png" />
+    <Content Include="Content\images\Macbookair_or_lg.png" />
+    <Content Include="Content\images\Macbook_lg.png" />
+    <Content Include="Content\images\Macpro_01.png" />
+    <Content Include="Content\images\Macpro_01_lg.png" />
+    <Content Include="Content\images\Macpro_02.png" />
+    <Content Include="Content\images\Macpro_02_lg.png" />
+    <Content Include="Content\images\TV_01.png" />
+    <Content Include="Content\images\TV_01_lg.png" />
+    <Content Include="Content\images\TV_02.png" />
+    <Content Include="Content\images\TV_02_lg.png" />
+    <Content Include="Content\images\TV_03.png" />
+    <Content Include="Content\images\TV_03_lg.png" />
+    <Content Include="Content\images\TV_04.png" />
+    <Content Include="Content\images\TV_04_lg.png" />
+    <Content Include="Content\images\Typo_Logo.png" />
+    <Content Include="Content\images\Videoprojecteur_01.png" />
+    <Content Include="Content\images\Videoprojecteur_01_lg.png" />
+    <Content Include="Content\images\Videoprojecteur_02.png" />
+    <Content Include="Content\images\Videoprojecteur_02_lg.png" />
+    <Content Include="Content\images\Visuel_404.png" />
+    <Content Include="Content\Style.css" />
+    <Content Include="Scripts\jquery-3.1.0.js" />
+    <Content Include="Scripts\jquery-3.1.0.min.js" />
+    <Content Include="Scripts\Script.js" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\respond.js" />
+    <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\_references.js" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout_old.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Scripts\jquery-1.10.2.min.map" />
+    <Content Include="Views\Home\Connexion.cshtml" />
+    <Content Include="Views\Administrateur\IndexAdmin.cshtml" />
+    <Content Include="Views\Administrateur\ListerAdministrateur.cshtml" />
+    <Content Include="Views\Administrateur\AjouterAdmin.cshtml" />
+    <Content Include="Views\Administrateur\ModifierAdmin.cshtml" />
+    <Content Include="Views\Catalogue\ListerCatalogue.cshtml" />
+    <Content Include="Views\Catalogue\AjouterCatalogue.cshtml" />
+    <Content Include="Views\Catalogue\ModifierCatalogue.cshtml" />
+    <Content Include="Views\Role\ListerRole.cshtml" />
+    <Content Include="Views\Role\AjouterRole.cshtml" />
+    <Content Include="Views\Role\ModifierRole.cshtml" />
+    <Content Include="Views\Produit\ListerProduit.cshtml" />
+    <Content Include="Views\Produit\AjouterProduit.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Shared\_LayoutSuperAdmin.cshtml" />
+    <Content Include="Views\Shared\_LayoutAdmin.cshtml" />
+    <Content Include="Views\Erreur\Error404.cshtml" />
+    <Content Include="Views\Shared\_LayoutClient.cshtml" />
+    <Content Include="Views\Produit\ModifierProduit.cshtml" />
+    <Content Include="Views\Client\ListerClient.cshtml" />
+    <Content Include="Views\Client\ModifierClient.cshtml" />
+    <Content Include="Views\Abonnement\ListerAbonnement.cshtml" />
+    <Content Include="Views\Abonnement\AjouterAbonnement.cshtml" />
+    <Content Include="Views\Abonnement\ModifierAbonnement.cshtml" />
+    <Content Include="Views\Facture\ListerFacture.cshtml" />
+    <Content Include="Views\Facture\ModifierFacture.cshtml" />
+    <Content Include="Views\BonDeLivraison\ListerBonDeLivraison.cshtml" />
+    <Content Include="Views\BonDeLivraison\ModifierBonDeLivraison.cshtml" />
+    <Content Include="Views\Home\ListerProdtuiByCatalogue.cshtml" />
+    <Content Include="Views\Client\IndexClient.cshtml" />
+    <Content Include="Views\Client\ListerProdtuiByCatalogue.cshtml" />
+    <Content Include="Views\Home\AfficherProduit.cshtml" />
+    <Content Include="Views\Client\AfficherProduit.cshtml" />
+    <Content Include="Views\Commande\DetailCommande.cshtml" />
+    <Content Include="Views\Commande\ModifierCommande.cshtml" />
+    <Content Include="Views\Client\CreerCompteClient.cshtml" />
+    <Content Include="Views\Avis\AjouterAvis.cshtml" />
+    <Content Include="Views\Client\AfficherProfil.cshtml" />
+    <Content Include="Views\Client\DetailPanier.cshtml" />
+    <Content Include="Views\Client\ModifierLigneCommande.cshtml" />
+    <Content Include="Views\Client\AfficherAdresse.cshtml" />
+    <Content Include="Views\Client\ModifierAdresse.cshtml" />
+    <Content Include="Views\Client\ModifierProfil.cshtml" />
+    <Content Include="Views\Adresse\CreerAdresse.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="packages.config" />
+    <None Include="Project_Readme.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201609291024402_CreationBDD.resx">
+      <DependentUpon>201609291024402_CreationBDD.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201609291226478_ModificationAllValidationAttribute.resx">
+      <DependentUpon>201609291226478_ModificationAllValidationAttribute.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201609291441349_ModificationStructure.resx">
+      <DependentUpon>201609291441349_ModificationStructure.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201609302050510_ModificationProduit.resx">
+      <DependentUpon>201609302050510_ModificationProduit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201610101724253_ModificationCammande.resx">
+      <DependentUpon>201610101724253_ModificationCammande.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>52546</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:52546/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

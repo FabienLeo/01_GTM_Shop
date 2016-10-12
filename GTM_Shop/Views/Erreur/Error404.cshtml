@@ -1,0 +1,33 @@
+﻿
+@{
+
+    @if (Session["idUtilisateur"] != null && Session["idRole"].ToString() == "1")
+    {
+        Layout = "~/Views/Shared/_LayoutSuperAdmin.cshtml";
+    }
+
+    @if (Session["idUtilisateur"] != null && Session["idRole"].ToString() == "2")
+    {
+        Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    }
+
+    @if (Session["idUtilisateur"] != null && Session["idRole"].ToString() == "3")
+    {
+        Layout = "~/Views/Shared/_LayoutClient.cshtml";
+    }
+
+    @if (Session["idUtilisateur"] == null)
+    {
+        Layout = "~/Views/Shared/_Layout.cshtml";
+    }
+
+    ViewBag.Title = "Error404";
+}
+
+
+<img id="Image_404" src="~/Content/images/Visuel_404.png"/>
+<br />
+<p>Use this area to provide additional information.</p>
+
+
+

@@ -1,0 +1,75 @@
+﻿@model IEnumerable<GTM_Shop.Models.CommandePanierModel>
+@{
+    Layout = "~/Views/Shared/_LayoutSuperAdmin.cshtml";
+    ViewBag.Title = "DetailCommande";
+    decimal Totaux = 0;
+}
+
+<h4>Détails de la commande</h4>
+
+
+@if (@ViewBag.idStatut == 1)
+    {
+        <h4><span class="btn btn-info">En Attente</span></h4>
+    }
+
+    @if (@ViewBag.idStatut == 2)
+    {
+        <h4><span class="btn btn-warning">En Cours</span></h4>
+    }
+
+    @if (@ViewBag.idStatut == 3)
+    {
+        <h4><span class="btn btn-success">Terminé</span></h4>
+    }
+
+    @if (@ViewBag.idStatut == 4)
+    {
+        <h4><span class="btn btn-danger">Abandonné</span></h4>
+    }
+<span>Référence Commande : @ViewBag.idCommande</span><br/>
+<span>Référence Facture : @ViewBag.idFacture</span><br />
+<span>Référence Bon de Livraison : @ViewBag.idBondeLivraison</span><br />
+
+
+
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.PromotionLigneCommande)</th>
+            <th>@Html.DisplayNameFor(model => model.Visuel)</th>
+            <th>@Html.DisplayNameFor(model => model.NomProduit)</th>
+            <th>@Html.DisplayNameFor(model => model.Reference)</th>
+            <th>@Html.DisplayNameFor(model => model.Prix)</th>
+            <th>@Html.DisplayNameFor(model => model.Quantite)</th>
+            <th>@Html.DisplayNameFor(model => model.PromotionProduit)</th>
+            <th>Total Ligne</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var c in Model)
+        {
+            c.TotalLigneCommande = (c.Prix - (c.Prix * Convert.ToDecimal((c.PromotionProduit/100)))) * c.Quantite;
+            Totaux = Totaux + (c.TotalLigneCommande-(c.TotalLigneCommande * Convert.ToDecimal(c.PromotionLigneCommande/100)));
+            <tr>
+                <td>@Html.DisplayFor(modelItem => c.PromotionLigneCommande)</td>
+                <td><img src="~/Content/images/@Html.DisplayFor(modelItem => c.Visuel)" height="80px" class="Img_produit" /></td>
+                <td>@Html.DisplayFor(modelItem => c.NomProduit)</td>
+                <td>@Html.DisplayFor(modelItem => c.Reference)</td>
+                <td>@Html.DisplayFor(modelItem => c.Prix)</td>
+                <td>@Html.DisplayFor(modelItem => c.Quantite)</td>
+                <td>@Html.DisplayFor(modelItem => c.PromotionProduit)</td>
+                <td>@Html.DisplayFor(modelItem => c.TotalLigneCommande)</td>
+            </tr>
+      
+        }
+
+    </tbody>
+
+
+</table>
+
+
+<span>Total de la commande : <strong>@Convert.ToDouble(@Totaux) euros</strong></span>
+

@@ -1,0 +1,22 @@
+﻿@model GTM_Shop.Metier.Facture
+@{
+    Layout = "~/Views/Shared/_LayoutSuperAdmin.cshtml";
+    ViewBag.Title = "ModifierFacture";
+}
+
+
+
+@using (Html.BeginForm("ModifierFacture", "Facture", FormMethod.Post))
+{
+    <div class="formulaire">
+        <h4>Remplir le formulaire pour modifier la facture :</h4><br/>
+        @Html.HiddenFor(model => model.idFacture)
+
+        <span>@Html.DisplayNameFor(model => model.TVA) : </span>
+        <span>@Html.TextBoxFor(model => model.TVA, new { @class = "form-control left-rounded right-rounded" }) @Html.ValidationMessageFor(model => model.TVA, "", new { @class = "text-danger" })</span><br />
+
+
+        <button class="btn btn-warning bouton" type="submit">Modifier</button>
+        <br />
+    </div>
+}

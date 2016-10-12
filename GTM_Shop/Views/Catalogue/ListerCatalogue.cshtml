@@ -1,0 +1,38 @@
+﻿@model IEnumerable<GTM_Shop.Metier.Catalogue>
+@{
+    Layout = "~/Views/Shared/_LayoutSuperAdmin.cshtml";
+    ViewBag.Title = "ListerCatalogue";
+}
+<h4>Liste des catalogues</h4>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.NomCatalogue)</th>
+            <th>@Html.ActionLink("Ajouter", "AjouterCatalogue", null, new { @class = "btn btn-success" })</th>
+            <th>
+                <form role="search" name="searchform" method="post">
+                    <div class="input-group">
+                        <input type="text" placeholder="Recherche par Nom" name="NomRecherche" class="form-control left-rounded">
+                        <div class="input-group-btn">
+                            <button type="submit" class="btn btn-inverse right-rounded">Chercher</button>
+                        </div>
+                    </div>
+                </form>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var c in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => c.NomCatalogue)</td>
+                <td>@Html.ActionLink("Modifier", "ModifierCatalogue", new { id = c.idCatalogue }, new { @class = "btn btn-warning" })</td>
+                <td>@Html.ActionLink("Supprimer", "SupprimerCatalogue", new { id = c.idCatalogue }, new { @class = "btn btn-danger" })</td>
+            </tr>
+        }
+
+    </tbody>
+
+
+</table>

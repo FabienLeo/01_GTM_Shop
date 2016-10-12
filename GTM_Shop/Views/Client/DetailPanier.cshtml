@@ -1,0 +1,60 @@
+﻿@model IEnumerable<GTM_Shop.Models.CommandePanierModel>
+
+@{
+    Layout = "~/Views/Shared/_LayoutClient.cshtml";
+    ViewBag.Title = "DetailPanier";
+    decimal Totaux = 0;
+}
+
+<br /><br /><br />
+<h4>Voici Votre Panier</h4>
+
+
+
+
+
+
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.PromotionLigneCommande)</th>
+            <th>@Html.DisplayNameFor(model => model.Visuel)</th>
+            <th>@Html.DisplayNameFor(model => model.NomProduit)</th>
+            <th>@Html.DisplayNameFor(model => model.Prix)</th>
+            <th>@Html.DisplayNameFor(model => model.Quantite)</th>
+            <th>@Html.DisplayNameFor(model => model.PromotionProduit)</th>
+            <th>Total Ligne</th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var c in Model)
+        {
+            c.TotalLigneCommande = (c.Prix - (c.Prix * Convert.ToDecimal((c.PromotionProduit / 100)))) * c.Quantite;
+            Totaux = Totaux + (c.TotalLigneCommande - (c.TotalLigneCommande * Convert.ToDecimal(c.PromotionLigneCommande / 100)));
+            <tr>
+                <td>@Html.DisplayFor(modelItem => c.PromotionLigneCommande)</td>
+                <td><img src="~/Content/images/@Html.DisplayFor(modelItem => c.Visuel)" height="80px" class="Img_produit" /></td>
+                <td>@Html.DisplayFor(modelItem => c.NomProduit)</td>
+                <td>@Html.DisplayFor(modelItem => c.Prix)</td>
+                <td>@Html.DisplayFor(modelItem => c.Quantite)</td>
+                <td>@Html.DisplayFor(modelItem => c.PromotionProduit)</td>
+                <td>@Html.DisplayFor(modelItem => c.TotalLigneCommande)</td>
+                <td>@Html.ActionLink("Modifier", "ModifierLigneCommande", "Client", new { id = c.idLigneCommande }, new { @class = "btn btn-warning" })</td>
+                <td>@Html.ActionLink("Supprimer", "SupprimerLigneCommande", "Client", new { id = c.idLigneCommande }, new { @class = "btn btn-danger" })</td>
+            </tr>
+
+        }
+
+    </tbody>
+
+
+</table>
+
+
+<h4 id="Total_Panier">Total de la commande : <strong>@Convert.ToDouble(@Totaux) euros</strong></h4>
+<div class="boutonPayer">
+    @Html.ActionLink("Valider et Payer", "#", "Client", new { id = Convert.ToInt32(@Session["idPanier"]) }, new { @class = "btn btn-success" })<br /><br />
+</div>

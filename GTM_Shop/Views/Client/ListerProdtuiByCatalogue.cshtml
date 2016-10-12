@@ -1,0 +1,40 @@
+﻿@model IEnumerable<GTM_Shop.Models.ProduitModel>
+@{
+    Layout = "~/Views/Shared/_LayoutClient.cshtml";
+    ViewBag.Title = "ListerProdtuiByCatalogue";
+}
+
+<br /><br /><br />
+<h4 id="Titre_liste">@ViewBag.titre</h4>
+
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.Visuel)</th>
+            <th>@Html.DisplayNameFor(model => model.NomProduit)</th>
+            <th>@Html.DisplayNameFor(model => model.Description)</th>
+            <th>@Html.DisplayNameFor(model => model.MoyenneNote)</th>
+            <th>@Html.DisplayNameFor(model => model.Prix)</th>
+            <th>@Html.DisplayNameFor(model => model.PromotionProduit)</th>
+            <th> Fiche Produit</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var p in Model)
+        {
+            <tr>
+                <th><img src="../Content/images/@Html.DisplayFor(modelItem => p.Visuel)" height="80px" class="Img_produit" /></th>
+                <th>@Html.DisplayFor(modelItem => p.NomProduit)</th>
+                <th>@Html.DisplayFor(modelItem => p.Description)</th>
+                <th>@Html.DisplayFor(modelItem => p.MoyenneNote)</th>
+                <th>@Html.DisplayFor(modelItem => p.Prix)</th>
+                <th>@Html.DisplayFor(modelItem => p.PromotionProduit)</th>
+                <th>@Html.ActionLink("Fiche", "AfficherProduit", new { id = p.idProduit }, new { @class = "btn btn-warning" })</th>
+            </tr>
+        }
+
+    </tbody>
+
+
+</table>

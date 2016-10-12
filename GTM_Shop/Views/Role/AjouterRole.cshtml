@@ -1,0 +1,20 @@
+﻿@model  GTM_Shop.Metier.Role
+@{
+    Layout = "~/Views/Shared/_LayoutSuperAdmin.cshtml";
+    ViewBag.Title = "AjouterRole";
+}
+
+
+@using (Html.BeginForm("AjouterRole", "Role", FormMethod.Post))
+{
+    <div class="formulaire">
+
+        <span>Remplir le formulaire pour ajouter un Role :</span><br/><br />
+
+        <span>@Html.DisplayNameFor(model => model.TypeRole) : </span>
+        <span>@Html.TextBoxFor(model => model.TypeRole, new { @class = "form-control left-rounded right-rounded" }) @Html.ValidationMessageFor(model => model.TypeRole, "", new { @class = "text-danger" })</span><br />
+
+        <button class="btn btn-success bouton" type="submit">Ajouter</button>
+        <br />
+    </div>
+}

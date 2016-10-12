@@ -1,0 +1,70 @@
+﻿@model IEnumerable<GTM_Shop.Models.AvisClientProduitModel>
+@{
+    Layout = "~/Views/Shared/_LayoutClient.cshtml";
+    ViewBag.Title = "AfficherProduit";
+}
+<br /><br /><br />
+
+
+<img id="Img_Fiche_Produit" src="~/Content/images/@ViewBag.Visuel" height="400px" class="Img_produit" />
+
+
+
+<div class="Fiche_produit">
+    <br />
+    <h2>
+    <strong>@ViewBag.NomProduit</strong>
+    </h2>
+
+    <span>Référence : </span><br />
+    <strong>@ViewBag.Reference</strong>
+
+    <h3>
+        <strong>@Convert.ToDouble(ViewBag.Prix) euros</strong>
+    </h3>
+    <span>Promotion : - @ViewBag.PromotionProduit %</span><br />
+
+    @using (Html.BeginForm("AjouterDansPanier", "Client", FormMethod.Post))
+    {
+
+
+        <span>Quantité : </span>
+        <span>@Html.TextBox("Quantite","1", new { @class = "form-control", type = "number" })</span>
+        <span id="Message_Quantite">@Session["Erreur"]</span><br />
+        <button class="btn btn-success" type="submit">Ajouter Dans Panier</button>
+
+    }
+    <br /><br />
+    <strong>@Html.DisplayNameFor(model => model.Description) :</strong><br />
+    @ViewBag.Description<br /><br />
+
+    @Html.ActionLink("Donner Avis", "AjouterAvis", "Avis", new { id = @ViewBag.idProduit }, new { @class = "btn btn-warning" })
+
+</div>
+
+
+
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+
+            <th>@Html.DisplayNameFor(model => model.Prenom)</th>
+            <th>@Html.DisplayNameFor(model => model.NoteAvis)</th>
+            <th>@Html.DisplayNameFor(model => model.TextAvis)</th>
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (var p in Model)
+            {
+            <tr>
+                <th>@Html.DisplayFor(modelItem => p.Prenom)</th>
+                <th>@Html.DisplayFor(modelItem => p.NoteAvis)</th>
+                <th>@Html.DisplayFor(modelItem => p.TextAvis)</th>
+            </tr>
+            }
+
+    </tbody>
+</table>
+

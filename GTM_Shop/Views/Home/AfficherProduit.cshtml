@@ -1,0 +1,63 @@
+﻿@model IEnumerable<GTM_Shop.Models.AvisClientProduitModel>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    ViewBag.Title = "AfficherProduit";
+}
+
+<br /><br /><br />
+
+
+<img id="Img_Fiche_Produit" src="~/Content/images/@ViewBag.Visuel" height="400px" class="Img_produit" />
+
+
+
+<div class="Fiche_produit">
+    <h2>
+        <strong>@ViewBag.NomProduit</strong>
+    </h2>
+
+    <span>Reference :</span> <br />
+    <strong>@ViewBag.Reference</strong>
+
+    <h3>
+        <strong>@Convert.ToDouble(ViewBag.Prix) euros</strong>
+    </h3>
+
+    @Html.ActionLink("Se Connecter", "Connexion","", new { @class = "btn btn-warning" })<br /><br />
+
+
+    <strong>Description : </strong><br />
+    @ViewBag.Description<br />
+
+</div>
+
+
+
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+
+            <th>@Html.DisplayNameFor(model => model.Prenom)</th>
+            <th>@Html.DisplayNameFor(model => model.NoteAvis)</th>
+            <th>@Html.DisplayNameFor(model => model.TextAvis)</th>
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (var p in Model)
+            {
+
+            <tr>
+                <th>@Html.DisplayFor(modelItem => p.Prenom)</th>
+                <th>@Html.DisplayFor(modelItem => p.NoteAvis)</th>
+                <th>@Html.DisplayFor(modelItem => p.TextAvis)</th>
+
+            </tr>
+        }
+
+
+    </tbody>
+</table>
+

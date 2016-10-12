@@ -1,0 +1,23 @@
+﻿@model GTM_Shop.Metier.Adresse
+@{
+    ViewBag.Title = "AfficherAdresse";
+    Layout = "~/Views/Shared/_LayoutClient.cshtml";
+}
+
+<br /><br /><br />
+<div class="profil">
+
+    <h4>Mon Adresse</h4><br />
+
+    <span>@Html.DisplayNameFor(model => Model.RueLigne01) : @Html.DisplayFor(modelItem => Model.RueLigne01)</span><br />
+    <span>@Html.DisplayNameFor(model => Model.RueLigne02) : @Html.DisplayFor(modelItem => Model.RueLigne02)</span><br />
+    <span>@Html.DisplayNameFor(model => Model.CodePostale) : @Html.DisplayFor(modelItem => Model.CodePostale)</span><br />
+    <span>@Html.DisplayNameFor(model => Model.Ville) : @Html.DisplayFor(modelItem => Model.Ville)</span><br />
+    <span>@Html.DisplayNameFor(model => Model.Pays) : @Html.DisplayFor(modelItem => Model.Pays)</span><br /><br />
+
+    <span>@Html.ActionLink("Retour", "AfficherProfil", "Client", new { @class = "btn btn-default" })</span>
+    <span>@Html.ActionLink("Modifier", "ModifierAdresse", new { id = Model.idAdresse }, new { @class = "btn btn-warning" })</span>
+    <br /><br />
+
+</div>
+

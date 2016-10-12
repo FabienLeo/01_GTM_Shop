@@ -1,0 +1,35 @@
+﻿@model GTM_Shop.Metier.Abonnement
+@{
+    Layout = "~/Views/Shared/_LayoutSuperAdmin.cshtml";
+    ViewBag.Title = "ModifierAbonnement";
+}
+
+
+
+
+@using (Html.BeginForm("ModifierAbonnement", "Abonnement", FormMethod.Post))
+{
+    <div class="formulaire">
+
+        <span>Remplir le formulaire pour modifier un abonnement</span>
+        @Html.HiddenFor(model => model.idAbonnement)
+
+        <span>@Html.DisplayNameFor(model => model.NomAbonnement) : </span>
+        <span>@Html.TextBoxFor(model => model.NomAbonnement, new { @class = "form-control left-rounded right-rounded" }) @Html.ValidationMessageFor(model => model.NomAbonnement, "", new { @class = "text-danger" })</span><br />
+
+        <span>@Html.DisplayNameFor(model => model.DateDebut) : </span>
+        <span>@Html.TextBoxFor(model => model.DateDebut, new { @class = "form-control left-rounded right-rounded datecontrol" }) @Html.ValidationMessageFor(model => model.DateDebut, "", new { @class = "text-danger" })</span><br />
+
+        <span>@Html.DisplayNameFor(model => model.DateFin) : </span>
+        <span>@Html.TextBoxFor(model => model.DateFin, new { @class = "form-control left-rounded right-rounded datecontrol"}) @Html.ValidationMessageFor(model => model.DateFin, "", new { @class = "text-danger" })</span><br />
+
+        <span>@Html.DisplayNameFor(model => model.PrixAbonnement) : </span>
+        <span>@Html.TextBoxFor(model => model.PrixAbonnement, new { @class = "form-control left-rounded right-rounded" }) @Html.ValidationMessageFor(model => model.PrixAbonnement, "", new { @class = "text-danger" })</span><br />
+
+
+
+        <button class="btn btn-warning bouton" type="submit">Modifier</button>
+        <br />
+    </div>
+
+}

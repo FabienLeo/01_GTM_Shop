@@ -1,0 +1,46 @@
+﻿@model GTM_Shop.Metier.Produit
+@{
+    Layout = "~/Views/Shared/_LayoutSuperAdmin.cshtml";
+    ViewBag.Title = "ModifierProduit";
+}
+
+
+
+
+@using (Html.BeginForm("ModifierProduit", "Produit", FormMethod.Post))
+{
+    <div class="formulaire">
+
+        <span>Remplir le formulaire pour modifier le produit</span><br /><br />
+        @Html.HiddenFor(model => model.idProduit)
+
+        <span>@Html.DisplayNameFor(model => model.NomProduit) : </span>
+        <span>@Html.TextBoxFor(model => model.NomProduit, new { @class = "form-control left-rounded right-rounded" }) @Html.ValidationMessageFor(model => model.NomProduit, "", new { @class = "text-danger" })</span><br />
+
+        <span>@Html.DisplayNameFor(model => model.Reference) : </span>
+        <span>@Html.TextBoxFor(model => model.Reference, new { @class = "form-control left-rounded right-rounded" }) @Html.ValidationMessageFor(model => model.Reference, "", new { @class = "text-danger" })</span><br />
+
+        <span>@Html.DisplayNameFor(model => model.Prix) : </span>
+        <span>@Html.TextBoxFor(model => model.Prix, new { @class = "form-control left-rounded right-rounded" }) @Html.ValidationMessageFor(model => model.Prix, "", new { @class = "text-danger" })</span><br />
+
+        <span>@Html.DisplayNameFor(model => model.PromotionProduit) : </span>
+        <span>@Html.TextBoxFor(model => model.PromotionProduit, new { @class = "form-control left-rounded right-rounded" }) @Html.ValidationMessageFor(model => model.PromotionProduit, "", new { @class = "text-danger" })</span><br />
+
+        <span>@Html.DisplayNameFor(model => model.Stock) : </span>
+        <span>@Html.TextBoxFor(model => model.Stock, new { @class = "form-control left-rounded right-rounded" }) @Html.ValidationMessageFor(model => model.Stock, "", new { @class = "text-danger" })</span><br />
+
+        <span>@Html.DisplayNameFor(model => model.Description) : </span>
+        <span>@Html.TextBoxFor(model => model.Description, new { @class = "form-control left-rounded right-rounded" }) @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })</span><br />
+
+        <span>@Html.DisplayNameFor(model => model.Visuel) : </span>
+        <span>@Html.TextBoxFor(model => model.Visuel, new { @class = "form-control left-rounded right-rounded" }) @Html.ValidationMessageFor(model => model.Visuel, "", new { @class = "text-danger" })</span><br />
+
+        <span>@Html.DisplayNameFor(model => model.idCatalogue) : </span>
+        <span>@Html.DropDownList("idCatalogue", null, new { @class = "btn dropdown-toggle" })</span><br /><br />
+
+
+        <button class="btn btn-warning bouton" type="submit">Modifier</button>
+        
+    </div>
+}
+

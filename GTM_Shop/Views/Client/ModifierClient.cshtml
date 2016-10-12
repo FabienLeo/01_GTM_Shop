@@ -1,0 +1,61 @@
+﻿@model GTM_Shop.Metier.Client
+@{
+    Layout = "~/Views/Shared/_LayoutSuperAdmin.cshtml";
+    ViewBag.Title = "ModifierClient";
+}
+
+
+
+@using (Html.BeginForm("ModifierClient", "Client", FormMethod.Post))
+{
+    <div class="formulaireClient">
+        <span>Remplir le formulaire pour modifier le client :</span><br /><br />
+        @Html.HiddenFor(model => model.idUtilisateur)
+        @Html.HiddenFor(model => model.idRole)
+        @Html.HiddenFor(model => model.idCommande)
+        @Html.HiddenFor(model => model.idMoyenPaiement)
+
+        <span>@Html.DisplayNameFor(model => model.Actif) :</span><br />
+        <span>&nbsp;&nbsp;&nbsp;&nbsp;@Html.CheckBoxFor(model => model.Actif) @Html.ValidationMessageFor(model => model.Actif, "", new { @class = "text-danger" })</span><br />
+
+        <span>@Html.DisplayNameFor(model => model.Avatar) : </span>
+        <span>@Html.TextBoxFor(model => model.Avatar, new { @class = "form-control left-rounded right-rounded" }) @Html.ValidationMessageFor(model => model.Avatar, "", new { @class = "text-danger" })</span><br />
+
+        <span>@Html.DisplayNameFor(model => model.SexeUtilisateur) : </span><br />
+        <span>@Html.RadioButtonFor(model => model.SexeUtilisateur, "Homme", "Homme") Homme <br />@Html.RadioButtonFor(model => model.SexeUtilisateur, "Femme", "Femme") Femme @Html.ValidationMessageFor(model => model.SexeUtilisateur, "", new { @class = "text-danger" })</span><br /><br />
+
+        <span>@Html.DisplayNameFor(model => model.CiviliteClient) : </span><br />
+        <span>@Html.RadioButtonFor(model => model.CiviliteClient, "M", "M") M @Html.RadioButtonFor(model => model.CiviliteClient, "Mme", "Mme") Mme @Html.RadioButtonFor(model => model.CiviliteClient, "Mlle", "Mlle") Mlle @Html.ValidationMessageFor(model => model.CiviliteClient, "", new { @class = "text-danger" })</span><br /><br />
+
+
+        <span>@Html.DisplayNameFor(model => model.Nom) : </span>
+        <span>@Html.TextBoxFor(model => model.Nom, new { @class = "form-control left-rounded right-rounded" }) @Html.ValidationMessageFor(model => model.Nom, "", new { @class = "text-danger" })</span><br />
+
+        <span>@Html.DisplayNameFor(model => model.Prenom) : </span>
+        <span>@Html.TextBoxFor(model => model.Prenom, new { @class = "form-control left-rounded right-rounded" }) @Html.ValidationMessageFor(model => model.Prenom, "", new { @class = "text-danger" })</span><br />
+
+</div>
+<div class="formulaireClient">
+        <span>@Html.DisplayNameFor(model => model.Email) : </span>
+        <span>@Html.TextBoxFor(model => model.Email, new { @class = "form-control left-rounded right-rounded" }) @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })</span><br />
+
+    <span>@Html.DisplayNameFor(model => model.MotDePasse) : </span>
+    <span>@Html.TextBoxFor(model => model.MotDePasse, new { @class = "form-control left-rounded right-rounded" }) @Html.ValidationMessageFor(model => model.MotDePasse, "", new { @class = "text-danger" })</span><br />
+
+    <span>@Html.DisplayNameFor(model => model.ConfirmationMotDePasse) : </span>
+    <span>@Html.TextBoxFor(model => model.ConfirmationMotDePasse, new { @class = "form-control left-rounded right-rounded" }) @Html.ValidationMessageFor(model => model.ConfirmationMotDePasse, "", new { @class = "text-danger" })</span><br />
+
+    <span>@Html.DisplayNameFor(model => model.DateDeNaissance) : </span>
+    <span>@Html.TextBoxFor(model => model.DateDeNaissance, new { @class = "form-control left-rounded right-rounded" }) @Html.ValidationMessageFor(model => model.DateDeNaissance, "", new { @class = "text-danger" })</span><br />
+
+
+    <span>@Html.DisplayNameFor(model => model.PointFidelite) : </span>
+    <span>@Html.TextBoxFor(model => model.PointFidelite, new { @class = "form-control left-rounded right-rounded" }) @Html.ValidationMessageFor(model => model.PointFidelite, "", new { @class = "text-danger" })</span><br />
+
+    <span>@Html.DisplayNameFor(model => model.Compte_A_Supprimer) : </span>
+    <span>@Html.CheckBoxFor(model => model.Compte_A_Supprimer) @Html.ValidationMessageFor(model => model.Compte_A_Supprimer, "", new { @class = "text-danger" })</span><br /><br />
+
+
+    <button class="btn btn-warning bouton" type="submit">Modifier</button>
+</div>
+}

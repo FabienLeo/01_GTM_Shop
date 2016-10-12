@@ -1,0 +1,105 @@
+﻿<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no" />
+    <link rel="icon" type="image/x-icon" href="./Content/images/Favicon.ico" />
+    <title>@ViewBag.Title - GT'M Shop</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <link href="@Url.Content("~/Content/Style.css")" rel="stylesheet" type="text/css" />
+    @RenderSection("ExternalCSS", false)
+</head>
+<body>
+    <div id="page">
+        <div id="Block_header">
+
+            <div id="Block_logo">
+                <div id="logo"><a href="@Url.Action("IndexAdmin", "Administrateur")"><img id="Img_logo" src="~/Content/images/Logo.png" alt="Logo" title="Home" /></a></div>
+                <div id="Block_typo_logo"><img id="Img_typo_logo" src="~/Content/images/Typo_Logo.png" alt="Logo_Typo" /></div>
+            </div>
+
+            <div id="Block_menu_complet">
+                <div id="Block_Icone_Admin">
+                    <div id="icone">
+                        @if (@Session["idUtilisateur"] != null)
+                        {
+                            <a href="@Url.Action("Deconnexion", "Home")"><img id="Icone_Deconnexion" class="Icone_Menu" src="~/Content/images/Icone_deconnexion.png" alt="Deconnexion" title="Deconnexion" /></a>
+                        }
+                        else
+                        {
+                            <a href="@Url.Action("Connexion", "Home")"><img id="Icone_Connexion" class="Icone_Menu" src="~/Content/images/Icone_connexion.png" alt="Connexion" title="Connexion" /></a>
+                        }
+                    </div>
+                </div>
+
+                <div id="Block_menu">
+                    <ul class="Liste_menu">
+                        <li class="Ligne_menu_admin">@Html.ActionLink("Catalogue", "ListerCatalogue", "Catalogue", "", new { @class = "Lien_menu" })</li>
+                        <li class="Ligne_menu_admin">@Html.ActionLink("Produit", "ListerProduit", "Produit", "", new { @class = "Lien_menu" })</li>
+                        <li class="Ligne_menu_admin">@Html.ActionLink("Client", "ListerClient", "Client", "", new { @class = "Lien_menu" })</li>
+                        <li class="Ligne_menu_admin">@Html.ActionLink("Abonnement", "ListerAbonnement", "Abonnement", "", new { @class = "Lien_menu" })</li>
+                        <li class="Ligne_menu_admin">@Html.ActionLink("Facture", "ListerFacture", "Facture", "", new { @class = "Lien_menu" })</li>
+                        <li class="Ligne_menu_admin">@Html.ActionLink("Bon De Livraison", "ListerBonDeLivraison", "BonDeLivraison", "", new { @class = "Lien_menu" })</li>
+                    </ul>
+
+                    <ul id="Menu_iphone" class="nav nav-pills nav-stacked">
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                Menu
+                            </a>
+
+                            <ul class="dropdown-menu">
+                                <li>@Html.ActionLink("Administrateur", "ListerAdministrateur", "Administrateur")</li>
+                                <li>@Html.ActionLink("Role", "ListerRole", "Role")</li>
+                                <li>@Html.ActionLink("Catalogue", "ListerCatalogue", "Catalogue")</li>
+                                <li>@Html.ActionLink("Produit", "ListerProduit", "Produit")</li>
+                                <li>@Html.ActionLink("Client", "ListerClient", "Client")</li>
+                                <li>@Html.ActionLink("Abonnement", "ListerAbonnement", "Abonnement")</li>
+                                <li>@Html.ActionLink("Facture", "ListerFacture", "Facture")</li>
+                                <li>@Html.ActionLink("Bon De Livraison", "ListerBonDeLivraison", "BonDeLivraison")</li>
+                                <li>
+                                    @if (@Session["idUtilisateur"] != null)
+                                    {
+                                        @Html.ActionLink("Deconnexion", "Deconnexion", "Home")
+                                    }
+                                    else
+                                    {
+                                        @Html.ActionLink("Connexion", "Connexion", "Home")
+                                    }
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+
+
+
+        <div id="Block_corps">
+            <br /><br /><br />
+            @RenderBody()
+
+        </div>
+    </div>
+
+    <div id="Block_footer">
+        <div id="Block_texteFooter">
+            <p id="Lien_Copyright">&copy; @DateTime.Now.Year - <a class="Lien_menu_footer Ligne_menu_footer" href="mailto:fabien.gaudron@gmail.com">Fabien GAUDRON</a></p>
+        </div>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    @RenderSection("scripts", required: false)
+    <script src="~/Scripts/jquery-3.1.0.min.js" type="text/javascript"></script>
+    <script src="~/Scripts/Script.js" type="text/javascript"></script>
+    @RenderSection("ExternalJS", false)
+</body>
+</html>
+

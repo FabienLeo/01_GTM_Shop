@@ -1,0 +1,1176 @@
+﻿
+/* Pour les écrans inférieur à 600px*/
+/* SMARTPHONE */
+@media screen and (max-width:600px){
+
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6{
+    font-family: Century Gothic,CenturyGothic,AppleGothic,sans-serif;
+}
+
+html, body{
+	font-family: Century Gothic,CenturyGothic,AppleGothic,sans-serif;
+	margin:0px;
+	padding:0px;
+	outline:0px;
+	height:100%;
+}
+
+#page{
+   width:100%;
+   height:auto;
+   min-height:100%;
+}
+
+
+#Block_header{
+	background-color:white;
+	width:100%;
+	height:200px;
+}
+
+#Block_logo{
+	width:100%;
+	height:50%;
+	margin:0px;
+	
+}
+
+#logo{
+	background-color:white;
+	width:100%;
+    height:100%;
+}
+
+#Block_typo_logo{
+	display:none;
+}
+
+#Img_logo{
+	display:block;
+    height:100%;
+    margin:auto;
+}
+
+
+#Block_menu_complet{
+	width:100%;
+	height:50%;
+	float:left;
+	
+}
+
+
+#Block_icone{
+	display:none;
+
+}
+
+#Block_Icone_Admin{
+	display:none;
+
+}
+
+#Block_Icone_Client{
+	display:none;
+
+}
+
+#Block_menu{
+	background-color:#89898E;
+	width:100%;
+	height:100%;
+}
+
+#Menu_iphone{
+    width:30%;
+    padding-top:25px;
+    margin-left:auto;
+    margin-right:auto;
+    text-align:center;
+    font-size:1.5em;
+}
+
+#Menu_iphone .dropdown-toggle{
+    color:#ff9900;
+}
+
+.dropdown-menu > li > a:hover,
+.dropdown-menu > li > a:focus{
+  background-color: #ff9900;
+}
+
+.Liste_menu{
+display:none;
+}
+
+.Ligne_menu{
+	list-style-type:none;
+	color:white;
+	display:block;
+	float:left;
+	margin-right:4%;
+}
+
+.Ligne_menu_admin{
+	list-style-type:none;
+	color:white;
+	display:block;
+	float:left;
+	margin-right:1%;
+}
+
+.Lien_menu{
+	text-decoration:none;
+	color:white;
+}
+
+#Block_corps{
+	background-color:white;
+	width:100%;
+	height:80%;
+	margin-left:0px;
+	margin-right:0px;
+}
+
+.formulaireClient{
+    width:40%;
+    float:left;
+    margin-left:5%;
+    margin-right:5%;
+}
+
+.formulaireClient .bouton{
+    display:block;
+    width: 100px;
+    margin-left: auto;
+    
+}
+
+.formulaireClient .form-control:first-child{
+    max-width:none;
+}
+
+.formulaire{
+    width:70%;
+    margin:auto;
+
+}
+
+.formulaire .form-control:first-child{
+    max-width:none;
+}
+
+.formulaire .bouton{
+    display:block;
+    width: 100px;
+    margin-left: auto;
+    margin-right:auto;
+}
+
+.formulaire .btn:first-child{
+    border: 1px solid #cccccc;
+    margin-left:10px;
+}
+
+#formulaireConnexion{
+    width:60%;
+    margin:auto;
+}
+
+#formulaireConnexion .form-control:first-child{
+    max-width:none;
+}
+
+#formulaireConnexion #boutonConnexion{
+    display:block;
+    width: 100px;
+    margin-left: auto;
+    margin-right:auto;
+}
+
+#Message_Quantite{
+    color:#ff9900;
+}
+
+#Img_Fiche_Profil{
+    height:250px;
+text-align:center;
+}
+
+.profil{
+    width:90%;
+    margin:auto;
+}
+
+.profil .btn-default:first-child {
+    margin-right:10px;
+}
+
+#Block_Image_404{
+    width:45%;
+margin:auto;
+    
+}
+
+#Image_404{
+    width:100%;
+	height:100%;
+	    
+}
+
+#Block_Image_404 h4{
+    text-align:center;
+}
+
+#Block_Image_404 .input-group{
+    width:100%;
+    margin:auto;
+}
+
+.input-group .form-control:first-child{
+    max-width:none;
+}
+
+#Block_produitsConsultes{
+	background-color:#CEE3F6;
+	width:100%;
+	height:30%;
+	margin-left:0px;
+	margin-right:0px;
+}
+
+
+#Block_footer{
+	width:100%;
+	height:30%;
+	color:white;
+}
+
+#Block_iconesFooter{
+	background-color:#A4A4A4;
+	width:100%;
+	height:20%;
+	color:white;
+}
+
+#Icone_footer{
+	width:325px;
+	height:100%;
+	margin-left:auto;
+	margin-right:auto;
+}
+
+#Lien_Copyright{
+	text-align:center;
+	padding-top:2%;
+}
+
+#Lien_Copyright_Public{
+    text-align:center;
+
+}
+
+
+
+.Icone_f{
+	display:block;
+	height:90%;
+	float:left;
+	margin-top:1%;
+	margin-right:20px;
+	margin-left:20px;
+}
+
+#Block_texteFooter{
+	background-color:#89898E;
+	width:100%;
+	height:80%;
+	color:white;
+}	
+
+#Block_menu_footer{
+	width:33%;
+	height:100%;
+	color:white;
+	float:left;
+}
+
+#Block_reseau_footer{
+	width:33%;
+	height:100%;
+	color:white;
+	float:left;
+}
+
+#Block_adresse_footer{
+	width:34%;
+	height:100%;
+	color:white;
+	float:right;
+}
+
+.Titre_footer{
+	margin-top:20px;
+	margin-bottom:0px;
+	margin-left:20px;
+	margin-right:0px;
+	font-weight: bold;
+	
+}
+
+
+.Liste_footer{
+	padding:0px;
+	margin-top:0px;
+	margin-bottom:0px;
+	margin-left:20px;
+	margin-right:0px;	
+}
+
+.Ligne_menu_footer{
+	list-style-type:none;	
+	display:block;
+	width:100%;
+}
+
+.Lien_menu_footer{
+	text-decoration:none;
+	color:white;
+}
+
+.Ligne_reseau_footer{
+	list-style-type:none;
+	display:block;
+	height:40px;
+}
+
+.Icone_reseau{
+	height:90%;
+}
+
+
+.Ligne_adresse_footer{
+	list-style-type:none;	
+}
+	
+#Img_adresse_footer{
+	display:none;
+}
+	
+}
+
+
+/* Pour les écran entre 601 et 1279 pixel*/
+/* TABLETTE */
+@media screen and (min-width:601px) and (max-width:1279px){
+
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6{
+    font-family: Century Gothic,CenturyGothic,AppleGothic,sans-serif;
+}
+
+html, body{
+	font-family: Century Gothic,CenturyGothic,AppleGothic,sans-serif;
+	margin:0px;
+	padding:0px;
+	outline:0px;
+	height:100%;
+}
+
+#page{
+   width:100%;
+   height:auto;
+   min-height:100%;
+}
+
+
+#Block_header{
+	background-color:white;
+	width:100%;
+	height:150px;
+}
+
+#Menu_iphone{
+    display:none;
+}
+
+#Block_logo{
+	width:16%;
+	height:100%;
+	float:left;
+	margin:0px;
+	
+}
+
+#logo{
+	background-color:white;
+	width:100%;
+}
+
+#Block_typo_logo{
+	width:100%;
+	height:50%;
+	position:relative;
+	z-index:10;
+}
+
+#Img_logo{
+	display:block;
+    width:100%;
+    min-width:100px;
+
+}
+
+
+#Img_typo_logo{
+	display:block;
+	margin:auto;
+	width:100%;
+    min-width:100px;
+
+}
+
+#Block_menu_complet{
+	width:84%;
+	height:100%;
+	float:left;
+	
+}
+
+#Block_icone{
+	width:300px;
+	height:45%;
+	margin-left:auto;
+}
+
+#Block_Icone_Admin{
+	width:70px;
+	height:45%;
+	margin-left:auto;
+}
+
+#Block_Icone_Client{
+    width:340px;
+	height:45%;
+	margin-left:auto;
+}
+
+.Icone_Menu{
+	display:block;
+	height:50px;
+	float:left;
+	margin-top:0.5%;
+	margin-bottom:0.5%;
+	margin-left:10px;
+}
+
+#Block_menu{
+	background-color:#89898E;
+	width:100%;
+	height:55%;
+
+}
+
+.Liste_menu{
+	padding:0px;
+	padding-top:28px;
+	margin-top:0px;
+	margin-bottom:0px;
+	margin-left:20px;
+	margin-right:0px;	
+}
+
+.Ligne_menu{
+	list-style-type:none;
+	color:white;
+	display:block;
+	float:left;
+	margin-right:4.8%;
+}
+
+.Ligne_menu_admin{
+	list-style-type:none;
+	color:white;
+	display:block;
+	float:left;
+	margin-right:1%;
+}
+
+.Lien_menu{
+	text-decoration:none;
+	color:white;
+}
+
+#Block_corps{
+	width:100%;
+	height:auto;
+    min-height:100%;
+
+}
+
+#Img_Fiche_Produit{
+    display:block;
+    float:left;
+
+}
+
+.Fiche_produit{
+    width:35%;
+    margin-left:auto;
+}
+
+#Message_Quantite{
+    color:#ff9900;
+}
+
+#Img_Fiche_Profil{
+    height:250px;
+    float:left;
+    margin-bottom:150px;
+    margin-right:50px;
+}
+
+.profil{
+    width:75%;
+    margin:auto;
+}
+
+.profil .btn-default:first-child {
+    margin-right:10px;
+}
+
+.formulaireClient{
+    width:40%;
+    float:left;
+    margin-left:5%;
+    margin-right:5%;
+}
+
+.formulaireClient .bouton{
+    display:block;
+    width: 100px;
+    margin-left: auto;
+    
+}
+
+.formulaireClient .form-control:first-child{
+    max-width:none;
+}
+
+.formulaire{
+    width:50%;
+    margin:auto;
+}
+
+.formulaire .form-control:first-child{
+    max-width:none;
+}
+
+.formulaire .bouton{
+    display:block;
+    width: 100px;
+    margin-left: auto;
+    margin-right:auto;
+}
+
+.formulaire .btn:first-child{
+    border: 1px solid #cccccc;
+    margin-left:10px;
+}
+
+#formulaireConnexion{
+    width:30%;
+    margin:auto;
+}
+
+#formulaireConnexion .form-control:first-child{
+    max-width:none;
+}
+
+#formulaireConnexion #boutonConnexion{
+    display:block;
+    width: 100px;
+    margin-left: auto;
+    margin-right:auto;
+}
+
+#Block_Image_404{
+    width:45%;
+margin:auto;
+    
+}
+
+#Image_404{
+    width:100%;
+	height:100%;
+	    
+}
+
+#Block_Image_404 h4{
+    text-align:center;
+}
+
+#Block_Image_404 .input-group{
+    width:80%;
+    margin:auto;
+}
+
+.input-group .form-control:first-child{
+    max-width:none;
+}
+
+#Block_produitsConsultes{
+	background-color:#CEE3F6;
+	width:100%;
+	height:30%;
+	margin-left:0px;
+	margin-right:0px;
+}
+
+
+#Block_footer{
+	width:100%;
+	height:30%;
+	color:white;
+}
+
+#Block_iconesFooter{
+	background-color:#A4A4A4;
+	width:100%;
+	height:20%;
+	color:white;
+}
+
+#Icone_footer{
+	width:325px;
+	height:100%;
+	margin-left:auto;
+	margin-right:auto;
+}
+
+#Lien_Copyright{
+	text-align:center;
+	padding-top:2%;
+}
+
+#Lien_Copyright_Public{
+    text-align:center;
+
+}
+
+.Icone_f{
+	display:block;
+	height:90%;
+	float:left;
+	margin-top:1%;
+	margin-right:20px;
+	margin-left:20px;
+}
+
+#Block_texteFooter{
+	background-color:#89898E;
+	width:100%;
+	height:80%;
+	color:white;
+}
+
+
+#Block_menu_footer{
+	width:33%;
+	height:100%;
+	color:white;
+	float:left;
+}
+
+#Block_reseau_footer{
+	width:33%;
+	height:100%;
+	color:white;
+	float:left;
+}
+
+#Block_adresse_footer{
+	width:34%;
+	height:100%;
+	color:white;
+	float:right;
+}
+
+.Titre_footer{
+	margin-top:20px;
+	margin-bottom:0px;
+	margin-left:20px;
+	margin-right:0px;
+	font-weight: bold;
+	
+}
+
+
+.Liste_footer{
+	padding:0px;
+	margin-top:0px;
+	margin-bottom:0px;
+	margin-left:20px;
+	margin-right:0px;	
+}
+
+.Ligne_menu_footer{
+	list-style-type:none;	
+}
+
+.Lien_menu_footer{
+	text-decoration:none;
+	color:white;
+}
+
+.Ligne_reseau_footer{
+	list-style-type:none;
+	display:block;
+	height:40px;
+}
+
+.Icone_reseau{
+	height:90%;
+}
+
+.Ligne_adresse_footer{
+	list-style-type:none;	
+}
+
+#Img_adresse_footer{
+	width:80%;
+	height:30%;
+	padding-left:20px;
+}
+
+#Img_carte{
+	height:100%;
+}
+
+}
+
+
+/* Pour les écran supérieur 1280 pixel*/
+/* PC */
+@media screen and (min-width:1280px){
+
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6{
+    font-family: Century Gothic,CenturyGothic,AppleGothic,sans-serif;
+}
+
+
+html, body{
+	font-family: Century Gothic,CenturyGothic,AppleGothic,sans-serif;
+	margin:0px;
+	padding:0px;
+	outline:0px;
+	height:100%;
+}
+
+#page{
+   width:100%;
+   height:auto;
+   min-height:100%;
+}
+
+
+
+
+#Block_header{
+	background-color:white;
+	width:100%;
+	height:150px;
+}
+
+#Menu_iphone{
+    display:none;
+}
+
+
+
+#Block_logo{
+	width:12.5%;
+	height:100%;
+	float:left;
+	margin-left:5%;
+	
+}
+
+#logo{
+	background-color:white;
+	width:100%;
+	
+}
+
+#Block_typo_logo{
+	width:100%;
+	height:50%;
+	position:relative;
+	z-index:10;
+}
+
+
+#Img_logo{
+	display:block;
+    width:100%;
+    margin:auto;
+    max-width:200px;
+}
+
+#Img_typo_logo{
+	display:block;
+	margin:auto;
+	width:100%;
+    max-width:200px;
+}
+
+#Block_menu_complet{
+	width:77.5%;
+	height:100%;
+	float:left;
+}
+
+
+#Block_icone{
+	width:300px;
+	height:45%;
+	margin-left:auto;
+}
+
+#Block_Icone_Admin{
+	width:70px;
+	height:45%;
+	margin-left:auto;
+}
+
+#Block_Icone_Client{
+    width:340px;
+	height:45%;
+	margin-left:auto;
+}
+
+.Icone_Menu{
+	display:block;
+	height:50px;
+	float:left;
+	margin-top:0.5%;
+	margin-bottom:0.5%;
+	margin-left:10px;
+}
+
+#Block_menu{
+	background-color:#89898E;
+	width:100%;
+	height:55%;
+
+}
+
+.Liste_menu{
+	padding:0px;
+	padding-top:28px;
+	margin-top:0px;
+	margin-bottom:0px;
+	margin-left:20px;
+	margin-right:0px;	
+}
+
+.Ligne_menu{
+	list-style-type:none;
+	color:white;
+	display:block;
+	float:left;
+	margin-right:10%;
+}
+
+.Ligne_menu_admin{
+	list-style-type:none;
+	color:white;
+	display:block;
+	float:left;
+	margin-right:1%;
+}
+
+
+.Lien_menu{
+	text-decoration:none;
+	color:white;
+}
+
+#Block_corps{
+	width:90%;
+	height:auto;
+    min-height:85%;
+	margin-left:5%;
+	margin-right:5%;
+}
+
+
+#Img_Fiche_Produit{
+    display:block;
+    float:left;
+    margin-left:25%;
+}
+
+.Fiche_produit{
+    width:30%;
+    margin-left:auto;
+}
+
+#Message_Quantite{
+    color:#ff9900;
+}
+
+#Total_Panier{
+    text-align:right;
+    color:#89898E;
+}
+
+.boutonPayer{
+    margin-left:auto;
+    margin-right:auto;
+    width:100px;
+}
+
+#Titre_liste{
+    margin-left:14%;
+}
+
+.label{
+    padding-top: 6px;
+    padding-right: 12px;
+    padding-bottom: 6px;
+    padding-left: 12px;
+}
+
+#Img_Fiche_Profil{
+    height:250px;
+    float:left;
+    margin-bottom:150px;
+    margin-right:50px;
+}
+
+.profil{
+    width:50%;
+    margin:auto;
+}
+
+.profil .btn-default:first-child {
+    margin-right:10px;
+}
+
+.formulaireClient{
+    width:40%;
+    float:left;
+    margin-left:5%;
+    margin-right:5%;
+}
+
+.formulaireClient .bouton{
+    display:block;
+    width: 100px;
+    margin-left: auto;
+    
+}
+
+.formulaireClient .form-control:first-child{
+    max-width:none;
+}
+
+.formulaire .form-control:first-child{
+    max-width:none;
+}
+
+
+.formulaire{
+    width:30%;
+    margin:auto;
+}
+
+.formulaire .bouton{
+    display:block;
+    width: 100px;
+    margin-left: auto;
+    margin-right:auto;
+}
+
+.formulaire .btn:first-child{
+    border: 1px solid #cccccc;
+    margin-left:10px;
+}
+
+#formulaireConnexion{
+    width:20%;
+    margin:auto;
+}
+
+#formulaireConnexion .form-control:first-child{
+    max-width:none;
+}
+
+#formulaireConnexion #boutonConnexion{
+    display:block;
+    width: 100px;
+    margin-left: auto;
+    margin-right:auto;
+}
+
+#Block_Image_404{
+    width:45%;
+margin:auto;
+    
+}
+
+#Image_404{
+    width:100%;
+	height:100%;
+	    
+}
+
+#Block_Image_404 h4{
+    text-align:center;
+}
+
+#Block_Image_404 .input-group{
+    width:60%;
+    margin:auto;
+}
+
+.input-group .form-control:first-child{
+    max-width:none;
+}
+
+#Block_produitsConsultes{
+	background-color:#CEE3F6;
+	width:90%;
+	height:30%;
+	margin-left:5%;
+	margin-right:5%;
+}
+
+
+#Block_footer{
+	width:100%;
+	height:30%;
+	color:white;
+}
+
+#Block_iconesFooter{
+	background-color:#A4A4A4;
+	width:100%;
+	height:20%;
+	color:white;
+}
+
+#Icone_footer{
+	width:350px;
+	height:100%;
+	margin-left:auto;
+	margin-right:auto;
+}
+
+#Lien_Copyright{
+	text-align:center;
+	padding-top:2%;
+}
+
+#Lien_Copyright_Public{
+    text-align:center;
+
+}
+
+.Icone_f{
+	display:block;
+	height:90%;
+	float:left;
+	margin-top:1%;
+	margin-right:20px;
+	margin-left:20px;
+}
+
+#Block_texteFooter{
+	background-color:#89898E;
+	width:100%;
+	height:80%;
+	color:white;
+	margin:auto;
+}
+
+#Block_menu_footer{
+	margin-left:12.5%;
+	width:25%;
+	height:90%;
+	color:white;
+	float:left;
+}
+
+#Block_reseau_footer{
+	width:25%;
+	height:90%;
+	color:white;
+	float:left;
+}
+
+#Block_adresse_footer{
+	margin-right:12.5%;
+	width:25%;
+	height:90%;
+	color:white;
+	float:right;
+}
+
+.Titre_footer{
+	margin-top:20px;
+	margin-bottom:0px;
+	margin-left:20px;
+	margin-right:0px;
+	font-weight: bold;
+	
+}
+
+
+.Liste_footer{
+	padding:0px;
+	margin-top:0px;
+	margin-bottom:0px;
+	margin-left:20px;
+	margin-right:0px;	
+}
+
+.Ligne_menu_footer{
+	list-style-type:none;	
+}
+
+.Lien_menu_footer{
+	text-decoration:none;
+	color:white;
+}
+
+.Ligne_reseau_footer{
+	list-style-type:none;
+	display:block;
+	height:40px;
+}
+
+.Lien_reseau{
+    height:100%;
+}
+
+.Icone_reseau{
+	height:90%;
+}
+
+
+.Ligne_adresse_footer{
+	list-style-type:none;	
+}
+
+#Img_adresse_footer{
+	width:100%;
+	height:30%;
+	padding-left:20px;
+}
+
+#Img_carte{
+	height:100%;
+}	
+	
+}

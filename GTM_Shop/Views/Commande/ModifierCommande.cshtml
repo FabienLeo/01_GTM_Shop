@@ -1,0 +1,26 @@
+﻿@model GTM_Shop.Metier.Commande
+@{
+    Layout = "~/Views/Shared/_LayoutSuperAdmin.cshtml";
+    ViewBag.Title = "ModifierCommande";
+}
+
+
+@using (Html.BeginForm("ModifierCommande", "Commande", FormMethod.Post))
+{
+    <div class="formulaire">
+        <span>Remplir le formulaire pour modifier la commande :</span><br /><br />
+        @Html.HiddenFor(model => model.idCommande)
+        @Html.HiddenFor(model => model.idFacture)
+        @Html.HiddenFor(model => model.idBonDeLivraison)
+
+        <span>Statut : </span><br /><br />
+        <span class="label label-info">@Html.RadioButtonFor(model => model.idStatut, "1", "EnAttente") En Attente </span><br /><br />
+        <span class="label label-warning">@Html.RadioButtonFor(model => model.idStatut, "2", "EnCours") En cours</span><br /><br />
+        <span class="label label-success">@Html.RadioButtonFor(model => model.idStatut, "3", "Termine") Termine</span><br /><br />
+        <span class="label label-danger">@Html.RadioButtonFor(model => model.idStatut, "4", "Abandonne") Abandonne</span><br /><br />
+        <br />
+
+        <button class="btn btn-warning bouton" type="submit">Modifier</button>
+        <br />
+    </div>
+}

@@ -1,0 +1,24 @@
+﻿@model GTM_Shop.Metier.Role
+@{
+    Layout = "~/Views/Shared/_LayoutSuperAdmin.cshtml";
+    ViewBag.Title = "ModifierRole";
+}
+
+
+@using (Html.BeginForm("ModifierRole", "Role", FormMethod.Post))
+{
+    <div class="formulaire">
+
+        <span>Remplir le formulaire pour modifier le Role :</span><br /><br />
+
+
+        @Html.HiddenFor(model => model.idRole)
+
+
+        <span>@Html.DisplayNameFor(model => model.TypeRole) : </span>
+        <span>@Html.TextBoxFor(model => model.TypeRole, new { @class = "form-control left-rounded right-rounded" }) @Html.ValidationMessageFor(model => model.TypeRole, "", new { @class = "text-danger" })</span><br />
+
+        <button class="btn btn-warning bouton" type="submit">Modifier</button>
+        <br />
+    </div>
+}

@@ -1,0 +1,62 @@
+﻿@model IEnumerable<GTM_Shop.Metier.Client>
+@{
+    Layout = "~/Views/Shared/_LayoutSuperAdmin.cshtml";
+
+    ViewBag.Title = "ListerProduit";
+}
+
+<h4>Liste des clients</h4>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.Actif)</th>
+            <th>@Html.DisplayNameFor(model => model.Avatar)</th>
+            <th>@Html.DisplayNameFor(model => model.idUtilisateur)</th>
+            <th>@Html.DisplayNameFor(model => model.SexeUtilisateur)</th>
+            <th>@Html.DisplayNameFor(model => model.CiviliteClient)</th>
+            <th>@Html.DisplayNameFor(model => model.Nom)</th>
+            <th>@Html.DisplayNameFor(model => model.Prenom)</th>
+            <th>@Html.DisplayNameFor(model => model.Email)</th>
+            <th>@Html.DisplayNameFor(model => model.MotDePasse)</th>
+            <th>@Html.DisplayNameFor(model => model.DateDeNaissance)</th>
+            <th>@Html.DisplayNameFor(model => model.PointFidelite)</th>
+            <th>@Html.DisplayNameFor(model => model.Compte_A_Supprimer)</th>
+            <th></th>
+            <th>
+                <form role="search" name="searchform" method="post">
+                    <div class="input-group">
+                        <input type="text" placeholder="Recherche par Nom" name="NomRecherche" class="form-control left-rounded">
+                        <div class="input-group-btn">
+                            <button type="submit" class="btn btn-inverse right-rounded">Chercher</button>
+                        </div>
+                    </div>
+                </form>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var p in Model)
+        {
+            <tr>
+                <th>@Html.DisplayFor(modelItem => p.Actif)</th>
+                <th><img src="../Content/images/@Html.DisplayFor(modelItem => p.Avatar)" height="80px" class="Img_Avatar" /></th>
+                <th>@Html.DisplayFor(modelItem => p.idUtilisateur)</th>
+                <th>@Html.DisplayFor(modelItem => p.SexeUtilisateur)</th>
+                <th>@Html.DisplayFor(modelItem => p.CiviliteClient)</th>
+                <th>@Html.DisplayFor(modelItem => p.Nom)</th>
+                <th>@Html.DisplayFor(modelItem => p.Prenom)</th>
+                <th>@Html.DisplayFor(modelItem => p.Email)</th>
+                <th>@Html.DisplayFor(modelItem => p.MotDePasse)</th>
+                <th>@Html.DisplayFor(modelItem => p.DateDeNaissance)</th>
+                <th>@Html.DisplayFor(modelItem => p.PointFidelite)</th>
+                <th>@Html.DisplayFor(modelItem => p.Compte_A_Supprimer)</th>
+                <td>@Html.ActionLink("Modifier", "ModifierClient", new { id = p.idUtilisateur }, new { @class = "btn btn-warning" })</td>
+                <td>@Html.ActionLink("Supprimer", "SupprimerClient", new { id = p.idUtilisateur }, new { @class = "btn btn-danger" })</td>
+            </tr>
+        }
+
+    </tbody>
+
+
+</table>

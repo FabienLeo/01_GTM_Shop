@@ -1,0 +1,32 @@
+﻿@model GTM_Shop.Metier.Utilisateur
+@{
+    ViewBag.Title = "Connexion";
+}
+
+
+@using (Html.BeginForm("Connexion", "Home", FormMethod.Post))
+{
+
+
+    <div id="formulaireConnexion">
+        
+        <br />
+        <span id="titre">Veuillez indiquer votre Email et mot de passe.</span>
+        <br />
+        <br />
+
+
+        <span>@Html.DisplayNameFor(model => model.Email) : </span>
+        <span>@Html.TextBoxFor(model => model.Email, new { @class = "form-control left-rounded right-rounded" }) @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })</span><br />
+
+        <span>@Html.DisplayNameFor(model => model.MotDePasse) : </span>
+        <span>@Html.PasswordFor(model => model.MotDePasse, new { @class = "form-control left-rounded right-rounded" }) @Html.ValidationMessageFor(model => model.MotDePasse, "", new { @class = "text-danger" })</span><br />
+
+        <button id="boutonConnexion" class="btn btn-success" type="submit">Connexion</button>
+        <br />
+
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+    </div>
+}
+
