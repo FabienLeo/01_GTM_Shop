@@ -948,6 +948,11 @@ html, body{
     margin-right:50px;
 }
 
+.Panier_vide{
+        width:10%;
+    margin:auto;
+}
+
 .profil{
     width:50%;
     margin:auto;

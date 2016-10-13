@@ -22,7 +22,7 @@ namespace GTM_Shop.Metier
         [Required(ErrorMessage = "Une date de naissance est obligatoire")]
         [Display(Name = "Date de naissance")]
         [DataType(DataType.Date)]
-        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+        [DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}", ApplyFormatInEditMode = true)]
         [DateRangeNaissance(ErrorMessage = "Votre age doit être compris entre 12 et 99 ans")]
         public DateTime DateDeNaissance { get; set; }
 
