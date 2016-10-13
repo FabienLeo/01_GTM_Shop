@@ -320,9 +320,10 @@ namespace GTM_Shop.DAO
         {
             using (var bdd = new DAO.GTM_Shop_Context())
             {
-                var req = from ldc in bdd.LignesCommandes
-                          join c in bdd.Commandes
-                          on ldc.idCommande equals c.idCommande
+                var req = from c in bdd.Commandes
+                          where c.idCommande == id
+                          join ldc in bdd.LignesCommandes
+                          on c.idCommande equals ldc.idCommande
                           join p in bdd.Produits
                           on ldc.idProduit equals p.idProduit
                           select new CommandePanierModel
@@ -342,6 +343,8 @@ namespace GTM_Shop.DAO
                               Visuel = p.Visuel,
                           };
                 return req.ToList();
+
+
             }
         }
 

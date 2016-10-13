@@ -54,13 +54,18 @@ namespace GTM_Shop.Controllers
                 }
                 else if (Session["idRole"].ToString() == "3")
                 {
-                    // if (u.Actif == true)
-                    return RedirectToAction("IndexClient", "Client");
-                    // else
-                    // Session["idUtilisateur"] = null;
-                    // Session["Prenom"] = null;
-                    // Session["idRole"] = null;
-                    // return RedirectToAction("CompteInactif", "Home");
+                    var c = Iadmin.TrouverClientById(Convert.ToInt32(Session["idUtilisateur"]));
+
+                    if (c.Actif == true) { 
+                        return RedirectToAction("IndexClient", "Client");
+                    }
+                    else
+                    { 
+                     Session["idUtilisateur"] = null;
+                    Session["Prenom"] = null;
+                    Session["idRole"] = null;
+                    return RedirectToAction("CompteInactif", "Home");
+                    }
                 }
                 else
                 {
@@ -73,6 +78,13 @@ namespace GTM_Shop.Controllers
                 return View();
             }
         }
+
+
+        public ActionResult CompteInactif()
+        {
+            return View();
+        }
+
 
         public ActionResult Deconnexion()
         {
