@@ -22,6 +22,7 @@
     <span>@Html.DisplayNameFor(model => Model.PointFidelite) : @Html.DisplayFor(modelItem => Model.PointFidelite)</span><br /><br />
     <span>@Html.ActionLink("Adresse", "AfficherAdresse", new { idUtilisateur = Convert.ToInt32(Session["idUtilisateur"]) }, new { @class = "btn btn-default" })</span><sapn>@Html.ActionLink("Modifier", "ModifierProfil", new { id = Model.idUtilisateur }, new { @class = "btn btn-warning" })</sapn>
     <br /><br />
+    <span>@Html.ActionLink("Mes commandes", "ListerCommandeByIdClient", new { id = Convert.ToInt32(Session["idUtilisateur"]) }, new { @class = "btn btn-primary" })</span>
 
 </div>
 

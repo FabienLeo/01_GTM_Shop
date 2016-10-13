@@ -142,5 +142,7 @@ namespace GTM_Shop.Metier
 
         AdresseClient AjouterAdresseClient(AdresseClient adc);
 
+        ICollection<CommandeModel> ListerCommandeByIdClient(int id);
+
     }
 }

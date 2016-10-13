@@ -336,5 +336,10 @@ namespace GTM_Shop.Metier
         {
             return Idao.AjouterAdresseClient(adc);
         }
+
+        public ICollection<CommandeModel> ListerCommandeByIdClient(int id)
+        {
+            return Idao.ListerCommandeByIdClient(id);
+        }
     }
 }

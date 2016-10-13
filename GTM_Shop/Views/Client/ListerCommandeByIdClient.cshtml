@@ -1,0 +1,60 @@
+﻿@model IEnumerable<GTM_Shop.Models.CommandeModel>
+@{
+    Layout = "~/Views/Shared/_LayoutClient.cshtml";
+    ViewBag.Title = "ListerCommandeByIdClient";
+}
+<br /><br />
+<h4>Liste de mes Commandes</h4>
+<br />
+
+
+
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.idCommande)</th>
+            <th>@Html.DisplayNameFor(model => model.Statut)</th>
+            <th>@Html.DisplayNameFor(model => model.idFacture)</th>
+            <th>@Html.DisplayNameFor(model => model.idBonDeLivraison)</th>
+            <th>@Html.DisplayNameFor(model => model.Commentaire)</th>
+            <th></th>
+            <th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var c in Model)
+        {           
+            <tr>
+                <td>@Html.DisplayFor(modelItem => c.idCommande)</td>
+                @if (c.Statut.ToString() == "EnAttente")
+                {
+                    <td><span class="btn btn-info">@Html.DisplayFor(model => c.Statut)</span></td>
+                }
+
+                @if (c.Statut.ToString() == "EnCours")
+                {
+                    <td><span class="btn btn-warning">@Html.DisplayFor(model => c.Statut)</span></td>
+                }
+
+                @if (c.Statut.ToString() == "Termine")
+                {
+                    <td><span class="btn btn-success">@Html.DisplayFor(model => c.Statut)</span></td>
+                }
+
+                @if (c.Statut.ToString() == "Abandonne")
+                {
+                    <td><span class="btn btn-danger">@Html.DisplayFor(model => c.Statut)</span></td>
+                }
+
+                <td>@Html.DisplayFor(modelItem => c.idFacture)</td>
+                <td>@Html.DisplayFor(modelItem => c.idBonDeLivraison)</td>
+                <td>@Html.DisplayFor(modelItem => c.Commentaire)</td>
+            </tr>
+
+        }
+
+    </tbody>
+
+
+</table>

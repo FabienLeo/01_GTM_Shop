@@ -1003,7 +1003,28 @@ namespace GTM_Shop.DAO
             }
         }
 
-
+        public ICollection<CommandeModel> ListerCommandeByIdClient(int id)
+        {
+            using (var bdd = new DAO.GTM_Shop_Context())
+            {
+                var req = from c in bdd.Clients
+                          where c.idUtilisateur == id
+                          join k in bdd.Commandes
+                          on c.idCommande equals k.idCommande
+                          join s in bdd.Statuts
+                          on k.idStatut equals s.idStatut
+                          orderby k.idCommande descending
+                          select new CommandeModel
+                          {
+                              idCommande = k.idCommande,
+                              Statut = s.Valeur,
+                              idFacture = k.idFacture,
+                              idBonDeLivraison = k.idBonDeLivraison,
+                              Commentaire = k.Commentaire
+                          };
+                return req.ToList();
+            }
+        }
 
     }
 }
