@@ -57,9 +57,9 @@ namespace GTM_Shop.Metier
             throw new NotImplementedException();
         }
 
-        public Produit AlerteStock(Produit p)
+        public ICollection<ProduitModel> AlerteStock()
         {
-            throw new NotImplementedException();
+            return Idao.AlerteStock();
         }
 
         public void CadeauAnniversaire(Client c)
