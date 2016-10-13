@@ -133,6 +133,20 @@ namespace GTM_Shop.Controllers
                 return RedirectToAction("Connexion", "Home");
             }
         }
+        // lister produits faible quantité - alerte stock
+        public ActionResult AlerteStock()
+        {
+            if (Session["idUtilisateur"] != null && (Session["idRole"].ToString() == "1" || Session["idRole"].ToString() == "2"))
+            {
+
+                ICollection<ProduitModel> res = Iadmin.AlerteStock();
+                return View(res);
+            }
+            else
+            {
+                return RedirectToAction("Connexion", "Home");
+            }
+        }
 
     }
 }

@@ -359,28 +359,32 @@ namespace GTM_Shop.DAO
         }
 
         
-        public Produit AlerteStock(Produit p)
-        {
-            throw new NotImplementedException();
-        }
-
-        
-        public void CadeauAnniversaire(Client c)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Panier AjouterPanier(Panier p)
+        public ICollection<ProduitModel> AlerteStock()
         {
             using (var bdd = new DAO.GTM_Shop_Context())
             {
-                p.EstVide = true;
-                bdd.Paniers.Add(p);
-                bdd.SaveChanges();
-                return p;
+                var req = from p in bdd.Produits
+                          where p.Stock<5
+                          join c in bdd.Catalogues
+                          on p.idCatalogue equals c.idCatalogue
+                          select new ProduitModel
+                          {
+                              idProduit = p.idProduit,
+                              NomProduit = p.NomProduit,
+                              Reference = p.Reference,
+                              Prix = p.Prix,
+                              PromotionProduit = p.PromotionProduit,
+                              Stock = p.Stock,
+                              Description = p.Description,
+                              MoyenneNote = p.MoyenneNote,
+                              Visuel = p.Visuel,
+                              NomCatalogue = c.NomCatalogue
+                          };
+                return req.ToList();
             }
         }
-        
+
+
 
         public void EnvoyerEmail(Client c, string type)
         {
@@ -974,6 +978,32 @@ namespace GTM_Shop.DAO
             }
         }
 
+
+        public ICollection<CommandeModel> ListerCommandeByIdClient(int id)
+        {
+            using (var bdd = new DAO.GTM_Shop_Context())
+            {
+                var req = from c in bdd.Clients
+                          where c.idUtilisateur == id
+                          join k in bdd.Commandes
+                          on c.idCommande equals k.idCommande
+                          join s in bdd.Statuts
+                          on k.idStatut equals s.idStatut
+                          orderby k.idCommande descending
+                          select new CommandeModel
+                          {
+                              idCommande = k.idCommande,
+                              Statut = s.Valeur,
+                              idFacture = k.idFacture,
+                              idBonDeLivraison = k.idBonDeLivraison,
+                              Commentaire = k.Commentaire
+                          };
+                return req.ToList();
+            }
+        }
+
+
+
         public Client DemandeSuppCompte(Client c)
         {
             using (var bdd = new DAO.GTM_Shop_Context())
@@ -983,6 +1013,23 @@ namespace GTM_Shop.DAO
                 bdd.Entry(c).State = EntityState.Modified;
                 bdd.SaveChanges();
                 return c;
+            }
+        }
+
+
+        public void CadeauAnniversaire(Client c)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Panier AjouterPanier(Panier p)
+        {
+            using (var bdd = new DAO.GTM_Shop_Context())
+            {
+                p.EstVide = true;
+                bdd.Paniers.Add(p);
+                bdd.SaveChanges();
+                return p;
             }
         }
     }

@@ -53,8 +53,23 @@
 
 </table>
 
+    @if (Totaux == 0)
+    {
+        <div class="Panier_vide">
+            <img src="~/Content/images/Icone_Panier.png" height="150px" class="Img_produit" /><br />
+            <strong>Votre panier est vide...</strong>
+        </div>
+    }
 
-<h4 id="Total_Panier">Total de la commande : <strong>@Convert.ToDouble(@Totaux) euros</strong></h4>
-<div class="boutonPayer">
-    @Html.ActionLink("Valider et Payer", "#", "Client", new { id = Convert.ToInt32(@Session["idPanier"]) }, new { @class = "btn btn-success" })<br /><br />
-</div>
+
+    @if (Totaux != 0)
+    {
+        <h4 id="Total_Panier">Total de la commande : <strong>@Convert.ToDouble(@Totaux) euros</strong></h4>
+    }
+
+    <div class="boutonPayer">
+        @if (Totaux != 0)
+        {
+            @Html.ActionLink("Valider et Payer", "#", "Client", new { id = Convert.ToInt32(@Session["idPanier"]) }, new { @class = "btn btn-success" })<br /><br />
+        }
+    </div>

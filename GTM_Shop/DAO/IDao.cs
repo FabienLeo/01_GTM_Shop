@@ -142,7 +142,7 @@ namespace GTM_Shop.DAO
 
         bool SupprimerCatalogue(int id);
 
-        Produit AlerteStock(Produit p);
+        ICollection<ProduitModel> AlerteStock();
 
         ICollection<ProduitModel> ListerProduit();
 
@@ -189,6 +189,6 @@ namespace GTM_Shop.DAO
 
         AdresseClient AjouterAdresseClient(AdresseClient adc);
 
-
+        ICollection<CommandeModel> ListerCommandeByIdClient(int id);
     }
 }

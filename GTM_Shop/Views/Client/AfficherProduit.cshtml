@@ -2,6 +2,8 @@
 @{
     Layout = "~/Views/Shared/_LayoutClient.cshtml";
     ViewBag.Title = "AfficherProduit";
+    int NbAvis = 0;
+    bool AfficherBoutonAvis = true;
 }
 <br /><br /><br />
 
@@ -38,7 +40,18 @@
     <strong>@Html.DisplayNameFor(model => model.Description) :</strong><br />
     @ViewBag.Description<br /><br />
 
-    @Html.ActionLink("Donner Avis", "AjouterAvis", "Avis", new { id = @ViewBag.idProduit }, new { @class = "btn btn-warning" })
+    @foreach (var p in Model)
+    {
+        if(Convert.ToInt32(Session["idUtilisateur"]) == p.idUtilisateur)
+        {
+            AfficherBoutonAvis = false;
+        }
+    }
+
+    @if (AfficherBoutonAvis)
+    {
+        @Html.ActionLink("Donner Avis", "AjouterAvis", "Avis", new { id = @ViewBag.idProduit }, new { @class = "btn btn-warning" })
+    }
 
 </div>
 
@@ -58,6 +71,7 @@
 
         @foreach (var p in Model)
             {
+            NbAvis++;
             <tr>
                 <th>@Html.DisplayFor(modelItem => p.Prenom)</th>
                 <th>@Html.DisplayFor(modelItem => p.NoteAvis)</th>
@@ -67,4 +81,12 @@
 
     </tbody>
 </table>
+
+@if (NbAvis == 0)
+{
+    <div class="formulaire">
+        <span>Ce produit ne posède pas d'avis, soyez le premier à en donner un ?</span>
+
+        </div>
+}
 

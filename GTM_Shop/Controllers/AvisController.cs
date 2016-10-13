@@ -48,8 +48,11 @@ namespace GTM_Shop.Controllers
                 }
                 else
                 {
-                    var p = Iclient.TrouverProduitById(Convert.ToInt32(Session["idProduit"]));
-                    return View("AjouterAvis", new { id = p.idProduit});
+                    Produit p = Iclient.TrouverProduitById(a.idProduit);
+                    Session["idProduit"] = p.idProduit;
+                    ViewBag.NomProduit = p.NomProduit;
+                    ViewBag.Visuel = p.Visuel;
+                    return View(a);
                 }
             }
             else

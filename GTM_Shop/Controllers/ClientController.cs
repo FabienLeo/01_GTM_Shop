@@ -368,16 +368,28 @@ namespace GTM_Shop.Controllers
         [HttpPost]
         public ActionResult ModifierLigneCommande(LigneCommande lc)
         {
+
             if (Session["idUtilisateur"] != null && Session["idRole"].ToString() == "3")
             {
                 if (ModelState.IsValid)
                 {
+                    if (lc.Quantite == 0)
+                    {
+                        return RedirectToAction("SupprimerLigneCommande", new { id = lc.idLigneCommande});
+                    }
+                    else
+                    {
                     Iclient.ModifierLigneCommande(lc);
                     return RedirectToAction("AfficherPanier");
+                    }
                 }
                 else
                 {
-                    return View(lc.idLigneCommande);
+                    var p = Iclient.TrouverProduitById(lc.idProduit);
+                    ViewBag.Visuel = p.Visuel;
+                    ViewBag.NomProduit = p.NomProduit;
+                    ViewBag.prix = Convert.ToDouble(p.Prix);
+                    return View(lc);
                 }
             }
             else
@@ -488,6 +500,7 @@ namespace GTM_Shop.Controllers
         {
             if (Session["idUtilisateur"] != null && Session["idRole"].ToString() == "3")
             {
+                
                 if (ModelState.IsValid)
                 {
                     Iclient.ModifierProfil(c);
@@ -526,11 +539,30 @@ namespace GTM_Shop.Controllers
             {
                 return RedirectToAction("Connexion", "Home");
             }
-}
+        }
+
+
+        public ActionResult ListerCommandeByIdClient(int id)
+        {
+            if (Session["idUtilisateur"] != null && Session["idRole"].ToString() == "3")
+            {
+
+                ICollection<CommandeModel> res = Iclient.ListerCommandeByIdClient(id);
+                
+                return View(res);
+            }
+            else
+            {
+                return RedirectToAction("Connexion", "Home");
+            }
+        }
+
+
 
         public ActionResult SuppressionDemandee()
         {
             return View();
         }
+
     }
 }
