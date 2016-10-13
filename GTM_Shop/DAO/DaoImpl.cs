@@ -380,17 +380,7 @@ namespace GTM_Shop.DAO
                 return p;
             }
         }
-
-        public bool DemandeSuppCompte(int idClient)
-        {
-            using (var bdd = new DAO.GTM_Shop_Context())
-            {
-                var c = bdd.Clients.Find(idClient);
-                c.Compte_A_Supprimer = true;
-                bdd.SaveChanges();
-                return true;
-            }
-        }
+        
 
         public void EnvoyerEmail(Client c, string type)
         {
@@ -984,7 +974,16 @@ namespace GTM_Shop.DAO
             }
         }
 
-
-
+        public Client DemandeSuppCompte(Client c)
+        {
+            using (var bdd = new DAO.GTM_Shop_Context())
+            {
+                c.Compte_A_Supprimer = true;
+                c.ConfirmationMotDePasse = c.MotDePasse;
+                bdd.Entry(c).State = EntityState.Modified;
+                bdd.SaveChanges();
+                return c;
+            }
+        }
     }
 }

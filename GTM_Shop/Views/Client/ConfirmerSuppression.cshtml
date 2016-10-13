@@ -1,0 +1,12 @@
+﻿@model GTM_Shop.Metier.Client
+@{
+    ViewBag.Title = "ConfirmerSuppression";
+}
+
+<h2>Etes-vous sûr de vouloir supprimer votre compte ?</h2>
+
+
+    <span>@Html.ActionLink("Oui", "SuppressionConfirme", new { idUtilisateur = Convert.ToInt32(Session["idUtilisateur"]) }, new { @class = "btn btn-default" })</span>
+    <span>@Html.ActionLink("Non", "AfficherProfil", new { idUtilisateur = Convert.ToInt32(Session["idUtilisateur"]) }, new { @class = "btn btn-warning" })</span>
+
+

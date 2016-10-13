@@ -64,8 +64,8 @@ namespace GTM_Shop.DAO
 
         ICollection<Client> ListerClientByNom(string nom);
 
-        bool DemandeSuppCompte(int idClient);
-
+        
+        Client DemandeSuppCompte(Client c);
         ProfilModel TrouverProfil(int id);
 
         Avis AjouterAvis(Avis a);

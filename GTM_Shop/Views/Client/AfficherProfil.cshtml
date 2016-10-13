@@ -21,6 +21,7 @@
     <span>@Html.DisplayNameFor(model => Model.Email) : @Html.DisplayFor(modelItem => Model.Email)</span><br />
     <span>@Html.DisplayNameFor(model => Model.PointFidelite) : @Html.DisplayFor(modelItem => Model.PointFidelite)</span><br /><br />
     <span>@Html.ActionLink("Adresse", "AfficherAdresse", new { idUtilisateur = Convert.ToInt32(Session["idUtilisateur"]) }, new { @class = "btn btn-default" })</span><sapn>@Html.ActionLink("Modifier", "ModifierProfil", new { id = Model.idUtilisateur }, new { @class = "btn btn-warning" })</sapn>
+    <span>@Html.ActionLink("Demande de suppression de compte", "ConfirmerSuppression", new { id = Model.idUtilisateur }, new { @class = "btn btn-warning" })</span>
     <br /><br />
 
 </div>
