@@ -500,6 +500,7 @@ namespace GTM_Shop.Controllers
         {
             if (Session["idUtilisateur"] != null && Session["idRole"].ToString() == "3")
             {
+                
                 if (ModelState.IsValid)
                 {
                     Iclient.ModifierProfil(c);
