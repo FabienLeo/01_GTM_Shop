@@ -357,6 +357,7 @@
     <Content Include="Views\Client\ModifierAdresse.cshtml" />
     <Content Include="Views\Client\ModifierProfil.cshtml" />
     <Content Include="Views\Adresse\CreerAdresse.cshtml" />
+    <Content Include="Views\Home\CompteInactif.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -4,7 +4,14 @@
     ViewBag.Title = "CompteInactif";
 }
 
-<h2>Compte Inactif !!!</h2>
+<br /><br /><br />
 
-<h4>Votre compte a été désactivé, Veuillez contacter l'administrateur du site pour le réactiver</h4>
+<div class="formulaire">
 
+    <h2>Compte Inactif</h2>
+
+    <span>Votre compte a été désactivé, Veuillez contacter l'administrateur du site pour le réactiver</span><br />
+
+    <span class="bouton">@Html.ActionLink("Contact", "Contact", "Home", new { @class = "btn btn-success" })</span>
+
+</div>
