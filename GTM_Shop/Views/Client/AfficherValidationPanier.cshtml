@@ -1,19 +1,12 @@
 ﻿@model IEnumerable<GTM_Shop.Models.CommandePanierModel>
-
 @{
+    ViewBag.Title = "AfficherValidationPanier";
     Layout = "~/Views/Shared/_LayoutClient.cshtml";
-    ViewBag.Title = "DetailPanier";
     decimal Totaux = 0;
 }
 
 <br /><br /><br />
-<h4>Voici Votre Panier</h4>
-
-
-
-
-
-
+<h2>Récapitulatif de la commande</h2>
 
 <table class="table table-striped">
     <thead>
@@ -45,31 +38,29 @@
                 <td>@Html.ActionLink("Modifier", "ModifierLigneCommande", "Client", new { id = c.idLigneCommande }, new { @class = "btn btn-warning" })</td>
                 <td>@Html.ActionLink("Supprimer", "SupprimerLigneCommande", "Client", new { id = c.idLigneCommande }, new { @class = "btn btn-danger" })</td>
             </tr>
-
         }
 
     </tbody>
 
 
 </table>
+ <br /><br />
 
-    @if (Totaux == 0)
-    {
-        <div class="Panier_vide">
-            <img src="~/Content/images/Icone_Panier.png" height="150px" class="Img_produit" /><br />
-            <strong>Votre panier est vide...</strong>
-        </div>
-    }
+<h2>Choix du Mode de Paiement</h2>
 
 
-    @if (Totaux != 0)
-    {
-        <h4 id="Total_Panier">Total de la commande : <strong>@Convert.ToDouble(@Totaux) euros</strong></h4>
-    }
 
-    <div class="boutonPayer">
-        @if (Totaux != 0)
-        {
-            @Html.ActionLink("Valider et Payer", "ConfirmationAdresse", "Client", new { idUtilisateur = Convert.ToInt32(@Session["idUtilisateur"]) }, new { @class = "btn btn-success" })<br /><br />
-        }
-    </div>
+  
+
+        <input type="radio"  value="cheque"></input>
+        <label for="cheque">Cheque</label></br>
+        <input type="radio"  value="virement"></input>
+        <label for="virement">Virement</label></br>
+        <input type="radio"  value="facture"></input>
+        <label for="facture">Facture</label></br>
+        <input type="radio" value="cb"></input>
+        <label for="CB">Carte Bancaire</label></br>
+
+  <br /><br />
+<span>@Html.ActionLink("Payer", "Paiement", "Client", new { @class = "btn btn-success" })</span>
+   

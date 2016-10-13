@@ -573,5 +573,53 @@ namespace GTM_Shop.Controllers
             return View();
         }
 
+        public ActionResult ConfirmationAdresse(int idUtilisateur)
+        {
+            if (Session["idUtilisateur"] != null && Session["idRole"].ToString() == "3")
+            {
+                var res = Iclient.TrouverAdresseById(idUtilisateur);
+                return View(res);
+
+            }
+            else
+            {
+                return RedirectToAction("Connexion", "Home");
+            }
+        }
+
+
+        public ActionResult Paiement()
+        {
+            if (Session["idUtilisateur"] != null && Session["idRole"].ToString() == "3")
+            {
+
+                return View();
+
+            }
+            else
+            {
+                return RedirectToAction("Connexion", "Home");
+            }
+        }
+
+        public ActionResult AfficherValidationPanier(int id)
+        {
+            if (Session["idUtilisateur"] != null && Session["idRole"].ToString() == "3")
+            {
+                var cli = Iclient.TrouverClientById(id);
+                var a = Iclient.TrouverAdresseById(cli.idUtilisateur);
+                var c = Iclient.TrouverCommandeById(cli.idCommande);
+                ViewBag.idCommande = c.idCommande;
+                //ViewBag.idAdresse = c.idAdresse;
+
+                ICollection<CommandePanierModel> res = Iclient.ListerCommandeByPanier(cli.idCommande);
+                return View(res);
+            }
+            else
+            {
+                return RedirectToAction("Connexion", "Home");
+            }
+        }
+
     }
 }
