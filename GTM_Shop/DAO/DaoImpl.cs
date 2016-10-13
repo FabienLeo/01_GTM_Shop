@@ -359,12 +359,31 @@ namespace GTM_Shop.DAO
         }
 
         
-        public Produit AlerteStock(Produit p)
+        public ICollection<ProduitModel> AlerteStock()
         {
-            throw new NotImplementedException();
+            using (var bdd = new DAO.GTM_Shop_Context())
+            {
+                var req = from p in bdd.Produits
+                          where p.Stock<5
+                          join c in bdd.Catalogues
+                          on p.idCatalogue equals c.idCatalogue
+                          select new ProduitModel
+                          {
+                              idProduit = p.idProduit,
+                              NomProduit = p.NomProduit,
+                              Reference = p.Reference,
+                              Prix = p.Prix,
+                              PromotionProduit = p.PromotionProduit,
+                              Stock = p.Stock,
+                              Description = p.Description,
+                              MoyenneNote = p.MoyenneNote,
+                              Visuel = p.Visuel,
+                              NomCatalogue = c.NomCatalogue
+                          };
+                return req.ToList();
+            }
         }
 
-        
         public void CadeauAnniversaire(Client c)
         {
             throw new NotImplementedException();

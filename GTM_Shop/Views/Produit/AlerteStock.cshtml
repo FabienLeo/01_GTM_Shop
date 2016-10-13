@@ -1,0 +1,46 @@
+﻿@model IEnumerable<GTM_Shop.Models.ProduitModel>
+@{
+    Layout = "~/Views/Shared/_LayoutSuperAdmin.cshtml";
+    ViewBag.Title = "AlerteStock";
+}
+
+<h4>Alerte Stock Faible</h4>
+
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.Visuel)</th>
+            <th>@Html.DisplayNameFor(model => model.NomProduit)</th>
+            <th>@Html.DisplayNameFor(model => model.Reference)</th>
+            <th>@Html.DisplayNameFor(model => model.Prix)</th>
+            <th>@Html.DisplayNameFor(model => model.PromotionProduit)</th>
+            <th>@Html.DisplayNameFor(model => model.Stock)</th>
+            <th>@Html.DisplayNameFor(model => model.NomCatalogue)</th>
+            <th>@Html.DisplayNameFor(model => model.Description)</th>
+            <th>@Html.DisplayNameFor(model => model.MoyenneNote)</th>
+                          
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var p in Model)
+        {
+            <tr>
+                <th><img src="../Content/images/@Html.DisplayFor(modelItem => p.Visuel)" height="80px" class="Img_produit" /></th>
+                <th>@Html.DisplayFor(modelItem => p.NomProduit)</th>
+                <th>@Html.DisplayFor(modelItem => p.Reference)</th>
+                <th>@Html.DisplayFor(modelItem => p.Prix)</th>
+                <th>@Html.DisplayFor(modelItem => p.PromotionProduit)</th>
+                <th>@Html.DisplayFor(modelItem => p.Stock)</th>
+                <th>@Html.DisplayFor(modelItem => p.NomCatalogue)</th>
+                <th>@Html.DisplayFor(modelItem => p.Description)</th>
+                <th>@Html.DisplayFor(modelItem => p.MoyenneNote)</th>
+                <td>@Html.ActionLink("Modifier", "ModifierProduit", new { id = p.idProduit }, new { @class = "btn btn-warning" })</td>
+                <td>@Html.ActionLink("Supprimer", "SupprimerProduit", new { id = p.idProduit }, new { @class = "btn btn-danger" })</td>
+            </tr>
+        }
+
+    </tbody>
+
+
+</table>
