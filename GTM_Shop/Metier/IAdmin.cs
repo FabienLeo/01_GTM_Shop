@@ -147,5 +147,6 @@ namespace GTM_Shop.Metier
 
         ICollection<LigneCommande> ListerLigneCommande();
 
+        bool EmailExisteDejaByClient(Client c);
     }
 }

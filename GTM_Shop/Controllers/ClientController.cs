@@ -202,6 +202,14 @@ namespace GTM_Shop.Controllers
         {
             if (ModelState.IsValid)
             {
+                if (Iadmin.EmailExisteDejaByClient(c))
+                {
+                    ModelState.AddModelError("", "L'adresse email existe déjà...");
+                    return View(c);
+                }
+                else
+                { 
+
                 var com = Iclient.AjouterCommande(new Commande());
                 c.Actif = true;
                 c.Compte_A_Supprimer = false;
@@ -221,6 +229,7 @@ namespace GTM_Shop.Controllers
                 Iclient.AjouterClient(c);
                 Session["UtilisateurTemps"] = c.idUtilisateur;
                 return RedirectToAction("CreerAdresse", "Adresse");
+                }
             }
             else
             {

@@ -23,7 +23,25 @@ namespace GTM_Shop.DAO
             }
         }
 
+        public bool EmailExisteDejaByClient(Client c)
+        {
+            using (var bdd = new DAO.GTM_Shop_Context())
+            {
+                var req = from u in bdd.Clients
+                          where u.Email == c.Email
+                          select u;
 
+                if (req != null)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+             
+            }
+        }
 
         public Administrateur AjouterAdmin(Administrateur a)
         {

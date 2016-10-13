@@ -340,5 +340,10 @@ namespace GTM_Shop.Metier
             return Idao.ListerProduitByMot(MotRecherche);
         }
 
+        public bool EmailExisteDejaByClient(Client c)
+        {
+            return Idao.EmailExisteDejaByClient(c);
+        }
+
     }
 }

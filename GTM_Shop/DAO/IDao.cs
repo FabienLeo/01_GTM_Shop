@@ -189,6 +189,7 @@ namespace GTM_Shop.DAO
 
         AdresseClient AjouterAdresseClient(AdresseClient adc);
 
+        bool EmailExisteDejaByClient(Client c);
 
     }
 }
