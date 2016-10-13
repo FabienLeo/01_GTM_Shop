@@ -402,32 +402,7 @@ namespace GTM_Shop.DAO
             }
         }
 
-        public void CadeauAnniversaire(Client c)
-        {
-            throw new NotImplementedException();
-        }
 
-        public Panier AjouterPanier(Panier p)
-        {
-            using (var bdd = new DAO.GTM_Shop_Context())
-            {
-                p.EstVide = true;
-                bdd.Paniers.Add(p);
-                bdd.SaveChanges();
-                return p;
-            }
-        }
-
-        public bool DemandeSuppCompte(int idClient)
-        {
-            using (var bdd = new DAO.GTM_Shop_Context())
-            {
-                var c = bdd.Clients.Find(idClient);
-                c.Compte_A_Supprimer = true;
-                bdd.SaveChanges();
-                return true;
-            }
-        }
 
         public void EnvoyerEmail(Client c, string type)
         {
@@ -1022,6 +997,58 @@ namespace GTM_Shop.DAO
         }
 
 
+        public ICollection<CommandeModel> ListerCommandeByIdClient(int id)
+        {
+            using (var bdd = new DAO.GTM_Shop_Context())
+            {
+                var req = from c in bdd.Clients
+                          where c.idUtilisateur == id
+                          join k in bdd.Commandes
+                          on c.idCommande equals k.idCommande
+                          join s in bdd.Statuts
+                          on k.idStatut equals s.idStatut
+                          orderby k.idCommande descending
+                          select new CommandeModel
+                          {
+                              idCommande = k.idCommande,
+                              Statut = s.Valeur,
+                              idFacture = k.idFacture,
+                              idBonDeLivraison = k.idBonDeLivraison,
+                              Commentaire = k.Commentaire
+                          };
+                return req.ToList();
+            }
+        }
 
+
+
+        public Client DemandeSuppCompte(Client c)
+        {
+            using (var bdd = new DAO.GTM_Shop_Context())
+            {
+                c.Compte_A_Supprimer = true;
+                c.ConfirmationMotDePasse = c.MotDePasse;
+                bdd.Entry(c).State = EntityState.Modified;
+                bdd.SaveChanges();
+                return c;
+            }
+        }
+
+
+        public void CadeauAnniversaire(Client c)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Panier AjouterPanier(Panier p)
+        {
+            using (var bdd = new DAO.GTM_Shop_Context())
+            {
+                p.EstVide = true;
+                bdd.Paniers.Add(p);
+                bdd.SaveChanges();
+                return p;
+            }
+        }
     }
 }

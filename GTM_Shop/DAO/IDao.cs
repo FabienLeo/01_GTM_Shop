@@ -64,8 +64,8 @@ namespace GTM_Shop.DAO
 
         ICollection<Client> ListerClientByNom(string nom);
 
-        bool DemandeSuppCompte(int idClient);
 
+        bool DemandeSuppCompte(int idClient);
         ProfilModel TrouverProfil(int id);
 
         Avis AjouterAvis(Avis a);
@@ -189,7 +189,11 @@ namespace GTM_Shop.DAO
 
         AdresseClient AjouterAdresseClient(AdresseClient adc);
 
+
         bool EmailExisteDejaByClient(Client c);
+
+
+        ICollection<CommandeModel> ListerCommandeByIdClient(int id);
 
     }
 }

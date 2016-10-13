@@ -54,7 +54,13 @@ namespace GTM_Shop.Controllers
                 }
                 else if (Session["idRole"].ToString() == "3")
                 {
+                    // if (u.Actif == true)
                     return RedirectToAction("IndexClient", "Client");
+                    // else
+                    // Session["idUtilisateur"] = null;
+                    // Session["Prenom"] = null;
+                    // Session["idRole"] = null;
+                    // return RedirectToAction("CompteInactif", "Home");
                 }
                 else
                 {

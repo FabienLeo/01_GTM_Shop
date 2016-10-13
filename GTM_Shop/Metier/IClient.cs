@@ -36,8 +36,8 @@ namespace GTM_Shop.Metier
         Client TrouverClientById(int id);
 
         ICollection<Client> ListerClientByNom(string nom);
-
-        bool DemandeSuppCompte(int idClient);
+        
+        Client DemandeSuppCompte(Client c);
 
         ProfilModel TrouverProfil(int id);
 
@@ -141,6 +141,8 @@ namespace GTM_Shop.Metier
         Adresse AjouterAdresse(Adresse a);
 
         AdresseClient AjouterAdresseClient(AdresseClient adc);
+
+        ICollection<CommandeModel> ListerCommandeByIdClient(int id);
 
     }
 }

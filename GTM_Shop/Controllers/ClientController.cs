@@ -526,7 +526,52 @@ namespace GTM_Shop.Controllers
             }
 
         }
+        
+        public ActionResult ConfirmerSuppression()
+        {
+            return View();
+        }
+        
 
+       public ActionResult SuppressionConfirme(int idUtilisateur)
+       {
+            if (Session["idUtilisateur"] != null && Session["idRole"].ToString() == "3")
+            {
+                var c = Iclient.TrouverClientById(idUtilisateur);
+                Iclient.DemandeSuppCompte(c);
+                Session["idUtilisateur"] = null;
+                Session["Prenom"] = null;
+                Session["idRole"] = null;
+                return RedirectToAction("SuppressionDemandee");
+            }
+            else
+            {
+                return RedirectToAction("Connexion", "Home");
+            }
+        }
+
+
+        public ActionResult ListerCommandeByIdClient(int id)
+        {
+            if (Session["idUtilisateur"] != null && Session["idRole"].ToString() == "3")
+            {
+
+                ICollection<CommandeModel> res = Iclient.ListerCommandeByIdClient(id);
+                
+                return View(res);
+            }
+            else
+            {
+                return RedirectToAction("Connexion", "Home");
+            }
+        }
+
+
+
+        public ActionResult SuppressionDemandee()
+        {
+            return View();
+        }
 
     }
 }
