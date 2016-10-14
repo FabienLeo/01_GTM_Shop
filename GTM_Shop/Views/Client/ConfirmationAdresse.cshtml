@@ -4,14 +4,22 @@
     Layout = "~/Views/Shared/_LayoutClient.cshtml";
 }
 <br /><br />
-<h2>Confirmation de votre adresse de livraison</h2>
 
-<span>@Html.DisplayNameFor(model => Model.RueLigne01) : @Html.DisplayFor(modelItem => Model.RueLigne01)</span><br />
-<span>@Html.DisplayNameFor(model => Model.RueLigne02) : @Html.DisplayFor(modelItem => Model.RueLigne02)</span><br />
-<span>@Html.DisplayNameFor(model => Model.CodePostale) : @Html.DisplayFor(modelItem => Model.CodePostale)</span><br />
-<span>@Html.DisplayNameFor(model => Model.Ville) : @Html.DisplayFor(modelItem => Model.Ville)</span><br />
-<span>@Html.DisplayNameFor(model => Model.Pays) : @Html.DisplayFor(modelItem => Model.Pays)</span><br /><br />
+<div class="AffichageAdresse">
+
+    <img src="../Content/images/icone_livraison.png" height="150px" class="Img_produit" />
+
+    <h4>Confirmation de votre adresse de livraison</h4>
+
+    <strong>
+        <span> @Html.DisplayFor(modelItem => Model.RueLigne01)</span><br />
+        <span>@Html.DisplayFor(modelItem => Model.RueLigne02)</span><br />
+        <span> @Html.DisplayFor(modelItem => Model.CodePostale) @Html.DisplayFor(modelItem => Model.Ville)</span><br />
+        <span> @Html.DisplayFor(modelItem => Model.Pays)</span><br /><br />
+    </strong>
+
+    <span>@Html.ActionLink("Modifier", "ModifierAdresse", "Client", new { id = Convert.ToInt32(@Session["idUtilisateur"]) }, new { @class = "btn btn-default" })</span>
+    <span>@Html.ActionLink("Valider", "AfficherValidationPanier", new { id = Convert.ToInt32(@Session["idUtilisateur"]) }, new { @class = "btn btn-success" })</span>
 
 
-<span>@Html.ActionLink("Modifier", "ModifierAdresse", "Client", new { id = Convert.ToInt32(@Session["idUtilisateur"]) }, new { @class = "btn btn-default" })</span>
-<span>@Html.ActionLink("Valider", "AfficherValidationPanier", new { id = Convert.ToInt32(@Session["idUtilisateur"]) }, new { @class = "btn btn-success" })</span>
+</div>

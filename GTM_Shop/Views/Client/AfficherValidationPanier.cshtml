@@ -6,7 +6,35 @@
 }
 
 <br /><br /><br />
-<h2>Récapitulatif de la commande</h2>
+
+<h3>Informations personnelles</h3><br />
+
+<div class="AffichageAdresse">
+    <strong>
+        <span>
+            @ViewBag.Nom
+    </span>
+    <span>
+        @ViewBag.Prenom
+    </span>
+</strong><br />
+    <span>
+        @ViewBag.Adresse01
+    </span><br />
+    <span>
+        @ViewBag.Adresse02
+    </span><br />
+    <span>
+        @ViewBag.Adresse03
+    </span>
+    <span>
+        @ViewBag.Adresse04
+    </span><br />
+    <span>@ViewBag.Adresse05
+    </span><br />
+</div>
+
+<h3>Récapitulatif de la commande</h3><br />
 
 <table class="table table-striped">
     <thead>
@@ -18,8 +46,6 @@
             <th>@Html.DisplayNameFor(model => model.Quantite)</th>
             <th>@Html.DisplayNameFor(model => model.PromotionProduit)</th>
             <th>Total Ligne</th>
-            <th></th>
-            <th></th>
         </tr>
     </thead>
     <tbody>
@@ -35,8 +61,6 @@
                 <td>@Html.DisplayFor(modelItem => c.Quantite)</td>
                 <td>@Html.DisplayFor(modelItem => c.PromotionProduit)</td>
                 <td>@Html.DisplayFor(modelItem => c.TotalLigneCommande)</td>
-                <td>@Html.ActionLink("Modifier", "ModifierLigneCommande", "Client", new { id = c.idLigneCommande }, new { @class = "btn btn-warning" })</td>
-                <td>@Html.ActionLink("Supprimer", "SupprimerLigneCommande", "Client", new { id = c.idLigneCommande }, new { @class = "btn btn-danger" })</td>
             </tr>
         }
 
@@ -44,23 +68,62 @@
 
 
 </table>
+
+@if (Totaux != 0)
+{
+    <h4 id="Total_Panier">Total de la commande : <strong>@Convert.ToDouble(@Totaux) euros</strong></h4>
+}
  <br /><br />
 
-<h2>Choix du Mode de Paiement</h2>
+<h3>Choix du Mode de Paiement</h3>
+<br /><br />
+
+<div class="MoyenPaiementCont">
+
+@using (Html.BeginForm("#", "#", FormMethod.Post))
+{
+        <div class="MoyenPaiement">
+            <span>@Html.RadioButton("MoyenPaiement", new { id = 1 }) Carte bancaire </span><br /><br />
+            <span>@Html.TextBox("Numero de votre Carte Bancaire","Numero Carte Bancaire", new { @class = "form-control left-rounded right-rounded" })</span>
+            <span>@Html.TextBox("date Expiration", "Date Validité", new { @class = "form-control left-rounded right-rounded" })</span><br />
+            <span>@Html.ActionLink("Payer", "Paiement", "Client", new { @class = "btn btn-success" })</span>
+        </div>
+        <div class="MoyenPaiement">
+            <span>@Html.RadioButton("MoyenPaiement", new { id = 2 }) Cheque </span><br /><br />
+            <span>Adresse d'envoie du chèque :</span><br />
+            <span>GT'M Shop</span><br />
+            <span>13, avenue de la gare</span><br />
+            <span>78180 Montigny le Bretonneux</span><br /><br />
+            <span>@Html.ActionLink("Payer", "Paiement", "Client", new { @class = "btn btn-success" })</span>
+        </div>
+        <div class="MoyenPaiement">
+            <span>@Html.RadioButton("MoyenPaiement", new { id = 3 }) Virement </span><br /><br />
+            <span>Information RIB GT'M Shop :</span><br />
+            <span>IBAN : FR763 00010 07941 234567 890 18</span><br />
+            <span>Code Banque : 30001</span><br />
+            <span>Code guichet : 00745</span><br /><br />
+            <span>@Html.ActionLink("Payer", "Paiement", "Client", new { @class = "btn btn-success" })</span>
+        </div>
+        <div class="MoyenPaiement">
+            <span>@Html.RadioButton("MoyenPaiement", new { id = 4 }) Facture </span><br /><br />
+            <span>Une factrure sera envoyé à :</span><br />
+            <span>GT'M Shop</span><br />
+            <span>13, avenue de la gare</span><br />
+            <span>78180 Montigny le Bretonneux</span><br /><br />
+            <span>@Html.ActionLink("Payer", "Paiement", "Client", new { @class = "btn btn-success" })</span>
+        </div>
+
+            <br /><br />
 
 
+}
+
+</div>
+
+<div class="AffichageBoutonValider">
+    <br /><br />
 
   
 
-        <input type="radio"  value="cheque"></input>
-        <label for="cheque">Cheque</label></br>
-        <input type="radio"  value="virement"></input>
-        <label for="virement">Virement</label></br>
-        <input type="radio"  value="facture"></input>
-        <label for="facture">Facture</label></br>
-        <input type="radio" value="cb"></input>
-        <label for="CB">Carte Bancaire</label></br>
-
-  <br /><br />
-<span>@Html.ActionLink("Payer", "Paiement", "Client", new { @class = "btn btn-success" })</span>
-   
+      
+</div>

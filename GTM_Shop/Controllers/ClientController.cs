@@ -458,7 +458,7 @@ namespace GTM_Shop.Controllers
         {
             if (Session["idUtilisateur"] != null && Session["idRole"].ToString() == "3")
             {
-                Adresse a = Iclient.TrouverAdresse(id);
+                Adresse a = Iclient.TrouverAdresseById(id);
                 return View(a);
             }
             else
@@ -609,8 +609,15 @@ namespace GTM_Shop.Controllers
                 var cli = Iclient.TrouverClientById(id);
                 var a = Iclient.TrouverAdresseById(cli.idUtilisateur);
                 var c = Iclient.TrouverCommandeById(cli.idCommande);
-                ViewBag.idCommande = c.idCommande;
-                //ViewBag.idAdresse = c.idAdresse;
+                ViewBag.Nom = cli.Nom;
+                ViewBag.Prenom = cli.Prenom;
+                ViewBag.Adresse01 = a.RueLigne01;
+                ViewBag.Adresse02 = a.RueLigne02;
+                ViewBag.Adresse03 = a.CodePostale;
+                ViewBag.Adresse04 = a.Ville;
+                ViewBag.Adresse05 = a.Pays;
+
+
 
                 ICollection<CommandePanierModel> res = Iclient.ListerCommandeByPanier(cli.idCommande);
                 return View(res);

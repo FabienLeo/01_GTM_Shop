@@ -206,6 +206,38 @@ text-align:center;
     margin-right:10px;
 }
 
+.AffichageAdresse{
+        width:30%;
+    margin:auto;
+    text-align:center;
+}
+
+
+.MoyenPaiementCont{
+    width:100%;
+    margin:auto;
+    padding-bottom:50px;
+}
+
+.MoyenPaiement{
+    width:25%;
+    height:25%;
+    margin:auto;
+     
+    float:left;
+}
+
+.AffichageBoutonValider{
+    width:30%;
+    height:10%;
+    margin:auto;
+    margin-top:50px;
+    margin-bottom:50px;
+    text-align:center;
+
+}
+
+
 #Block_Image_404{
     width:45%;
 margin:auto;
@@ -537,6 +569,38 @@ html, body{
 .profil .btn-default:first-child {
     margin-right:10px;
 }
+
+.AffichageAdresse{
+        width:30%;
+    margin:auto;
+    text-align:center;
+}
+
+
+.MoyenPaiementCont{
+    width:100%;
+    margin:auto;
+    padding-bottom:50px;
+}
+
+.MoyenPaiement{
+    width:25%;
+    height:25%;
+    margin:auto;
+     
+    float:left;
+}
+
+.AffichageBoutonValider{
+    width:30%;
+    height:10%;
+    margin:auto;
+    margin-top:50px;
+    margin-bottom:50px;
+    text-align:center;
+
+}
+
 
 .formulaireClient{
     width:40%;
@@ -960,6 +1024,37 @@ html, body{
 
 .profil .btn-default:first-child {
     margin-right:10px;
+}
+
+.AffichageAdresse{
+        width:30%;
+    margin:auto;
+    text-align:center;
+}
+
+
+.MoyenPaiementCont{
+    width:100%;
+    margin:auto;
+    padding-bottom:50px;
+}
+
+.MoyenPaiement{
+    width:25%;
+    height:25%;
+    margin:auto;
+     
+    float:left;
+}
+
+.AffichageBoutonValider{
+    width:30%;
+    height:10%;
+    margin:auto;
+    margin-top:50px;
+    margin-bottom:50px;
+    text-align:center;
+
 }
 
 .formulaireClient{
