@@ -89,15 +89,12 @@
 
         </div>
     </div>
-    <div id="Block_produitsConsultes">
-        produit consulte a faire...
-    </div>
     <div id="Block_footer">
         <div id="Block_iconesFooter">
             <div id="Icone_footer">
-                <img class="Icone_f" src="~/Content/images/Icone_SAV.png" alt="SAV" title="SAV" />
-                <img class="Icone_f" src="~/Content/images/Icone_Livraison.png" alt="Livraison" title="Conditions Livraison" />
-                <img class="Icone_f" src="~/Content/images/Icone_Paiement.png" alt="Paiement" title="Moyen Paiement" />
+                <a href="@Url.Action("SAV", "Client")"><img class="Icone_f" src="~/Content/images/Icone_SAV.png" alt="SAV" title="SAV" /></a>
+                <a href="@Url.Action("Livraison", "Client")"><img class="Icone_f" src="~/Content/images/Icone_Livraison.png" alt="Livraison" title="Conditions Livraison" /></a>
+                <a href="@Url.Action("Paiement_infos", "Client")"><img class="Icone_f" src="~/Content/images/Icone_Paiement.png" alt="Paiement" title="Moyen Paiement" /></a>
             </div>
         </div>
 
@@ -106,11 +103,11 @@
             <div id="Block_menu_footer">
                 <p class="Titre_footer">S'informer et acheter</p>
                 <ul class="Liste_footer">
-                    <li class="Ligne_menu_footer">@Html.ActionLink("Informatique", "#", "Home", "", new { @class = "Lien_menu_footer Ligne_menu_footer" })</li>
-                    <li class="Ligne_menu_footer">@Html.ActionLink("Image", "#", "Home", "", new { @class = "Lien_menu_footer Ligne_menu_footer" })</li>
-                    <li class="Ligne_menu_footer">@Html.ActionLink("Son", "#", "Home", "", new { @class = "Lien_menu_footer Ligne_menu_footer" })</li>
-                    <li class="Ligne_menu_footer">@Html.ActionLink("Téléphonie", "#", "Home", "", new { @class = "Lien_menu_footer Ligne_menu_footer" })</li>
-                    <li class="Ligne_menu_footer">@Html.ActionLink("Promotion", "#", "Home", "", new { @class = "Lien_menu_footer Ligne_menu_footer" })</li>
+                    <li class="Ligne_menu_footer">@Html.ActionLink("Informatique", "ListerInformatique", "Home", new { idCatalogue = 1 }, new { @class = "Lien_menu_footer Ligne_menu_footer" })</li>
+                    <li class="Ligne_menu_footer">@Html.ActionLink("Image", "ListerImage", "Home", new { idCatalogue = 2 }, new { @class = "Lien_menu_footer Ligne_menu_footer" })</li>
+                    <li class="Ligne_menu_footer">@Html.ActionLink("Son", "ListerSon", "Home", new { idCatalogue = 6 }, new { @class = "Lien_menu_footer Ligne_menu_footer" })</li>
+                    <li class="Ligne_menu_footer">@Html.ActionLink("Téléphonie", "ListerTelephonie", "Home", new { idCatalogue = 7 }, new { @class = "Lien_menu_footer Ligne_menu_footer" })</li>
+                    <li class="Ligne_menu_footer">@Html.ActionLink("Promotion", "ListerPromotion", "Home", new { idCatalogue = 0 }, new { @class = "Lien_menu_footer Ligne_menu_footer" })</li>
                 </ul>
             </div>
 
@@ -149,7 +146,10 @@
                 </ul>
             </div>
             <div>
-                <p id="Lien_Copyright_Public">&copy; @DateTime.Now.Year - <a class="Lien_menu_footer Ligne_menu_footer" href="mailto:fabien.gaudron@gmail.com">Fabien GAUDRON</a></p>
+                <p id="Lien_Copyright_Public">
+                    &copy; @DateTime.Now.Year - <a class="Lien_menu_footer Ligne_menu_footer" href="mailto:fabien.gaudron@gmail.com">Fabien GAUDRON </a><a class="Lien_menu_footer Ligne_menu_footer" href="mailto:Mathilde.KonnKonn@gmail.com"> Mathilde KONN KONN </a>
+                    <a class="Lien_menu_footer Ligne_menu_footer" href="mailto:alexandre.Pichavant@gmail.com"> Alexandre PICHAVANT </a><a class="Lien_menu_footer Ligne_menu_footer" href="mailto:Chapelle.adrien9@gmail.com"> Adrien CHAPELLE</a>
+                </p>
             </div>
         </div>
     </div>

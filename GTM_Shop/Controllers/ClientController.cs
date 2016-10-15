@@ -675,5 +675,48 @@ namespace GTM_Shop.Controllers
             }
         }
 
+        // Envoi page SAV
+        public ActionResult SAV()
+        {
+            if (Session["idUtilisateur"] != null && Session["idRole"].ToString() == "3")
+            {
+
+                return View();
+
+            }
+            else
+            {
+                return RedirectToAction("Connexion", "Home");
+            }
+        }
+        // Envoi page Livraison
+        public ActionResult Livraison()
+        {
+            if (Session["idUtilisateur"] != null && Session["idRole"].ToString() == "3")
+            {
+
+                return View();
+
+            }
+            else
+            {
+                return RedirectToAction("Connexion", "Home");
+            }
+        }
+        // Envoi page Paiement
+        public ActionResult Paiement_infos()
+        {
+            if (Session["idUtilisateur"] != null && Session["idRole"].ToString() == "3")
+            {
+
+                return View();
+
+            }
+            else
+            {
+                return RedirectToAction("Connexion", "Home");
+            }
+        }
+
     }
 }

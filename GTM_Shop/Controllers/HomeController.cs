@@ -163,5 +163,21 @@ namespace GTM_Shop.Controllers
             }
         }
 
+        // Envoi page SAV
+        public ActionResult SAV()
+        {
+            return View();
+        }
+        // Envoi page Livraison
+        public ActionResult Livraison()
+        {
+            return View();
+        }
+        // Envoi page Paiement
+        public ActionResult Paiement_infos()
+        {
+            return View();
+        }
+
     }
 }
