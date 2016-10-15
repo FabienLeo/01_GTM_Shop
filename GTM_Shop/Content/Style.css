@@ -1007,8 +1007,6 @@ html, body{
 #Block_corps{
 	width:90%;
 	height:auto;
-    min-height:85%;
-    max-height:400px;
 	margin-left:5%;
 	margin-right:5%;
 }
