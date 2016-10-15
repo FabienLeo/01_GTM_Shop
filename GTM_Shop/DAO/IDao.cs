@@ -202,6 +202,7 @@ namespace GTM_Shop.DAO
 
         Client DesactiverCompte(Client c);
 
+        Client TrouverClientByIdCommande(int idCommande);
 
     }
 }

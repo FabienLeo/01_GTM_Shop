@@ -19,6 +19,7 @@
             <th>@Html.DisplayNameFor(model => model.idBonDeLivraison)</th>
             <th>@Html.DisplayNameFor(model => model.Commentaire)</th>
             <th></th>
+            <th></th>
             <th>
                 <form role="search" name="searchform" method="post">
                     <div class="input-group">
@@ -60,8 +61,9 @@
                 <td>@Html.DisplayFor(modelItem => c.idFacture)</td>
                 <td>@Html.DisplayFor(modelItem => c.idBonDeLivraison)</td>
                 <td>@Html.DisplayFor(modelItem => c.Commentaire)</td>
-                <td>@Html.ActionLink("Detail", "DetailCommande", "Commande", new { id = c.idCommande }, new { @class = "btn btn-success" })</td>
                 <td>@Html.ActionLink("Modifier", "ModifierCommande", "Commande", new { id = c.idCommande }, new { @class = "btn btn-warning" })</td>
+                <td>@Html.ActionLink("Detail", "DetailCommande", "Commande", new { id = c.idCommande }, new { @class = "btn btn-success" })</td>
+                <td>@Html.ActionLink("Imprimer Facture ( pdf )", "PrintInvoice", "Commande", new { id = c.idCommande }, new { @class = "btn btn-default" })</td>
             </tr>
         }
 

@@ -1089,5 +1089,16 @@ namespace GTM_Shop.DAO
                 return c;
             }
         }
+
+        public Client TrouverClientByIdCommande(int idCommande)
+        {
+            using (var bdd = new DAO.GTM_Shop_Context())
+            {
+                var req = from c in bdd.Clients
+                          where c.idCommande == idCommande
+                          select c;
+                return req.FirstOrDefault();
+            }
+        }
     }
 }

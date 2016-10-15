@@ -39,12 +39,13 @@
                     <ul class="Liste_menu">
                         <li class="Ligne_menu_admin">@Html.ActionLink("Administrateur", "ListerAdministrateur", "Administrateur", "", new { @class= "Lien_menu"})</li>
                         <li class="Ligne_menu_admin">@Html.ActionLink("Role", "ListerRole", "Role", "", new { @class = "Lien_menu" })</li>
+                        <li class="Ligne_menu_admin">@Html.ActionLink("Commande", "IndexAdmin", "Administrateur", "", new { @class = "Lien_menu" })</li>
                         <li class="Ligne_menu_admin">@Html.ActionLink("Catalogue", "ListerCatalogue", "Catalogue", "", new { @class = "Lien_menu" })</li>
                         <li class="Ligne_menu_admin">@Html.ActionLink("Produit", "ListerProduit", "Produit", "", new { @class = "Lien_menu" })</li>
                         <li class="Ligne_menu_admin">@Html.ActionLink("Client", "ListerClient", "Client","", new { @class = "Lien_menu" })</li>
                         <li class="Ligne_menu_admin">@Html.ActionLink("Abonnement", "ListerAbonnement", "Abonnement", "", new { @class = "Lien_menu" })</li>
-                        <li class="Ligne_menu_admin">@Html.ActionLink("Facture", "ListerFacture", "Facture", "", new { @class = "Lien_menu" })</li>
-                        <li class="Ligne_menu_admin">@Html.ActionLink("Bon De Livraison", "ListerBonDeLivraison", "BonDeLivraison", "", new { @class = "Lien_menu" })</li>
+                        @*<li class="Ligne_menu_admin">@Html.ActionLink("Facture", "ListerFacture", "Facture", "", new { @class = "Lien_menu" })</li>
+                        <li class="Ligne_menu_admin">@Html.ActionLink("Bon De Livraison", "ListerBonDeLivraison", "BonDeLivraison", "", new { @class = "Lien_menu" })</li>*@
                         <li class="Ligne_menu_admin">@Html.ActionLink("Alerte Stock", "AlerteStock", "Produit", "", new { @class = "Lien_menu" })</li>
                         <li class="Ligne_menu_admin">@Html.ActionLink("Demandes de désactivation", "DesactiverClient", "Client", "", new { @class = "Lien_menu" })</li>
                     </ul>
@@ -58,12 +59,13 @@
                             <ul class="dropdown-menu">
                                 <li>@Html.ActionLink("Administrateur", "ListerAdministrateur", "Administrateur")</li>
                                 <li>@Html.ActionLink("Role", "ListerRole", "Role")</li>
+                                <li>@Html.ActionLink("Commande", "IndexAdmin", "Administrateur", "", new { @class = "Lien_menu" })</li>
                                 <li>@Html.ActionLink("Catalogue", "ListerCatalogue", "Catalogue")</li>
                                 <li>@Html.ActionLink("Produit", "ListerProduit", "Produit")</li>
                                 <li>@Html.ActionLink("Client", "ListerClient", "Client")</li>
                                 <li>@Html.ActionLink("Abonnement", "ListerAbonnement", "Abonnement")</li>
-                                <li>@Html.ActionLink("Facture", "ListerFacture", "Facture")</li>
-                                <li>@Html.ActionLink("Bon De Livraison", "ListerBonDeLivraison", "BonDeLivraison")</li>
+                                @*<li>@Html.ActionLink("Facture", "ListerFacture", "Facture")</li>
+                                <li>@Html.ActionLink("Bon De Livraison", "ListerBonDeLivraison", "BonDeLivraison")</li>*@
                                 <li>@Html.ActionLink("Alerte Stock", "AlerteStock", "Produit")</li>
                                 <li>@Html.ActionLink("Demandes de désactivation", "DesactiverClient", "Client")</li>
                                 <li>

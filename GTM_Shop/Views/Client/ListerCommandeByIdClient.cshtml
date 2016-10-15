@@ -19,7 +19,7 @@
             <th>@Html.DisplayNameFor(model => model.idBonDeLivraison)</th>
             <th>@Html.DisplayNameFor(model => model.Commentaire)</th>
             <th></th>
-            <th>
+            <th></th>
         </tr>
     </thead>
     <tbody>
@@ -50,6 +50,14 @@
                 <td>@Html.DisplayFor(modelItem => c.idFacture)</td>
                 <td>@Html.DisplayFor(modelItem => c.idBonDeLivraison)</td>
                 <td>@Html.DisplayFor(modelItem => c.Commentaire)</td>
+                @if (c.Statut.ToString() == "Termine")
+                {
+                    <td>@Html.ActionLink("Imprimer Facture ( pdf )", "PrintInvoice", "Commande", new { id = c.idCommande }, new { @class = "btn btn-success" })</td>
+                }
+                else
+                {
+                    <td> </td>
+                }
             </tr>
 
         }

@@ -71,5 +71,7 @@
 </table>
 
 
-<span>Total de la commande : <strong>@Convert.ToDouble(@Totaux) euros</strong></span>
+<span>Total de la commande : <strong>@Convert.ToDouble(@Totaux) euros</strong></span><br /><br />
+
+<span>@Html.ActionLink("Imprimer Facture ( pdf )", "PrintInvoice", new { id = ViewBag.idCommande }, new { @class = "btn btn-success" })</span><br />
 

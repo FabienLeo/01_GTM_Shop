@@ -1,5 +1,6 @@
 ﻿using GTM_Shop.Metier;
 using GTM_Shop.Models;
+using Rotativa.MVC;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -65,5 +66,42 @@ namespace GTM_Shop.Controllers
                 return RedirectToAction("Connexion", "Home");
             }
         }
+
+
+        //Création d'un fichier pdf
+        public ActionResult PrintInvoice(int id)
+        {
+            string NomFichier = "Facture_" + id + ".pdf";
+            return new ActionAsPdf(
+                           "RecapitulatifCommande", new { idCommande = id })
+            { FileName = NomFichier };
+        }
+
+        public ActionResult RecapitulatifCommande(int idCommande)
+        {
+            var c = Iadmin.ListerCommandeByPanier(idCommande);
+            var com = Iadmin.TrouverCommandeById(idCommande);
+            ViewBag.idCommande = com.idCommande;
+            ViewBag.idFacture = com.idFacture;
+            ViewBag.idBonDeLivraison = com.idBonDeLivraison;
+            ViewBag.idStatut = com.idStatut;
+
+            var cli = Iadmin.TrouverClientByIdCommande(idCommande);
+
+            var a = Iadmin.TrouverAdresseById(cli.idUtilisateur);
+
+            ViewBag.NomClient = cli.Nom;
+            ViewBag.PrenomClient = cli.Prenom;
+            ViewBag.Ligne01 = a.RueLigne01;
+            ViewBag.Ligne02 = a.RueLigne02;
+            ViewBag.CodePostale = a.CodePostale;
+            ViewBag.Ville = a.Ville;
+            ViewBag.Pays = a.Pays;
+
+
+            return View(c);
+        }
+
+
     }
 }

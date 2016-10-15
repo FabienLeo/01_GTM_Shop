@@ -155,5 +155,8 @@ namespace GTM_Shop.Metier
 
         Client DesactiverCompte(Client c);
 
+        Client TrouverClientByIdCommande(int idCommande);
+
+        Adresse TrouverAdresseById(int id);
     }
 }

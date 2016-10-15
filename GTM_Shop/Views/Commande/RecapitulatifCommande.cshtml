@@ -1,0 +1,78 @@
+﻿@model IEnumerable<GTM_Shop.Models.CommandePanierModel>
+@{
+    Layout = "~/Views/Shared/_LayoutFacture.cshtml";
+    ViewBag.Title = "Facture";
+    decimal Totaux = 0;
+}
+
+<h4><strong>Référence Facture : @ViewBag.idCommande</strong></h4>
+<span>Date de création : @DateTime.Now.Day / @DateTime.Now.Month / @DateTime.Now.Year</span><br /><br />
+
+
+    <span><strong>Référence Client : </strong></span><br />
+    <span>@ViewBag.NomClient </span><span>@ViewBag.PrenomClient </span><br />
+    <span>@ViewBag.Ligne01 </span><br />
+    <span>@ViewBag.Ligne02 </span><br />
+    <span>@ViewBag.CodePostale </span><span> @ViewBag.Ville </span><br />
+    <span>@ViewBag.Pays </span><br />
+    <br />
+
+
+
+
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>@Html.DisplayNameFor(model => model.PromotionLigneCommande)</th>
+                <th>@Html.DisplayNameFor(model => model.Visuel)</th>
+                <th>@Html.DisplayNameFor(model => model.NomProduit)</th>
+                <th>@Html.DisplayNameFor(model => model.Reference)</th>
+                <th>@Html.DisplayNameFor(model => model.Prix)</th>
+                <th>@Html.DisplayNameFor(model => model.Quantite)</th>
+                <th>@Html.DisplayNameFor(model => model.PromotionProduit)</th>
+                <th>Total Ligne</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var c in Model)
+            {
+                c.TotalLigneCommande = (c.Prix - (c.Prix * Convert.ToDecimal((c.PromotionProduit / 100)))) * c.Quantite;
+                Totaux = Totaux + (c.TotalLigneCommande - (c.TotalLigneCommande * Convert.ToDecimal(c.PromotionLigneCommande / 100)));
+                <tr>
+                    <td>@Html.DisplayFor(modelItem => c.PromotionLigneCommande)</td>
+                    <td><img src="~/Content/images/@Html.DisplayFor(modelItem => c.Visuel)" height="80px" class="Img_produit" /></td>
+                    <td>@Html.DisplayFor(modelItem => c.NomProduit)</td>
+                    <td>@Html.DisplayFor(modelItem => c.Reference)</td>
+                    <td>@Html.DisplayFor(modelItem => c.Prix)</td>
+                    <td>@Html.DisplayFor(modelItem => c.Quantite)</td>
+                    <td>@Html.DisplayFor(modelItem => c.PromotionProduit)</td>
+                    <td>@Html.DisplayFor(modelItem => c.TotalLigneCommande)</td>
+                </tr>
+
+            }
+
+        </tbody>
+
+
+    </table>
+
+
+   <h4 id="Total_Panier">Total de la commande : <strong>@Convert.ToDouble(@Totaux) euros</strong></h4>
+
+    <br /><br /><br /><br />
+
+    <div class="AffichageAdresse">
+
+        <ul class="Liste_footer">
+            <li class="Ligne_adresse_footer"><strong>GT'M SHOP</strong></li>
+            <li class="Ligne_adresse_footer">13, avenue de la gare</li>
+            <li class="Ligne_adresse_footer">78180 Montigny le Bretonneux</li>
+        </ul>
+    </div>
+<br /><br />
+        <div>
+            <p id="Lien_Copyright_Public">
+                &copy; @DateTime.Now.Year - <span>Fabien GAUDRON </span><span> Mathilde KONN KONN </span><span> Alexandre PICHAVANT </span><span> Adrien CHAPELLE</span>
+            </p>
+        </div>

@@ -360,5 +360,14 @@ namespace GTM_Shop.Metier
             return Idao.ListeClientDesactiver();
         }
 
+        public Client TrouverClientByIdCommande(int idCommande)
+        {
+            return Idao.TrouverClientByIdCommande(idCommande);
+        }
+
+        public Adresse TrouverAdresseById(int id)
+        {
+            return Idao.TrouverAdresseById(id);
+        }
     }
 }
