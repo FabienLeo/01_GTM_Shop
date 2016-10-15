@@ -146,5 +146,22 @@ namespace GTM_Shop.Controllers
             return View(res);
         }
 
+        public ActionResult SendMail(string nom, string email, string message)
+        {
+            EMail OEmail = new EMail();
+            try
+            {
+                OEmail.SendMail(email, "Contact : un message de " + nom, message, nom);
+                ViewBag.message = "Merci ! Votre message a bien été envoyée.";
+                return View();
+            }
+            catch(Exception e)
+            {
+                ViewBag.message = e.Message;
+                ViewBag.message = "Merci ! Votre message a bien été envoyée.";
+                return View();
+            }
+        }
+
     }
 }

@@ -1,17 +1,42 @@
 ﻿@{
     ViewBag.Title = "Contact";
 }
-<h2>@ViewBag.Title.</h2>
-<h3>@ViewBag.Message</h3>
+<br /><br /><br />
 
-<address>
-    One Microsoft Way <br />
-    Redmond, WA 98052-6399<br />
-    <abbr title="Phone">P:</abbr>
-    425.555.0100
-</address>
+<div class="formulaire">
+@using (Html.BeginForm("SendMail", "Home", FormMethod.Post, new { id = "contact-form", enctype = "multipart/form-data" }))
+{
 
-<address>
-    <strong>Support:</strong>   <a href="mailto:Support@example.com">Support@example.com</a><br />
-    <strong>Marketing:</strong> <a href="mailto:Marketing@example.com">Marketing@example.com</a>
-</address>
+    <span for="nom">Votre nom</span><br />
+    <input type="text" name="nom" placeholder="Prénom Nom" required="" class = "form-control left-rounded right-rounded"/><br />
+
+    <span for="email">Votre e-mail</span><br />
+    <input type="email" name="email" placeholder="adresse@email" required="" class="form-control left-rounded right-rounded"/><br />
+
+    <span for="message">Votre message</span><br />
+    <textarea name="message" required="" class = "form-control left-rounded right-rounded"></textarea><br />
+
+    <input type="submit" value="ENVOYER" class="btn btn-success boutonPayer"/>
+
+}
+
+</div>
+
+<br /><br /><br />
+
+<div class="formulaire">
+    <address class="AffichageAdresse">
+        <strong>GT'M Shop </strong><br />
+        13, avenue de la gare<br />
+        78180 Montigny le Bretonneux<br />
+</address><br />
+
+    <a href="https://goo.gl/maps/pBAE6bsKrS92" target="_blank" title="Google Maps">
+        <img id="Img_carte" src="~/Content/images/Carte.png" alt="Carte" />
+    </a><br /><br />
+
+    <address class="AffichageAdresse">
+        <strong>Support:</strong>   <a href="mailto:fabien.gaudron@gmail.com">Contact@gtmshop.fr</a><br />
+        <strong>Marketing:</strong> <a href="mailto:fabien.gaudron@gmail.com">Marketing@gtmshop.fr</a>
+    </address><br /><br />
+</div>
