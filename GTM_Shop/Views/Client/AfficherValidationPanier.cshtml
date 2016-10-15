@@ -39,12 +39,12 @@
 <table class="table table-striped">
     <thead>
         <tr>
-            <th>@Html.DisplayNameFor(model => model.PromotionLigneCommande)</th>
-            <th>@Html.DisplayNameFor(model => model.Visuel)</th>
+            <th class="Non_iPhone">@Html.DisplayNameFor(model => model.PromotionLigneCommande)</th>
+            <th class="Non_iPhone">@Html.DisplayNameFor(model => model.Visuel)</th>
             <th>@Html.DisplayNameFor(model => model.NomProduit)</th>
             <th>@Html.DisplayNameFor(model => model.Prix)</th>
             <th>@Html.DisplayNameFor(model => model.Quantite)</th>
-            <th>@Html.DisplayNameFor(model => model.PromotionProduit)</th>
+            <th class="Non_iPhone">@Html.DisplayNameFor(model => model.PromotionProduit)</th>
             <th>Total Ligne</th>
         </tr>
     </thead>
@@ -54,12 +54,12 @@
             c.TotalLigneCommande = (c.Prix - (c.Prix * Convert.ToDecimal((c.PromotionProduit / 100)))) * c.Quantite;
             Totaux = Totaux + (c.TotalLigneCommande - (c.TotalLigneCommande * Convert.ToDecimal(c.PromotionLigneCommande / 100)));
             <tr>
-                <td>@Html.DisplayFor(modelItem => c.PromotionLigneCommande)</td>
-                <td><img src="~/Content/images/@Html.DisplayFor(modelItem => c.Visuel)" height="80px" class="Img_produit" /></td>
+                <td class="Non_iPhone">@Html.DisplayFor(modelItem => c.PromotionLigneCommande)</td>
+                <td class="Non_iPhone"><img src="~/Content/images/@Html.DisplayFor(modelItem => c.Visuel)" height="80px" class="Img_produit" /></td>
                 <td>@Html.DisplayFor(modelItem => c.NomProduit)</td>
                 <td>@Html.DisplayFor(modelItem => c.Prix)</td>
                 <td>@Html.DisplayFor(modelItem => c.Quantite)</td>
-                <td>@Html.DisplayFor(modelItem => c.PromotionProduit)</td>
+                <td class="Non_iPhone">@Html.DisplayFor(modelItem => c.PromotionProduit)</td>
                 <td>@Html.DisplayFor(modelItem => c.TotalLigneCommande)</td>
             </tr>
         }

@@ -21,6 +21,9 @@ html, body{
    min-height:100%;
 }
 
+.Non_iPhone{
+    display:none;
+}
 
 #Block_header{
 	background-color:white;
@@ -297,6 +300,7 @@ margin:auto;
 	width:100%;
 	height:20%;
 	color:white;
+    display:none
 }
 
 #Icone_footer{
@@ -312,11 +316,12 @@ margin:auto;
 }
 
 #Lien_Copyright_Public{
+    width:100%;
+    height:75%;
     text-align:center;
-
+    background-color:#89898E;
+    margin:0;
 }
-
-
 
 .Icone_f{
 	display:block;
@@ -428,6 +433,9 @@ html, body{
    min-height:100%;
 }
 
+.iPhone{
+    display:none;
+}
 
 #Block_header{
 	background-color:white;
@@ -731,8 +739,10 @@ margin:auto;
 }
 
 #Lien_Copyright_Public{
+    width:100%;
+    height:30%;
     text-align:center;
-
+    background-color:#89898E;
 }
 
 .Icone_f{
@@ -850,7 +860,9 @@ html, body{
    min-height:100%;
 }
 
-
+.iPhone{
+    display:none;
+}
 
 
 #Block_header{
@@ -1187,8 +1199,11 @@ margin:auto;
 }
 
 #Lien_Copyright_Public{
+    width:100%;
+    height:30%;
     text-align:center;
-
+    background-color:#89898E;
+    margin:0;
 }
 
 .Icone_f{

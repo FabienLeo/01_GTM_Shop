@@ -718,5 +718,62 @@ namespace GTM_Shop.Controllers
             }
         }
 
+
+
+        public ActionResult Contact()
+        {
+            ViewBag.Message = "Your contact page.";
+
+            return View();
+        }
+
+
+        public ActionResult SendMail(string nom, string email, string message)
+        {
+            EMail OEmail = new EMail();
+            try
+            {
+                OEmail.SendMail(email, "Contact : un message de " + nom, message, nom);
+                ViewBag.message = "Merci ! Votre message a bien été envoyée.";
+                return View();
+            }
+            catch (Exception e)
+            {
+                ViewBag.message = e.Message;
+                ViewBag.message = "Merci ! Votre message a bien été envoyée.";
+                return View();
+            }
+        }
+
+        public ActionResult RechercherProduit()
+        {
+            if (Session["idUtilisateur"] != null && Session["idRole"].ToString() == "3")
+            {
+
+                return View();
+
+            }
+            else
+            {
+                return RedirectToAction("Connexion", "Home");
+            }
+        }
+
+
+        public ActionResult ListeProduitByNom(string MotRecherche)
+        {
+
+            if (Session["idUtilisateur"] != null && Session["idRole"].ToString() == "3")
+            {
+
+                var res = Iclient.ListerProduitByMot(MotRecherche);
+                return View(res);
+
+            }
+            else
+            {
+                return RedirectToAction("Connexion", "Home");
+            }
+        }
     }
 }

@@ -1,0 +1,31 @@
+﻿
+@{
+    ViewBag.Title = "RechercherProduit";
+}
+
+
+<br /><br /><br />
+<div class="AffichageAdresse">
+
+    
+
+    @using (Html.BeginForm("ListeProduitByNom", "Home", FormMethod.Post))
+    {
+
+        <h4>Indiquer le nom du produit recherché :</h4>
+
+
+
+
+        <form role="search" name="searchform" method="post">
+            <div class="input-group">
+                <input type="text" placeholder="Recherche par Nom" name="MotRecherche" class="form-control left-rounded">
+                <div class="input-group-btn">
+                    <button type="submit" class="btn btn-inverse right-rounded">Chercher</button>
+                </div>
+            </div>
+        </form>
+
+    }
+
+</div>

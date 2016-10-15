@@ -179,5 +179,18 @@ namespace GTM_Shop.Controllers
             return View();
         }
 
+
+        public ActionResult RechercherProduit()
+        {
+            return View();
+        }
+
+        
+        public ActionResult ListeProduitByNom(string MotRecherche)
+        {
+            var res = Iclient.ListerProduitByMot(MotRecherche);
+            return View(res);
+        }
+
     }
 }

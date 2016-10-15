@@ -23,7 +23,7 @@
             <div id="Block_menu_complet">
                 <div id="Block_icone">
                     <div id="icone">
-                        <a href="@Url.Action("#", "Home")"><img id="Icone_Recherche" class="Icone_Menu" src="~/Content/images/Icone_Recherche.png" alt="Rechercher" title="Rechercher" /></a>
+                        <a href="@Url.Action("RechercherProduit", "Home")"><img id="Icone_Recherche" class="Icone_Menu" src="~/Content/images/Icone_Recherche.png" alt="Rechercher" title="Rechercher" /></a>
                         <a href="@Url.Action("Contact", "Home")"><img id="Icone_Mail" class="Icone_Menu" src="~/Content/images/Icone_Mail.png" alt="Mail" title="Mail" /></a>
                         <a href="@Url.Action("Connexion", "Home")"><img id="Icone_Connexion" class="Icone_Menu" src="~/Content/images/Icone_Connexion.png" alt="Connexion" title="Connexion" /></a>
                         <a href="@Url.Action("CreerCompteClient", "Client")"><img id="Icone_Add_Profil" class="Icone_Menu" src="~/Content/images/Icone_Add_Profil.png" alt="Add_Profil" title="Add_Profil" /></a>
@@ -64,6 +64,7 @@
                                     @Html.ActionLink("Connexion", "Connexion", "Home")
                                 }
                             </li>
+                            <li>@Html.ActionLink("Créer Profil", "CreerCompteClient", "Client")</li>
                         </ul>
                     </li>
                 </ul>

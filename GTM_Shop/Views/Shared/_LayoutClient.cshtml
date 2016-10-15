@@ -16,15 +16,15 @@
         <div id="Block_header">
 
             <div id="Block_logo">
-                <div id="logo"><a href="@Url.Action("Index", "Home")"><img id="Img_logo" src="~/Content/images/Logo.png" alt="Logo" title="Home" /></a></div>
+                <div id="logo"><a href="@Url.Action("IndexClient", "Client")"><img id="Img_logo" src="~/Content/images/Logo.png" alt="Logo" title="Home" /></a></div>
                 <div id="Block_typo_logo"><img id="Img_typo_logo" src="~/Content/images/Typo_Logo.png" alt="Logo_Typo" /></div>
             </div>
 
             <div id="Block_menu_complet">
                 <div id="Block_Icone_Client">
                     <div id="icone">
-                        <a href="@Url.Action("#", "Home")"><img id="Icone_Recherche" class="Icone_Menu" src="~/Content/images/Icone_Recherche.png" alt="Rechercher" title="Rechercher" /></a>
-                        <a href="@Url.Action("Contact", "Home")"><img id="Icone_Mail" class="Icone_Menu" src="~/Content/images/Icone_Mail.png" alt="Mail" title="Mail" /></a>
+                        <a href="@Url.Action("RechercherProduit", "Client")"><img id="Icone_Recherche" class="Icone_Menu" src="~/Content/images/Icone_Recherche.png" alt="Rechercher" title="Rechercher" /></a>
+                        <a href="@Url.Action("Contact", "Client")"><img id="Icone_Mail" class="Icone_Menu" src="~/Content/images/Icone_Mail.png" alt="Mail" title="Mail" /></a>
                   
                         @if (@Session["idUtilisateur"] != null)
                         {
@@ -57,12 +57,12 @@
                             </a>
 
                             <ul class="dropdown-menu">
-                                <li>@Html.ActionLink("Informatique", "ListerInformatique", "Home", new { idCatalogue = 1 }, "")</li>
-                                <li>@Html.ActionLink("Image", "ListerImage", "Home", new { idCatalogue = 2 }, "")</li>
-                                <li>@Html.ActionLink("Son", "ListerSon", "Home", new { idCatalogue = 6 }, "")</li>
-                                <li>@Html.ActionLink("Téléphonie", "ListerTelephonie", new { idCatalogue = 7 }, "")</li>
-                                <li>@Html.ActionLink("Promotion", "ListerPromotion", "Home", new { idCatalogue = 0 }, "")</li>
-                                <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                                <li>@Html.ActionLink("Informatique", "ListerInformatique", "Client", new { idCatalogue = 1 }, "")</li>
+                                <li>@Html.ActionLink("Image", "ListerImage", "Client", new { idCatalogue = 2 }, "")</li>
+                                <li>@Html.ActionLink("Son", "ListerSon", "Client", new { idCatalogue = 6 }, "")</li>
+                                <li>@Html.ActionLink("Téléphonie", "ListerTelephonie", "Client", new { idCatalogue = 7 }, "")</li>
+                                <li>@Html.ActionLink("Promotion", "ListerPromotion", "Client", new { idCatalogue = 0 }, "")</li>
+                                <li>@Html.ActionLink("Contact", "Contact", "Client")</li>
                                 <li>
                                     @if (@Session["idUtilisateur"] != null)
                                     {
@@ -73,6 +73,8 @@
                                         @Html.ActionLink("Connexion", "Connexion", "Home")
                                     }
                                 </li>
+                                <li>@Html.ActionLink("Profil", "AfficherProfil", "Client")</li>
+                                <li>@Html.ActionLink("Panier", "AfficherPanier", "Client")</li>
                             </ul>
                         </li>
                     </ul>
@@ -103,11 +105,11 @@
             <div id="Block_menu_footer">
                 <p class="Titre_footer">S'informer et acheter</p>
                 <ul class="Liste_footer">
-                    <li class="Ligne_menu_footer">@Html.ActionLink("Informatique", "ListerInformatique", "Home", new { idCatalogue = 1 }, new { @class = "Lien_menu_footer Ligne_menu_footer" })</li>
-                    <li class="Ligne_menu_footer">@Html.ActionLink("Image", "ListerImage", "Home", new { idCatalogue = 2 }, new { @class = "Lien_menu_footer Ligne_menu_footer" })</li>
-                    <li class="Ligne_menu_footer">@Html.ActionLink("Son", "ListerSon", "Home", new { idCatalogue = 6 }, new { @class = "Lien_menu_footer Ligne_menu_footer" })</li>
-                    <li class="Ligne_menu_footer">@Html.ActionLink("Téléphonie", "ListerTelephonie", "Home", new { idCatalogue = 7 }, new { @class = "Lien_menu_footer Ligne_menu_footer" })</li>
-                    <li class="Ligne_menu_footer">@Html.ActionLink("Promotion", "ListerPromotion", "Home", new { idCatalogue = 0 }, new { @class = "Lien_menu_footer Ligne_menu_footer" })</li>
+                    <li class="Ligne_menu_footer">@Html.ActionLink("Informatique", "ListerInformatique", "Client", new { idCatalogue = 1 }, new { @class = "Lien_menu_footer Ligne_menu_footer" })</li>
+                    <li class="Ligne_menu_footer">@Html.ActionLink("Image", "ListerImage", "Client", new { idCatalogue = 2 }, new { @class = "Lien_menu_footer Ligne_menu_footer" })</li>
+                    <li class="Ligne_menu_footer">@Html.ActionLink("Son", "ListerSon", "Client", new { idCatalogue = 6 }, new { @class = "Lien_menu_footer Ligne_menu_footer" })</li>
+                    <li class="Ligne_menu_footer">@Html.ActionLink("Téléphonie", "ListerTelephonie", "Client", new { idCatalogue = 7 }, new { @class = "Lien_menu_footer Ligne_menu_footer" })</li>
+                    <li class="Ligne_menu_footer">@Html.ActionLink("Promotion", "ListerPromotion", "Client", new { idCatalogue = 0 }, new { @class = "Lien_menu_footer Ligne_menu_footer" })</li>
                 </ul>
             </div>
 
@@ -145,13 +147,13 @@
                     <li class="Ligne_adresse_footer">78180 Montigny le Bretonneux</li>
                 </ul>
             </div>
-            <div>
-                <p id="Lien_Copyright_Public">
+        </div>
+            <div id="Lien_Copyright_Public">
+                <p>
                     &copy; @DateTime.Now.Year - <a class="Lien_menu_footer Ligne_menu_footer" href="mailto:fabien.gaudron@gmail.com">Fabien GAUDRON </a><a class="Lien_menu_footer Ligne_menu_footer" href="mailto:Mathilde.KonnKonn@gmail.com"> Mathilde KONN KONN </a>
                     <a class="Lien_menu_footer Ligne_menu_footer" href="mailto:alexandre.Pichavant@gmail.com"> Alexandre PICHAVANT </a><a class="Lien_menu_footer Ligne_menu_footer" href="mailto:Chapelle.adrien9@gmail.com"> Adrien CHAPELLE</a>
                 </p>
             </div>
-        </div>
     </div>
 
     @Scripts.Render("~/bundles/jquery")
