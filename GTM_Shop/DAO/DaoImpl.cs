@@ -1053,5 +1053,41 @@ namespace GTM_Shop.DAO
                 return p;
             }
         }
+
+        public ICollection<Client> ListerClientSupp()
+        {
+            using (var bdd = new DAO.GTM_Shop_Context())
+            {
+                var req = from c in bdd.Clients
+                          where c.Compte_A_Supprimer == true
+                          select c;
+                return req.ToList();
+
+            }
+        }
+
+        public ICollection<Client> ListeClientDesactiver()
+        {
+            using (var bdd = new DAO.GTM_Shop_Context())
+            {
+                var req = from c in bdd.Clients
+                          where c.Compte_A_Supprimer == true && c.Actif == true
+                          select c;
+                return req.ToList();
+
+            }
+        }
+
+        public Client DesactiverCompte(Client c)
+        {
+            using (var bdd = new DAO.GTM_Shop_Context())
+            {
+                c.Actif = false;
+                c.ConfirmationMotDePasse = c.MotDePasse;
+                bdd.Entry(c).State = EntityState.Modified;
+                bdd.SaveChanges();
+                return c;
+            }
+        }
     }
 }

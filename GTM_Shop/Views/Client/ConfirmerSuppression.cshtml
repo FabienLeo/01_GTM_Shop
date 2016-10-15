@@ -3,10 +3,13 @@
     ViewBag.Title = "ConfirmerSuppression";
 }
 
-<h2>Etes-vous sûr de vouloir supprimer votre compte ?</h2>
+<br /><br /><br />
+
+<div class="AffichageAdresse">
+<h4>Etes-vous sûr de vouloir supprimer votre compte ?</h4>
 
 
-    <span>@Html.ActionLink("Oui", "SuppressionConfirme", new { idUtilisateur = Convert.ToInt32(Session["idUtilisateur"]) }, new { @class = "btn btn-default" })</span>
-    <span>@Html.ActionLink("Non", "AfficherProfil", new { idUtilisateur = Convert.ToInt32(Session["idUtilisateur"]) }, new { @class = "btn btn-warning" })</span>
+    <span>@Html.ActionLink("Oui", "SuppressionConfirme", new { idUtilisateur = Convert.ToInt32(Session["idUtilisateur"]) }, new { @class = "btn btn-danger" })</span>
+    <span>@Html.ActionLink("Non", "AfficherProfil", new { idUtilisateur = Convert.ToInt32(Session["idUtilisateur"]) }, new { @class = "btn btn-success" })</span>
 
-
+    </div>

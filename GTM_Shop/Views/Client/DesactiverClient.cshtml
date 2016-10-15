@@ -1,0 +1,40 @@
+﻿@model IEnumerable<GTM_Shop.Metier.Client>
+@{
+    Layout = "~/Views/Shared/_LayoutSuperAdmin.cshtml";
+    ViewBag.Title = "DesactiverClient";
+}
+
+<h4>Liste des clients à désactiver</h4>
+
+<table class="table table-striped">
+
+    <thead>
+
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.idUtilisateur)</th>
+            <th>@Html.DisplayNameFor(model => model.CiviliteClient)</th>
+            <th>@Html.DisplayNameFor(model => model.Nom)</th>
+            <th>@Html.DisplayNameFor(model => model.Prenom)</th>
+            <th>@Html.DisplayNameFor(model => model.Email)</th>
+            <th>@Html.DisplayNameFor(model => model.DateDeNaissance)</th>
+        </tr>
+    </thead>
+
+    <tbody>
+
+        @foreach (var p in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => p.idUtilisateur)</td>
+                <td>@Html.DisplayFor(modelItem => p.CiviliteClient)</td>
+                <td>@Html.DisplayFor(modelItem => p.Nom)</td>
+                <td>@Html.DisplayFor(modelItem => p.Prenom)</td>
+                <td>@Html.DisplayFor(modelItem => p.Email)</td>
+                <td>@Html.DisplayFor(modelItem => p.DateDeNaissance)</td>
+                <td>@Html.ActionLink("Désactiver", "Desactivation", "Client",new { id = p.idUtilisateur }, new { @class = "btn btn-danger" })</td>
+            </tr>
+        }
+
+    </tbody>
+
+</table>

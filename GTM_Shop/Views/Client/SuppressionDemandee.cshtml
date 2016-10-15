@@ -3,6 +3,12 @@
     ViewBag.Title = "SuppressionDemandee";
 }
 
-<h2>Votre demande a bien été prise en compte</h2>
+<br /><br /><br />
 
-<span>@Html.ActionLink("Retour à la page d'accueil", "Index", "Home","", new { @class = "btn btn-default" })</span>
+<div class="AffichageAdresse">
+    <h4>Votre demande a bien été envoyé à l'administrateur</h4>
+    <h4>Votre compte sera désactivité d'ici 48 heures</h4>
+
+
+    <span>@Html.ActionLink("Retour à la page d'accueil", "Index", "Home", "", new { @class = "btn btn-default" })</span>
+</div>

@@ -148,5 +148,12 @@ namespace GTM_Shop.Metier
         ICollection<LigneCommande> ListerLigneCommande();
 
         bool EmailExisteDejaByClient(Client c);
+
+        ICollection<Client> ListerClientSupp();
+
+        ICollection<Client> ListeClientDesactiver();
+
+        Client DesactiverCompte(Client c);
+
     }
 }

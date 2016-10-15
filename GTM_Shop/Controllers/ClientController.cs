@@ -529,7 +529,14 @@ namespace GTM_Shop.Controllers
         
         public ActionResult ConfirmerSuppression()
         {
-            return View();
+            if (Session["idUtilisateur"] != null && Session["idRole"].ToString() == "3")
+            {
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("Connexion", "Home");
+            }
         }
         
 
@@ -621,6 +628,46 @@ namespace GTM_Shop.Controllers
 
                 ICollection<CommandePanierModel> res = Iclient.ListerCommandeByPanier(cli.idCommande);
                 return View(res);
+            }
+            else
+            {
+                return RedirectToAction("Connexion", "Home");
+            }
+        }
+
+        public ActionResult SuppClient()
+        {
+            if (Session["idUtilisateur"] != null && Session["idRole"].ToString() == "1" || Session["idRole"].ToString() == "2")
+            {
+                ICollection<Client> res = Iadmin.ListerClientSupp();
+                return View(res);
+            }
+            else
+            {
+                return RedirectToAction("Connexion", "Home");
+            }
+        }
+
+        public ActionResult DesactiverClient()
+        {
+            if (Session["idUtilisateur"] != null && Session["idRole"].ToString() == "1" || Session["idRole"].ToString() == "2")
+            {
+                ICollection<Client> res = Iadmin.ListeClientDesactiver();
+                return View(res);
+            }
+            else
+            {
+                return RedirectToAction("Connexion", "Home");
+            }
+        }
+
+        public ActionResult Desactivation(int id)
+        {
+            if (Session["idUtilisateur"] != null && (Session["idRole"].ToString() == "1" || Session["idRole"].ToString() == "2"))
+            {
+                var c = Iclient.TrouverClientById(id);
+                Iadmin.DesactiverCompte(c);
+                return RedirectToAction("ListerClient");
             }
             else
             {

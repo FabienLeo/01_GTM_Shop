@@ -345,5 +345,20 @@ namespace GTM_Shop.Metier
             return Idao.EmailExisteDejaByClient(c);
         }
 
+        public ICollection<Client> ListerClientSupp()
+        {
+            return Idao.ListerClientSupp();
+        }
+
+        public Client DesactiverCompte(Client c)
+        {
+            return Idao.DesactiverCompte(c);
+        }
+
+        public ICollection<Client> ListeClientDesactiver()
+        {
+            return Idao.ListeClientDesactiver();
+        }
+
     }
 }

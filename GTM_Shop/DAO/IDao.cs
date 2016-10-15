@@ -196,5 +196,12 @@ namespace GTM_Shop.DAO
 
         ICollection<CommandeModel> ListerCommandeByIdClient(int id);
 
+        ICollection<Client> ListerClientSupp();
+
+        ICollection<Client> ListeClientDesactiver();
+
+        Client DesactiverCompte(Client c);
+
+
     }
 }
