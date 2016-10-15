@@ -7,7 +7,7 @@
 <br /><br /><br />
 <div class="profil">
 
-    <img id="Img_Fiche_Profil" src="~/Content/images/carte.png" />
+    <img id="Img_Fiche_Profil" src="~/Content/images/Carte_Profil.png" />
 
 
     <br />
@@ -20,7 +20,7 @@
     <span>@Html.DisplayNameFor(model => Model.Pays) : @Html.DisplayFor(modelItem => Model.Pays)</span><br /><br />
 
     <span>@Html.ActionLink("Retour", "AfficherProfil", "Client", new { @class = "btn btn-default" })</span>
-    <span>@Html.ActionLink("Modifier", "ModifierAdresse", new { id = Model.idAdresse }, new { @class = "btn btn-warning" })</span>
+    <span>@Html.ActionLink("Modifier", "ModifierAdresse", "client", new { id = Model.idAdresse }, new { @class = "btn btn-warning" })</span>
     <br /><br />
 
 </div>

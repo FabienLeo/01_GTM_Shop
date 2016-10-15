@@ -458,7 +458,7 @@ namespace GTM_Shop.Controllers
         {
             if (Session["idUtilisateur"] != null && Session["idRole"].ToString() == "3")
             {
-                Adresse a = Iclient.TrouverAdresseById(id);
+                Adresse a = Iclient.TrouverAdresse(id);
                 return View(a);
             }
             else

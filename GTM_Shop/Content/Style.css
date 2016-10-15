@@ -15,6 +15,13 @@ html, body{
 	height:100%;
 }
 
+.text-danger ul{
+    list-style-type:none;
+    margin:0px;
+    padding:0px;
+    text-align:center;
+}
+
 #page{
    width:100%;
    height:auto;
@@ -417,6 +424,13 @@ margin:auto;
 
 h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6{
     font-family: Century Gothic,CenturyGothic,AppleGothic,sans-serif;
+}
+
+.text-danger ul{
+    list-style-type:none;
+    margin:0px;
+    padding:0px;
+    text-align:center;
 }
 
 html, body{
@@ -845,6 +859,12 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6{
     font-family: Century Gothic,CenturyGothic,AppleGothic,sans-serif;
 }
 
+.text-danger ul{
+    list-style-type:none;
+    margin:0px;
+    padding:0px;
+    text-align:center;
+}
 
 html, body{
 	font-family: Century Gothic,CenturyGothic,AppleGothic,sans-serif;

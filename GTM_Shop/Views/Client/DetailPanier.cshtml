@@ -56,7 +56,7 @@
     @if (Totaux == 0)
     {
         <div class="Panier_vide">
-            <img src="~/Content/images/Icone_Panier.png" height="150px" class="Img_produit" /><br />
+            <img src="~/Content/images/Site_Avatar_Panier_vide.png" height="150px" class="Img_produit" /><br />
             <strong>Votre panier est vide...</strong>
         </div>
     }
@@ -64,7 +64,7 @@
 
     @if (Totaux != 0)
     {
-        <h4 id="Total_Panier">Total de la commande : <strong>@Convert.ToDouble(@Totaux) euros</strong></h4>
+        <h4 id="Total_Panier">Total de la commande : <strong>@Convert.ToDouble(Totaux) euros</strong></h4>
     }
 
     <div class="boutonPayer">
