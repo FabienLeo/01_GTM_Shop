@@ -12,6 +12,7 @@ namespace GTM_Shop.Controllers
     {
         public IAdmin Iadmin = new AdminImpl();
         public IClient Iclient = new ClientImpl();
+        public decimal Totaux = 0;
 
         public ActionResult IndexClient()
         {
@@ -584,6 +585,27 @@ namespace GTM_Shop.Controllers
         {
             if (Session["idUtilisateur"] != null && Session["idRole"].ToString() == "3")
             {
+                var client = Iclient.TrouverClientById(Convert.ToInt32(Session["idUtilisateur"]));
+                var commande = Iclient.TrouverCommandeById(client.idCommande);
+                var LignesCommandes = Iadmin.ListerCommandeByPanier(commande.idCommande);
+                foreach (var ldc in LignesCommandes)
+                {
+                    var p = Iclient.TrouverProduitById(ldc.idProduit);
+                    if (ldc.Quantite > p.Stock )
+                    {
+                        var produit = Iclient.TrouverProduitById(ldc.idProduit);
+                        Session["MessageQuantite01"] = "Nous sommes désolé mais notre stock du produit " + produit.NomProduit + " n'est pas siffussant pour répondre à votre demande.";
+                        Session["MessageQuantite02"] = "Notre stock actuel pour le produit " + produit.NomProduit + " est de " + produit.Stock.ToString() + ".";
+                        Session["MessageQuantite03"] = "Merci de bien vouloir modifier votre quantité afin de valider votre commande.";
+
+                        return RedirectToAction("DetailPanier", "Client",new { id = ldc.idCommande});
+                    }
+                    Session["MessageQuantite01"] = "";
+                    Session["MessageQuantite02"] = "";
+                    Session["MessageQuantite03"] = "";
+                }
+
+
                 var res = Iclient.TrouverAdresseById(idUtilisateur);
                 return View(res);
 
@@ -599,7 +621,32 @@ namespace GTM_Shop.Controllers
         {
             if (Session["idUtilisateur"] != null && Session["idRole"].ToString() == "3")
             {
+                
+                var client = Iclient.TrouverClientById(Convert.ToInt32(Session["idUtilisateur"]));
+                var commande = Iclient.TrouverCommandeById(client.idCommande);
+                var LignesCommandes = Iadmin.ListerCommandeByPanier(commande.idCommande);
+                if (commande.idStatut == 1)
+                {
+                    foreach (var ldc in LignesCommandes)
+                    {
+                        var p = Iclient.TrouverProduitById(ldc.idProduit);
+                        p.Stock = p.Stock - ldc.Quantite;
+                        Iadmin.ModifierProduit(p);
+                        ldc.TotalLigneCommande = (ldc.Prix - (ldc.Prix * Convert.ToDecimal((ldc.PromotionProduit / 100)))) * ldc.Quantite;
+                        Totaux = Totaux + (ldc.TotalLigneCommande - (ldc.TotalLigneCommande * Convert.ToDecimal(ldc.PromotionLigneCommande / 100)));
+                    }
 
+                commande.idStatut = 2;
+                Iadmin.ModifierCommande(commande);
+
+                var com = Iclient.AjouterCommande(new Commande());
+
+                client.idCommande = com.idCommande;
+                client.PointFidelite = client.PointFidelite + Convert.ToInt32(Totaux % 10);
+                client.ConfirmationMotDePasse = client.MotDePasse;
+                Iadmin.ModifierClient(client);
+                }
+                Totaux = 0;
                 return View();
 
             }

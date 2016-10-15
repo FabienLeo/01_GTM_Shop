@@ -13,6 +13,9 @@ namespace GTM_Shop.Models
         public int idCommande { get; set; }
 
         public int idLigneCommande { get; set; }
+
+        public int idProduit { get; set; }
+
         public StatutCommande Statut { get; set; }
 
         public string Commentaire { get; set; }

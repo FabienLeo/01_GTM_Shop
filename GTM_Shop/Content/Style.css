@@ -415,6 +415,12 @@ margin:auto;
 	display:none;
 }
 	
+.formulaire .img-responsive{
+    width:50%;
+    margin:auto;
+}
+
+
 }
 
 
@@ -846,6 +852,12 @@ margin:auto;
 #Img_carte{
 	height:100%;
 }
+
+.formulaire .img-responsive{
+    width:50%;
+    margin:auto;
+}
+
 
 }
 
@@ -1319,5 +1331,10 @@ margin:auto;
 #Img_carte{
 	height:100%;
 }	
-	
+
+.formulaire .img-responsive{
+    width:50%;
+    margin:auto;
+}
+
 }

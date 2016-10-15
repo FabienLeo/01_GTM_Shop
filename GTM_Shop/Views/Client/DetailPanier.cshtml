@@ -68,8 +68,19 @@
     }
 
     <div class="boutonPayer">
-        @if (Totaux != 0)
-        {
-            @Html.ActionLink("Valider et Payer", "ConfirmationAdresse", "Client", new { idUtilisateur = Convert.ToInt32(@Session["idUtilisateur"]) }, new { @class = "btn btn-success" })<br /><br />
-        }
+    @if (Totaux != 0)
+    {
+        @Html.ActionLink("Valider et Payer", "ConfirmationAdresse", "Client", new { idUtilisateur = Convert.ToInt32(@Session["idUtilisateur"]) }, new { @class = "btn btn-success" })<br /><br />
+            <br /><br />
+
+
+
+
+    }
+
+    </div>
+     <div class="AffichageAdresse">
+            <strong class="text-danger text-center">@Session["MessageQuantite01"]</strong><br /><br />
+            <strong class="text-danger text-center">@Session["MessageQuantite02"]</strong><br /><br />
+            <strong class="text-danger text-center">@Session["MessageQuantite03"]</strong>
     </div>

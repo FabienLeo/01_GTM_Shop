@@ -330,6 +330,7 @@ namespace GTM_Shop.DAO
                           {
                               idCommande = c.idCommande,
                               idLigneCommande = ldc.idLigneCommande,
+                              idProduit = p.idProduit,
                               Statut = c.Statut.Valeur,
                               Commentaire = c.Commentaire,
                               idFacture = c.idFacture,
