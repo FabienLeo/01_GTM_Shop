@@ -3,8 +3,24 @@
     Layout = "~/Views/Shared/_LayoutClient.cshtml";
     ViewBag.Title = "AfficherProduit";
     int NbAvis = 0;
+    int MoyenneAvis = 0;
+    int NombreAvis = 0;
     bool AfficherBoutonAvis = true;
+
+    foreach (var p in Model)
+    {
+        MoyenneAvis = MoyenneAvis + Convert.ToInt32(p.NoteAvis);
+        NombreAvis++;
+    }
+
+    MoyenneAvis = Convert.ToInt32(MoyenneAvis / NombreAvis);
+
 }
+
+
+
+
+
 <br /><br /><br />
 
 
@@ -20,6 +36,36 @@
 
     <span>Référence : </span><br />
     <strong>@ViewBag.Reference</strong>
+
+        @if (MoyenneAvis == 0)
+        {
+            <br /><img src="~/Content/images/0_Etoile.png" height="30px" class="Img_produit" /><br />
+    }
+
+    @if (MoyenneAvis == 1)
+    {
+        <br /> <img src="~/Content/images/1_Etoile.png" height="30px" class="Img_produit" /><br />
+    }
+
+    @if (MoyenneAvis == 2)
+    {
+        <br /> <img src="~/Content/images/2_Etoile.png" height="30px" class="Img_produit" /><br />
+    }
+
+    @if (MoyenneAvis == 3)
+    {
+        <br /> <img src="~/Content/images/3_Etoile.png" height="30px" class="Img_produit" /><br />
+    }
+
+        @if (MoyenneAvis == 4)
+        {
+            <br /><img src="~/Content/images/4_Etoile.png" height="30px" class="Img_produit" /><br />
+    }
+
+    @if (MoyenneAvis == 5)
+    {
+        <br /> <img src="~/Content/images/5_Etoile.png" height="30px" class="Img_produit" /><br />
+    }
 
     <h3>
         <strong>@Convert.ToDouble(ViewBag.Prix) euros</strong>
@@ -74,7 +120,38 @@
             NbAvis++;
             <tr>
                 <th>@Html.DisplayFor(modelItem => p.Prenom)</th>
-                <th>@Html.DisplayFor(modelItem => p.NoteAvis)</th>
+                
+                @if (p.NoteAvis == 0)
+                {
+                    <th><img src="~/Content/images/0_Etoile.png" height="30px" class="Img_produit" /></th>
+                }
+
+                @if (p.NoteAvis == 1)
+                {
+                    <th><img src="~/Content/images/1_Etoile.png" height="30px" class="Img_produit" /></th>
+                }
+
+                @if (p.NoteAvis == 2)
+                {
+                    <th><img src="~/Content/images/2_Etoile.png" height="30px" class="Img_produit" /></th>
+                }
+
+                @if (p.NoteAvis == 3)
+                {
+                    <th><img src="~/Content/images/3_Etoile.png" height="30px" class="Img_produit" /></th>
+                }
+
+                @if (p.NoteAvis == 4)
+                {
+                    <th><img src="~/Content/images/4_Etoile.png" height="30px" class="Img_produit" /></th>
+                }
+
+                @if (p.NoteAvis == 5)
+                {
+                    <th><img src="~/Content/images/5_Etoile.png" height="30px" class="Img_produit" /></th>
+                }
+
+                
                 <th>@Html.DisplayFor(modelItem => p.TextAvis)</th>
             </tr>
             }
