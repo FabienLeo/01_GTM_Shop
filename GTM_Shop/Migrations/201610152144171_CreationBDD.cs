@@ -55,12 +55,10 @@ namespace GTM_Shop.Migrations
                         Discriminator = c.String(nullable: false, maxLength: 128),
                     })
                 .PrimaryKey(t => t.idUtilisateur)
-                .ForeignKey("dbo.Commandes", t => t.idCommande, cascadeDelete: true)
                 .ForeignKey("dbo.MoyenPaiements", t => t.idMoyenPaiement, cascadeDelete: true)
                 .ForeignKey("dbo.Roles", t => t.idRole, cascadeDelete: true)
                 .Index(t => t.Email, unique: true)
                 .Index(t => t.idRole)
-                .Index(t => t.idCommande)
                 .Index(t => t.idMoyenPaiement);
             
             CreateTable(
@@ -89,6 +87,7 @@ namespace GTM_Shop.Migrations
                         Stock = c.Int(nullable: false),
                         Description = c.String(nullable: false),
                         MoyenneNote = c.Double(nullable: false),
+                        Visuel = c.String(nullable: false),
                         PromotionProduit = c.Double(nullable: false),
                         idCatalogue = c.Int(nullable: false),
                     })
@@ -129,7 +128,7 @@ namespace GTM_Shop.Migrations
                 c => new
                     {
                         idCommande = c.Int(nullable: false, identity: true),
-                        Commentaire = c.String(nullable: false),
+                        Commentaire = c.String(),
                         idFacture = c.Int(nullable: false),
                         idBonDeLivraison = c.Int(nullable: false),
                         idStatut = c.Int(nullable: false),
@@ -159,6 +158,19 @@ namespace GTM_Shop.Migrations
                         TVA = c.Decimal(nullable: false, precision: 18, scale: 2),
                     })
                 .PrimaryKey(t => t.idFacture);
+            
+            CreateTable(
+                "dbo.HistoriqueCommandes",
+                c => new
+                    {
+                        idUtilisateur = c.Int(nullable: false),
+                        idCommande = c.Int(nullable: false),
+                    })
+                .PrimaryKey(t => new { t.idUtilisateur, t.idCommande })
+                .ForeignKey("dbo.Utilisateurs", t => t.idUtilisateur, cascadeDelete: true)
+                .ForeignKey("dbo.Commandes", t => t.idCommande, cascadeDelete: true)
+                .Index(t => t.idUtilisateur)
+                .Index(t => t.idCommande);
             
             CreateTable(
                 "dbo.Statuts",
@@ -211,7 +223,7 @@ namespace GTM_Shop.Migrations
                     {
                         idAdresse = c.Int(nullable: false, identity: true),
                         RueLigne01 = c.String(nullable: false),
-                        RueLigne02 = c.String(nullable: false),
+                        RueLigne02 = c.String(),
                         CodePostale = c.String(nullable: false),
                         Ville = c.String(nullable: false),
                         Pays = c.String(nullable: false),
@@ -252,8 +264,9 @@ namespace GTM_Shop.Migrations
             DropForeignKey("dbo.LigneCommandes", "idPanier", "dbo.Paniers");
             DropForeignKey("dbo.Commandes", "idStatut", "dbo.Statuts");
             DropForeignKey("dbo.LigneCommandes", "idCommande", "dbo.Commandes");
+            DropForeignKey("dbo.HistoriqueCommandes", "idCommande", "dbo.Commandes");
+            DropForeignKey("dbo.HistoriqueCommandes", "idUtilisateur", "dbo.Utilisateurs");
             DropForeignKey("dbo.Commandes", "idFacture", "dbo.Factures");
-            DropForeignKey("dbo.Utilisateurs", "idCommande", "dbo.Commandes");
             DropForeignKey("dbo.Commandes", "idBonDeLivraison", "dbo.BonDeLivraisons");
             DropForeignKey("dbo.Produits", "idCatalogue", "dbo.Catalogues");
             DropForeignKey("dbo.Avis", "idProduit", "dbo.Produits");
@@ -263,6 +276,8 @@ namespace GTM_Shop.Migrations
             DropIndex("dbo.AdresseClients", new[] { "idUtilisateur" });
             DropIndex("dbo.ProduitConsultes", new[] { "idUtilisateur" });
             DropIndex("dbo.ProduitConsultes", new[] { "idProduit" });
+            DropIndex("dbo.HistoriqueCommandes", new[] { "idCommande" });
+            DropIndex("dbo.HistoriqueCommandes", new[] { "idUtilisateur" });
             DropIndex("dbo.Commandes", new[] { "idStatut" });
             DropIndex("dbo.Commandes", new[] { "idBonDeLivraison" });
             DropIndex("dbo.Commandes", new[] { "idFacture" });
@@ -273,7 +288,6 @@ namespace GTM_Shop.Migrations
             DropIndex("dbo.Avis", new[] { "idUtilisateur" });
             DropIndex("dbo.Avis", new[] { "idProduit" });
             DropIndex("dbo.Utilisateurs", new[] { "idMoyenPaiement" });
-            DropIndex("dbo.Utilisateurs", new[] { "idCommande" });
             DropIndex("dbo.Utilisateurs", new[] { "idRole" });
             DropIndex("dbo.Utilisateurs", new[] { "Email" });
             DropIndex("dbo.AbonnementClients", new[] { "idUtilisateur" });
@@ -285,6 +299,7 @@ namespace GTM_Shop.Migrations
             DropTable("dbo.ProduitConsultes");
             DropTable("dbo.Paniers");
             DropTable("dbo.Statuts");
+            DropTable("dbo.HistoriqueCommandes");
             DropTable("dbo.Factures");
             DropTable("dbo.BonDeLivraisons");
             DropTable("dbo.Commandes");

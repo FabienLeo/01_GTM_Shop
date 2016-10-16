@@ -1,0 +1,41 @@
+﻿@model IEnumerable<GTM_Shop.Models.ProduitModel>
+@{
+    Layout = "~/Views/Shared/_LayoutClient.cshtml";
+    ViewBag.Title = "ProduitConsulte";
+    int nb = 0;
+}
+
+<br /><br /><br />
+<h4>@ViewBag.titre</h4>
+<br /><br /><br />
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.Visuel)</th>
+            <th>@Html.DisplayNameFor(model => model.NomProduit)</th>
+            <th class="Non_iPhone">@Html.DisplayNameFor(model => model.Description)</th>
+            <th class="Non_iPhone">@Html.DisplayNameFor(model => model.Prix)</th>
+            <th> Fiche Produit</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var p in Model)
+        {
+            if (nb < 5 )
+            {
+                <tr>
+                    <th><img src="../Content/images/@Html.DisplayFor(modelItem => p.Visuel)" height="80px" class="Img_produit" /></th>
+                    <th>@Html.DisplayFor(modelItem => p.NomProduit)</th>
+                    <th class="Non_iPhone">@Html.DisplayFor(modelItem => p.Description)</th>
+                    <th class="Non_iPhone">@Html.DisplayFor(modelItem => p.Prix)</th>
+                    <th>@Html.ActionLink("Fiche", "AfficherProduit", new { id = p.idProduit }, new { @class = "btn btn-warning" })</th>
+                </tr>
+                nb++;
+            }
+        }
+
+    </tbody>
+
+
+</table>

@@ -457,6 +457,7 @@ namespace GTM_Shop.DAO
             using (var bdd = new DAO.GTM_Shop_Context())
             {
                 var req = from c in bdd.Commandes
+                          where c.idStatut > 1
                           join s in bdd.Statuts
                           on c.idStatut equals s.idStatut
                           orderby c.idCommande descending
@@ -933,15 +934,7 @@ namespace GTM_Shop.DAO
                           select ac;
 
                 var idAd = req.FirstOrDefault().idAdresse;
-                if (idAd == 0)
-                {
-                    return null;
-                }
-                else
-                {
-
-                    return bdd.Adresses.Find(idAd);
-                }
+                return bdd.Adresses.Find(idAd);
             }
         }
 
@@ -1005,10 +998,31 @@ namespace GTM_Shop.DAO
         {
             using (var bdd = new DAO.GTM_Shop_Context())
             {
-                var req = from c in bdd.Clients
-                          where c.idUtilisateur == id
-                          join k in bdd.Commandes
-                          on c.idCommande equals k.idCommande
+                //var req = from c in bdd.Clients
+                //          where c.idUtilisateur == id
+                //          join k in bdd.Commandes
+                //          on c.idCommande equals k.idCommande
+                //          join s in bdd.Statuts
+                //          on k.idStatut equals s.idStatut
+                //          orderby k.idCommande descending
+                //          select new CommandeModel
+                //          {
+                //              idCommande = k.idCommande,
+                //              Statut = s.Valeur,
+                //              idFacture = k.idFacture,
+                //              idBonDeLivraison = k.idBonDeLivraison,
+                //              Commentaire = k.Commentaire
+                //          };
+                //return req.ToList();
+
+                var req1 = from c in bdd.Commandes
+                           where c.idStatut != 1
+                           select c; 
+
+                var req2 = from hc in bdd.HistoriqueCommandes
+                          where hc.idUtilisateur == id
+                          join k in req1
+                          on hc.idCommande equals k.idCommande
                           join s in bdd.Statuts
                           on k.idStatut equals s.idStatut
                           orderby k.idCommande descending
@@ -1020,7 +1034,7 @@ namespace GTM_Shop.DAO
                               idBonDeLivraison = k.idBonDeLivraison,
                               Commentaire = k.Commentaire
                           };
-                return req.ToList();
+                return req2.ToList();
             }
         }
 
@@ -1091,14 +1105,73 @@ namespace GTM_Shop.DAO
             }
         }
 
-        public Client TrouverClientByIdCommande(int idCommande)
+        public int TrouverClientByIdCommande(int idCommande)
         {
             using (var bdd = new DAO.GTM_Shop_Context())
             {
-                var req = from c in bdd.Clients
-                          where c.idCommande == idCommande
-                          select c;
-                return req.FirstOrDefault();
+                var req = from hc in bdd.HistoriqueCommandes
+                          where hc.idCommande == idCommande
+                          select hc;
+                var idClient = req.FirstOrDefault().idUtilisateur;
+                return idClient;
+            }
+        }
+
+
+        public HistoriqueCommande AjoutertHistoriqueCommande(HistoriqueCommande hc)
+        {
+            using (var bdd = new DAO.GTM_Shop_Context())
+            {
+                bdd.HistoriqueCommandes.Add(hc);
+                bdd.SaveChanges();
+                return hc;
+            }
+        }
+
+        public ProduitConsulte AjoutertProduitConsulte(ProduitConsulte pc)
+        {
+            using (var bdd = new DAO.GTM_Shop_Context())
+            {
+                bdd.ProduitsConsultes.Add(pc);
+                try
+                {
+                bdd.SaveChanges();
+
+                }
+                catch (Exception e)
+                {
+
+                    var message = e.Message;
+                    return pc; 
+                }
+                return pc;
+            }
+        }
+
+
+        public ICollection<ProduitModel> ListerProduitConsulteByClient(int idUtilisateur)
+        {
+            using (var bdd = new DAO.GTM_Shop_Context())
+            {
+                var req1 = from p in bdd.Produits
+                           select p;
+
+                var req2 = from pc in bdd.ProduitsConsultes
+                           where pc.idUtilisateur == idUtilisateur
+                           join k in req1
+                           on pc.idProduit equals k.idProduit
+                           orderby pc.DateConsultation descending
+                           select new ProduitModel
+                           {
+                            idProduit = k.idProduit,
+                            NomProduit = k.NomProduit,
+                            Prix = k.Prix,
+                            Description = k.Description,
+                            Visuel = k.Visuel,    
+                           };
+
+                return req2.ToList();
+
             }
         }
     }

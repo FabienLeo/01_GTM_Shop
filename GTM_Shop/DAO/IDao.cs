@@ -202,7 +202,13 @@ namespace GTM_Shop.DAO
 
         Client DesactiverCompte(Client c);
 
-        Client TrouverClientByIdCommande(int idCommande);
+        int  TrouverClientByIdCommande(int idCommande);
+
+        HistoriqueCommande AjoutertHistoriqueCommande(HistoriqueCommande hc);
+
+        ProduitConsulte AjoutertProduitConsulte(ProduitConsulte pc);
+
+        ICollection<ProduitModel> ListerProduitConsulteByClient(int idUtilisateur);
 
     }
 }

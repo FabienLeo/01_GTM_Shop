@@ -345,5 +345,15 @@ namespace GTM_Shop.Metier
         {
             return Idao.DemandeSuppCompte(c);
         }
+
+        public HistoriqueCommande AjoutertHistoriqueCommande(HistoriqueCommande hc)
+        {
+            return Idao.AjoutertHistoriqueCommande(hc);
+        }
+
+        public ICollection<ProduitModel> ListerProduitConsulteByClient(int idUtilisateur)
+        {
+            return Idao.ListerProduitConsulteByClient(idUtilisateur);
+        }
     }
 }

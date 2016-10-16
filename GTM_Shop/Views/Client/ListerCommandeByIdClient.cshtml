@@ -50,9 +50,10 @@
                 <td>@Html.DisplayFor(modelItem => c.idFacture)</td>
                 <td>@Html.DisplayFor(modelItem => c.idBonDeLivraison)</td>
                 <td>@Html.DisplayFor(modelItem => c.Commentaire)</td>
+                <td>@Html.ActionLink("Detail", "DetailCommande", "Commande", new { id = c.idCommande }, new { @class = "btn btn-success" })</td>
                 @if (c.Statut.ToString() == "Termine")
                 {
-                    <td>@Html.ActionLink("Imprimer Facture ( pdf )", "PrintInvoice", "Commande", new { id = c.idCommande }, new { @class = "btn btn-success" })</td>
+                    <td>@Html.ActionLink("Imprimer Facture ( pdf )", "PrintInvoice", "Commande", new { id = c.idCommande }, new { @class = "btn btn-default" })</td>
                 }
                 else
                 {

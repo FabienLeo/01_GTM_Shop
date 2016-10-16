@@ -7,13 +7,13 @@ namespace GTM_Shop.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class ModificationAllValidationAttribute : IMigrationMetadata
+    public sealed partial class CreationBDD : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(ModificationAllValidationAttribute));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(CreationBDD));
         
         string IMigrationMetadata.Id
         {
-            get { return "201609291226478_ModificationAllValidationAttribute"; }
+            get { return "201610152144171_CreationBDD"; }
         }
         
         string IMigrationMetadata.Source

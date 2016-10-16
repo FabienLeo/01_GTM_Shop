@@ -57,7 +57,7 @@ namespace GTM_Shop.Controllers
                     var c = Iadmin.TrouverClientById(Convert.ToInt32(Session["idUtilisateur"]));
 
                     if (c.Actif == true) { 
-                        return RedirectToAction("IndexClient", "Client");
+                        return RedirectToAction("AfficherProduitConsulte", "Client");
                     }
                     else
                     { 

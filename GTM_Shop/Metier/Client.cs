@@ -40,7 +40,7 @@ namespace GTM_Shop.Metier
 
         public int idCommande { get; set; }
 
-        public virtual Commande Commande { get; set; }
+        //public virtual Commande Commande { get; set; }
 
         public virtual ICollection<AdresseClient> ClientsAdresses { get; set; }
 
@@ -49,6 +49,8 @@ namespace GTM_Shop.Metier
         public int idMoyenPaiement { get; set; }
 
         public virtual MoyenPaiement MoyenPaiement { get; set; }
+
+        public virtual ICollection<HistoriqueCommande> HistoriqueCommandes { get; set; }
 
 
 

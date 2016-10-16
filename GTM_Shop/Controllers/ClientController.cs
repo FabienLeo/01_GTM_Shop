@@ -203,13 +203,13 @@ namespace GTM_Shop.Controllers
         {
             if (ModelState.IsValid)
             {
-                if (Iadmin.EmailExisteDejaByClient(c))
-                {
-                    ModelState.AddModelError("", "L'adresse email existe déjà...");
-                    return View(c);
-                }
-                else
-                { 
+                //if (Iadmin.EmailExisteDejaByClient(c))
+                //{
+                //    ModelState.AddModelError("", "L'adresse email existe déjà...");
+                //    return View(c);
+                //}
+                //else
+                //{ 
 
                 var com = Iclient.AjouterCommande(new Commande());
                 c.Actif = true;
@@ -218,6 +218,7 @@ namespace GTM_Shop.Controllers
                 c.idRole = 3;
                 c.idMoyenPaiement = 1;
                 c.idCommande = com.idCommande;
+
                 if (c.SexeUtilisateur == 0)
                 {
                     c.Avatar = "Avatar_Homme.png";
@@ -228,9 +229,13 @@ namespace GTM_Shop.Controllers
                 }
 
                 Iclient.AjouterClient(c);
+                var hc = new HistoriqueCommande();
+                hc.idUtilisateur = c.idUtilisateur;
+                hc.idCommande = com.idCommande;
+                Iclient.AjoutertHistoriqueCommande(hc);
                 Session["UtilisateurTemps"] = c.idUtilisateur;
                 return RedirectToAction("CreerAdresse", "Adresse");
-                }
+                //}
             }
             else
             {
@@ -254,7 +259,12 @@ namespace GTM_Shop.Controllers
                 ViewBag.idProduit = p.idProduit;
                 ViewBag.PromotionProduit = p.PromotionProduit;
                 IEnumerable<AvisClientProduitModel> res = Iclient.ListerAvisByidProduit(id);
-                Session["idProduit"] = p.idProduit;             
+                Session["idProduit"] = p.idProduit;
+                var pc = new ProduitConsulte();
+                pc.idProduit = p.idProduit;
+                pc.idUtilisateur = Convert.ToInt32(Session["idUtilisateur"]);
+                pc.DateConsultation = DateTime.Now;
+                Iadmin.AjoutertProduitConsulte(pc);
                 return View(res);
             }
             else
@@ -645,6 +655,12 @@ namespace GTM_Shop.Controllers
                 client.PointFidelite = client.PointFidelite + Convert.ToInt32(Totaux % 10);
                 client.ConfirmationMotDePasse = client.MotDePasse;
                 Iadmin.ModifierClient(client);
+
+                var hc = new HistoriqueCommande();
+                hc.idUtilisateur = client.idUtilisateur;
+                hc.idCommande = com.idCommande;
+                Iclient.AjoutertHistoriqueCommande(hc);
+
                 }
                 Totaux = 0;
                 return View();
@@ -822,5 +838,32 @@ namespace GTM_Shop.Controllers
                 return RedirectToAction("Connexion", "Home");
             }
         }
+
+        public ActionResult AfficherProduitConsulte()
+        {
+
+            if (Session["idUtilisateur"] != null && Session["idRole"].ToString() == "3")
+            {
+                var cli = Iclient.TrouverClientById(Convert.ToInt32(Session["idUtilisateur"]));
+                var res = Iclient.ListerProduitConsulteByClient(Convert.ToInt32(Session["idUtilisateur"]));
+                ViewBag.titre = "Bonjour " + cli.Prenom + ", Nous sommes ravi de vous revoir parmis nous. Voici les produits que vous aviez consulté à votre dernière visite :";
+
+                if(res.Count != 0)
+                {
+                return View(res);
+                }
+                else
+                {
+                    return View("indexClient");
+                }
+
+
+            }
+            else
+            {
+                return RedirectToAction("Connexion", "Home");
+            }
+        }
+
     }
 }

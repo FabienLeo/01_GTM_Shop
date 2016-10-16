@@ -16,7 +16,7 @@ namespace GTM_Shop.Controllers
 
         public ActionResult DetailCommande(int id)
         {
-            if (Session["idUtilisateur"] != null && (Session["idRole"].ToString() == "1" || Session["idRole"].ToString() == "2"))
+            if (Session["idUtilisateur"] != null && (Session["idRole"].ToString() == "1" || Session["idRole"].ToString() == "2" || Session["idRole"].ToString() == "3"))
             {
                 var c = Iadmin.TrouverCommandeById(id);
                 ViewBag.idCommande = c.idCommande;
@@ -86,7 +86,7 @@ namespace GTM_Shop.Controllers
             ViewBag.idBonDeLivraison = com.idBonDeLivraison;
             ViewBag.idStatut = com.idStatut;
 
-            var cli = Iadmin.TrouverClientByIdCommande(idCommande);
+            var cli = Iadmin.TrouverClientById(Iadmin.TrouverClientByIdCommande(idCommande));
 
             var a = Iadmin.TrouverAdresseById(cli.idUtilisateur);
 

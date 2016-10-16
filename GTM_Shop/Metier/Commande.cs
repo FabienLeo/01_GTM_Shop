@@ -32,7 +32,9 @@ namespace GTM_Shop.Metier
 
         public virtual Statut Statut { get; set; }
 
-        public virtual ICollection<Client> Clients { get; set; }
+        //public virtual ICollection<Client> Clients { get; set; }
+
+        public virtual ICollection<HistoriqueCommande> HistoriqueCommandes { get; set; }
 
     }
 }

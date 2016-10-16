@@ -360,7 +360,7 @@ namespace GTM_Shop.Metier
             return Idao.ListeClientDesactiver();
         }
 
-        public Client TrouverClientByIdCommande(int idCommande)
+        public int TrouverClientByIdCommande(int idCommande)
         {
             return Idao.TrouverClientByIdCommande(idCommande);
         }
@@ -368,6 +368,16 @@ namespace GTM_Shop.Metier
         public Adresse TrouverAdresseById(int id)
         {
             return Idao.TrouverAdresseById(id);
+        }
+
+        public HistoriqueCommande AjoutertHistoriqueCommande(HistoriqueCommande hc)
+        {
+            return Idao.AjoutertHistoriqueCommande(hc);
+        }
+
+        public ProduitConsulte AjoutertProduitConsulte(ProduitConsulte pc)
+        {
+            return Idao.AjoutertProduitConsulte(pc);
         }
     }
 }

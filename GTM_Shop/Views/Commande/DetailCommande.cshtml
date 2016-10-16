@@ -1,10 +1,19 @@
 ﻿@model IEnumerable<GTM_Shop.Models.CommandePanierModel>
 @{
-    Layout = "~/Views/Shared/_LayoutSuperAdmin.cshtml";
+    if(Session["idRole"].ToString() == "1" || Session["idRole"].ToString() == "2")
+    {
+
+        Layout = "~/Views/Shared/_LayoutSuperAdmin.cshtml";
+    }
+    else
+    {
+        Layout = "~/Views/Shared/_LayoutClient.cshtml";
+    }
     ViewBag.Title = "DetailCommande";
     decimal Totaux = 0;
 }
 
+<br /><br /><br />
 <h4>Détails de la commande</h4>
 
 
@@ -73,5 +82,13 @@
 
 <span>Total de la commande : <strong>@Convert.ToDouble(@Totaux) euros</strong></span><br /><br />
 
+
 <span>@Html.ActionLink("Imprimer Facture ( pdf )", "PrintInvoice", new { id = ViewBag.idCommande }, new { @class = "btn btn-success" })</span><br />
+
+
+@if (Session["idRole"].ToString() == "3")
+{
+    <br />
+    <span>@Html.ActionLink("Retour", "ListerCommandeByIdClient", "Client",new { id = Convert.ToInt32(Session["idUtilisateur"]) }, new { @class = "btn btn-default" })</span><br />
+}
 

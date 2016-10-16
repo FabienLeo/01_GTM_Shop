@@ -144,5 +144,9 @@ namespace GTM_Shop.Metier
 
         ICollection<CommandeModel> ListerCommandeByIdClient(int id);
 
+        HistoriqueCommande AjoutertHistoriqueCommande(HistoriqueCommande hc);
+
+        ICollection<ProduitModel> ListerProduitConsulteByClient(int idUtilisateur);
+
     }
 }

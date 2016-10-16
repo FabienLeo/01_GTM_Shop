@@ -28,6 +28,8 @@ namespace GTM_Shop.DAO
 
         public DbSet<AbonnementClient> AbonnementClients { get; set; }
 
+        public DbSet<HistoriqueCommande> HistoriqueCommandes { get; set; }
+
         public DbSet<Adresse> Adresses { get; set; }
 
         public DbSet<AdresseClient> AdressesClients { get; set; }
