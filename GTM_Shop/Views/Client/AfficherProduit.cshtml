@@ -12,8 +12,14 @@
         MoyenneAvis = MoyenneAvis + Convert.ToInt32(p.NoteAvis);
         NombreAvis++;
     }
-
-    MoyenneAvis = Convert.ToInt32(MoyenneAvis / NombreAvis);
+    if (NombreAvis != 0)
+    {
+        MoyenneAvis = Convert.ToInt32(MoyenneAvis / NombreAvis);
+    }
+    else
+    {
+        MoyenneAvis = 0;
+    }
 
 }
 
@@ -37,9 +43,9 @@
     <span>Référence : </span><br />
     <strong>@ViewBag.Reference</strong>
 
-        @if (MoyenneAvis == 0)
-        {
-            <br /><img src="~/Content/images/0_Etoile.png" height="30px" class="Img_produit" /><br />
+    @if (MoyenneAvis == 0)
+    {
+            <br /><br /><br />
     }
 
     @if (MoyenneAvis == 1)
@@ -57,8 +63,8 @@
         <br /> <img src="~/Content/images/3_Etoile.png" height="30px" class="Img_produit" /><br />
     }
 
-        @if (MoyenneAvis == 4)
-        {
+    @if (MoyenneAvis == 4)
+    {
             <br /><img src="~/Content/images/4_Etoile.png" height="30px" class="Img_produit" /><br />
     }
 
