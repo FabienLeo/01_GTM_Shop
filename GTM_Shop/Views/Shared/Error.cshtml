@@ -27,21 +27,21 @@
             <div id="Block_menu_complet">
                 <div id="Block_icone">
                     <div id="icone">
-                        <a href="@Url.Action("#", "Home")"><img id="Icone_Recherche" class="Icone_Menu" src="~/Content/images/Icone_Recherche.png" alt="Rechercher" title="Rechercher" /></a>
+                        <a href="@Url.Action("RechercherProduit", "Home")"><img id="Icone_Recherche" class="Icone_Menu" src="~/Content/images/Icone_Recherche.png" alt="Rechercher" title="Rechercher" /></a>
                         <a href="@Url.Action("Contact", "Home")"><img id="Icone_Mail" class="Icone_Menu" src="~/Content/images/Icone_Mail.png" alt="Mail" title="Mail" /></a>
                         <a href="@Url.Action("Connexion", "Home")"><img id="Icone_Connexion" class="Icone_Menu" src="~/Content/images/Icone_Connexion.png" alt="Connexion" title="Connexion" /></a>
-                        <a href="@Url.Action("#", "Home")"><img id="Icone_Add_Profil" class="Icone_Menu" src="~/Content/images/Icone_Add_Profil.png" alt="Add_Profil" title="Add_Profil" /></a>
-                        <a href="@Url.Action("#", "Home")"><img id="Icone_Panier" class="Icone_Menu" src="~/Content/images/Icone_Panier.png" alt="Panier" title="Panier" /></a>
+                        <a href="@Url.Action("CreerCompteClient", "Client")"><img id="Icone_Add_Profil" class="Icone_Menu" src="~/Content/images/Icone_Add_Profil.png" alt="Add_Profil" title="Add_Profil" /></a>
+
                     </div>
                 </div>
 
                 <div id="Block_menu">
                     <ul class="Liste_menu">
-                        <li class="Ligne_menu">@Html.ActionLink("Informatique", "#", "Home", "", new { @class = "Lien_menu" })</li>
-                        <li class="Ligne_menu">@Html.ActionLink("Image", "#", "Home", "", new { @class = "Lien_menu" })</li>
-                        <li class="Ligne_menu">@Html.ActionLink("Son", "#", "Home", "", new { @class = "Lien_menu" })</li>
-                        <li class="Ligne_menu">@Html.ActionLink("Téléphonie", "#", "Home", "", new { @class = "Lien_menu" })</li>
-                        <li class="Ligne_menu">@Html.ActionLink("Promotion", "#", "Home", "", new { @class = "Lien_menu" })</li>
+                        <li class="Ligne_menu">@Html.ActionLink("Informatique", "ListerInformatique", "Home", new { idCatalogue = 1 }, new { @class = "Lien_menu" })</li>
+                        <li class="Ligne_menu">@Html.ActionLink("Image", "ListerImage", "Home", new { idCatalogue = 2 }, new { @class = "Lien_menu" })</li>
+                        <li class="Ligne_menu">@Html.ActionLink("Son", "ListerSon", "Home", new { idCatalogue = 6 }, new { @class = "Lien_menu" })</li>
+                        <li class="Ligne_menu">@Html.ActionLink("Téléphonie", "ListerTelephonie", "Home", new { idCatalogue = 7 }, new { @class = "Lien_menu" })</li>
+                        <li class="Ligne_menu">@Html.ActionLink("Promotion", "ListerPromotion", "Home", new { idCatalogue = 0 }, new { @class = "Lien_menu" })</li>
                     </ul>
                 </div>
             </div>
@@ -58,14 +58,7 @@
             <h4>La page que vous demandez n'existe pas ou a disparu...</h4>
             <br />
             
-                <form role="search" name="searchform" method="post">
-                    <div class="input-group">
-                        <input type="text" placeholder="Recherche par Nom" name="MotRecherche" class="form-control left-rounded">
-                        <div class="input-group-btn">
-                            <button type="submit" class="btn btn-inverse right-rounded">Chercher</button>
-                        </div>
-                    </div>
-                </form>
+ 
 
 
                          
@@ -78,9 +71,9 @@
     <div id="Block_footer">
         <div id="Block_iconesFooter">
             <div id="Icone_footer">
-                <img class="Icone_f" src="~/Content/images/Icone_SAV.png" alt="SAV" title="SAV" />
-                <img class="Icone_f" src="~/Content/images/Icone_Livraison.png" alt="Livraison" title="Conditions Livraison" />
-                <img class="Icone_f" src="~/Content/images/Icone_Paiement.png" alt="Paiement" title="Moyen Paiement" />
+                <a href="@Url.Action("SAV", "Home")"><img class="Icone_f" src="~/Content/images/Icone_SAV.png" alt="SAV" title="SAV" /></a>
+                <a href="@Url.Action("Livraison", "Home")"><img class="Icone_f" src="~/Content/images/Icone_Livraison.png" alt="Livraison" title="Conditions Livraison" /></a>
+                <a href="@Url.Action("Paiement_infos", "Home")"><img class="Icone_f" src="~/Content/images/Icone_Paiement.png" alt="Paiement" title="Moyen Paiement" /></a>
             </div>
         </div>
 
@@ -89,11 +82,11 @@
             <div id="Block_menu_footer">
                 <p class="Titre_footer">S'informer et acheter</p>
                 <ul class="Liste_footer">
-                    <li class="Ligne_menu_footer">@Html.ActionLink("Informatique", "#", "Home", "", new { @class = "Lien_menu_footer Ligne_menu_footer" })</li>
-                    <li class="Ligne_menu_footer">@Html.ActionLink("Image", "#", "Home", "", new { @class = "Lien_menu_footer Ligne_menu_footer" })</li>
-                    <li class="Ligne_menu_footer">@Html.ActionLink("Son", "#", "Home", "", new { @class = "Lien_menu_footer Ligne_menu_footer" })</li>
-                    <li class="Ligne_menu_footer">@Html.ActionLink("Téléphonie", "#", "Home", "", new { @class = "Lien_menu_footer Ligne_menu_footer" })</li>
-                    <li class="Ligne_menu_footer">@Html.ActionLink("Promotion", "#", "Home", "", new { @class = "Lien_menu_footer Ligne_menu_footer" })</li>
+                    <li class="Ligne_menu_footer">@Html.ActionLink("Informatique", "ListerInformatique", "Home", new { idCatalogue = 1 }, new { @class = "Lien_menu_footer Ligne_menu_footer" })</li>
+                    <li class="Ligne_menu_footer">@Html.ActionLink("Image", "ListerImage", "Home", new { idCatalogue = 2 }, new { @class = "Lien_menu_footer Ligne_menu_footer" })</li>
+                    <li class="Ligne_menu_footer">@Html.ActionLink("Son", "ListerSon", "Home", new { idCatalogue = 6 }, new { @class = "Lien_menu_footer Ligne_menu_footer" })</li>
+                    <li class="Ligne_menu_footer">@Html.ActionLink("Téléphonie", "ListerTelephonie", "Home", new { idCatalogue = 7 }, new { @class = "Lien_menu_footer Ligne_menu_footer" })</li>
+                    <li class="Ligne_menu_footer">@Html.ActionLink("Promotion", "ListerPromotion", "Home", new { idCatalogue = 0 }, new { @class = "Lien_menu_footer Ligne_menu_footer" })</li>
                 </ul>
             </div>
 
@@ -131,10 +124,14 @@
                     <li class="Ligne_adresse_footer">78180 Montigny le Bretonneux</li>
                 </ul>
             </div>
-            <div>
-                <p id="Lien_Copyright_Public">&copy; @DateTime.Now.Year - <a class="Lien_menu_footer Ligne_menu_footer" href="mailto:fabien.gaudron@gmail.com">Fabien GAUDRON</a></p>
-            </div>
         </div>
+        <div>
+            <p id="Lien_Copyright_Public">
+                &copy; @DateTime.Now.Year - <a class="Lien_menu_footer Ligne_menu_footer" href="mailto:fabien.gaudron@gmail.com">Fabien GAUDRON </a><a class="Lien_menu_footer Ligne_menu_footer" href="mailto:Mathilde.KonnKonn@gmail.com"> Mathilde KONN KONN </a>
+                <a class="Lien_menu_footer Ligne_menu_footer" href="mailto:alexandre.Pichavant@gmail.com"> Alexandre PICHAVANT </a><a class="Lien_menu_footer Ligne_menu_footer" href="mailto:Chapelle.adrien9@gmail.com"> Adrien CHAPELLE</a>
+            </p>
+        </div>
+ 
     </div>
 
     @Scripts.Render("~/bundles/jquery")
