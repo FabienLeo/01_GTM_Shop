@@ -31,7 +31,7 @@ namespace GTM_Shop.DAO
                           where u.Email == c.Email
                           select u;
 
-                if (req != null)
+                if (req.Count() != 0)
                 {
                     return true;
                 }
